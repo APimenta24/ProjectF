@@ -153,3 +153,21 @@ h1,h2,h3{letter-spacing:-.055em}
 .guest-feature{border-radius:24px}
 @media(max-width:800px){.app-lead-content{max-width:75%;padding:32px 24px}.app-lead-image{width:65%;opacity:.55}.app-lead-content h2{font-size:clamp(38px,8vw,65px)!important}.app-lead{min-height:430px}}
 @media(max-width:520px){.app-lead{min-height:465px}.app-lead-image{width:88%;opacity:.32;right:-25%}.app-lead-content{max-width:100%;padding:34px 24px}.app-lead-content h2{font-size:clamp(41px,10vw,58px)!important}.app-lead-content p{max-width:290px}.app-tabs{overflow-x:auto;white-space:nowrap}.invictas-statement{padding:32px 25px}}
+
+/* Immersive home + adaptive navigation */
+.mobile-menu-toggle{display:none;background:transparent;border:0;font-size:25px;color:#542c48;padding:8px 12px}
+.invictas-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0 34px}
+.invictas-shortcuts button{display:flex;align-items:center;gap:6px;flex-direction:column;text-align:center;background:#432a42;color:#fff;border:0;border-radius:17px;padding:21px 10px;transition:transform .2s,background .2s}
+.invictas-shortcuts button:hover{background:#8b466a;transform:translateY(-3px)}
+.invictas-shortcuts strong{font-size:16px;font-weight:800}
+.invictas-shortcuts small{font-size:11px;color:#e6cbd9}
+.shortcut-icon{font-size:31px;line-height:1.2;color:#f4b1b8}
+.app-home .app-greeting{padding-top:22px;padding-bottom:12px}
+.app-home .app-greeting h1{font-size:clamp(24px,3vw,36px)}
+.app-home .app-bento{margin-top:4px}
+.app-home .app-lead{min-height:535px}
+.app-home .app-lead-content{display:flex;flex-direction:column;justify-content:center;min-height:535px}
+.app-home .app-lead-image{width:63%}
+.app-home .app-lead-content h2{max-width:600px}
+@media(max-width:900px){.mobile-menu-toggle{display:block}.top .bar{position:relative;flex-wrap:wrap}.top nav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff8fb;box-shadow:0 18px 28px rgba(38,20,33,.13);border-radius:0 0 20px 20px;padding:16px;z-index:100;flex-direction:column;gap:3px}.top nav.mobile-nav-open{display:flex}.top nav button{text-align:left;padding:13px 18px;font-size:14px}.top nav button.active{border-bottom:0;background:#f2e2ec;border-radius:12px}.app-home .app-lead-content{min-height:470px}.app-home .app-lead{min-height:470px}}
+@media(max-width:600px){.top .bar{min-height:64px}.app-home .app-greeting{padding:14px 0}.app-home .app-greeting h1{font-size:23px}.app-home .app-greeting p{font-size:12px}.app-home .app-bento{margin-top:4px}.app-home .app-lead{min-height:510px;border-radius:19px}.app-home .app-lead-content{min-height:510px;justify-content:flex-end;padding:25px 23px 40px}.app-home .app-lead-image{width:100%;right:-8%;top:-11%;height:85%;opacity:.72}.app-home .app-lead:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(35,18,38,.22) 46%,rgba(35,18,38,.92) 100%);z-index:1;pointer-events:none}.app-home .app-lead-content h2{font-size:clamp(35px,9.4vw,54px)!important}.app-home .app-lead-content p{font-size:13px}.invictas-shortcuts{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin:9px 0 26px}.invictas-shortcuts button{padding:15px 3px;border-radius:13px;gap:4px}.shortcut-icon{font-size:25px}.invictas-shortcuts strong{font-size:12px}.invictas-shortcuts small{font-size:9px;line-height:1.2}.app-bento-side{gap:12px}}
