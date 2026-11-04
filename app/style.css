@@ -69,3 +69,39 @@ body{background:#f8f5f1}
 .invictas-statement button{border:1px solid #f4e9e4;border-radius:40px;background:transparent;color:#fff;padding:13px 23px;cursor:pointer;margin-top:12px}
 .guest-feature{background:#f0e5e0;border-color:#e5d2cd}
 @media(max-width:760px){.top .bar{min-height:66px}.invictas-wordmark{font-size:23px!important}.top .logo small{font-size:8px}.app-lead{min-height:460px}.app-lead-image{background-position:55% center}.app-lead-content{padding:30px 25px}.editorial-art{min-height:170px}.invictas-statement{border-radius:18px;margin:25px 0}.invictas-statement:after{bottom:-30px;font-size:160px}}
+
+/* INVICTAS 2.0: performance-first app, not newspaper editorial */
+:root{--invictas-wine:#692d47;--invictas-ink:#17191e;--invictas-sand:#f5f5f3}
+body{background:#f4f5f5}
+h1,h2,h3,.invictas-wordmark,.footer-logo{font-family:Arial,Helvetica,sans-serif!important;font-style:normal!important}
+h1 em,h2 em,h3 em{font-style:normal!important;font-weight:900!important}
+.top{background:rgba(250,250,249,.96);border-bottom:1px solid #e7e7e8}
+.invictas-wordmark{font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(21px,2.8vw,30px)!important;font-weight:900!important;letter-spacing:-.065em!important}
+.footer-logo{font-family:Arial,Helvetica,sans-serif!important;font-weight:900!important;letter-spacing:-.055em!important}
+.app-greeting h1{font-weight:850;letter-spacing:-.06em;line-height:1.08}
+.app-greeting h1 em{color:#742b4b}
+.app-lead{background:#16181d;border-radius:20px;min-height:470px}
+.app-lead-image{background:linear-gradient(90deg,rgba(12,15,19,.88) 0%,rgba(12,15,19,.45) 65%,rgba(12,15,19,.12) 100%),url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat;filter:saturate(.82)}
+.app-lead-content h2{font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(48px,7vw,100px)!important;font-weight:950!important;letter-spacing:-.085em!important;line-height:.98!important;text-transform:uppercase}
+.app-lead-content h2 em{color:#f3a7a5!important}
+.app-lead-content p{font-size:clamp(14px,1.4vw,17px);max-width:500px}
+.app-lead-content button,.invictas-statement button{background:#f1a1a5!important;color:#19171b!important;border:0!important;border-radius:12px!important;font-weight:800!important;padding:14px 22px!important}
+.app-daily,.app-academy-teaser,.app-quick-grid button,.app-feed-right article{border-radius:17px!important}
+.app-daily h3,.app-academy-teaser h3{font-weight:850;letter-spacing:-.045em}
+.invictas-statement{background:linear-gradient(120deg,#181a20 0%,#41273a 72%,#702f50 100%);border-radius:20px;padding:clamp(32px,5vw,65px)}
+.invictas-statement:after{content:'//';font-family:Arial,Helvetica,sans-serif;font-weight:900;right:4%;bottom:-50px;transform:skew(-12deg);color:rgba(255,255,255,.065)}
+.invictas-statement h2{font-family:Arial,Helvetica,sans-serif!important;text-transform:uppercase;font-style:normal!important;font-weight:950!important;font-size:clamp(37px,6vw,78px)!important;letter-spacing:-.075em!important;line-height:1!important}
+.invictas-statement h2 em{color:#f3a7a5!important}
+.invictas-statement .eyebrow{color:#f3a7a5}
+.invictas-statement p{color:#eee5e8}
+.editorial-home-head h2,.app-section-head h2,.editorial-intro h2,.guest-feature h2{font-family:Arial,Helvetica,sans-serif!important;font-weight:850!important;letter-spacing:-.05em!important}
+.editorial-card{border-radius:16px!important;border:1px solid #e8e8e8!important;box-shadow:0 4px 15px rgba(0,0,0,.045)!important}
+.editorial-art{min-height:200px;background:#26232a}
+.editorial-art:before{filter:saturate(.8) contrast(1.08)}
+.editorial-art span{font-family:Arial,Helvetica,sans-serif!important;font-weight:950!important;font-size:clamp(21px,3vw,35px)!important;letter-spacing:-.055em!important}
+.editorial-art small{background:#e9a2a6;color:#17181b;font-weight:800}
+.editorial-card-body h3{font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(21px,2.3vw,28px)!important;font-weight:850!important;letter-spacing:-.05em;line-height:1.13}
+.editorial-card-body .text-link,.editorial-home-item{font-weight:750}
+.guest-feature{background:#e9e9ec;border:1px solid #dddde2;border-radius:18px}
+.editorial-reading h1,.editorial-reading h2,.editorial-reader h2{font-family:Arial,Helvetica,sans-serif!important;font-weight:850!important;letter-spacing:-.05em!important}
+@media(max-width:760px){.app-lead{min-height:420px}.app-lead-content h2{font-size:clamp(47px,11vw,72px)!important}.app-lead-image{background-position:58% center}.invictas-statement h2{font-size:clamp(37px,9vw,58px)!important}.editorial-art{min-height:185px}}
