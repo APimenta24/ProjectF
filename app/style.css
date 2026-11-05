@@ -252,3 +252,49 @@ h1,h2,h3{letter-spacing:-.055em}
 .inv-photo-running{background-image:url("https://images.pexels.com/photos/8820688/pexels-photo-8820688.jpeg?auto=compress&cs=tinysrgb&w=700")}
 .inv-photo-sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(47,21,47,.45),transparent 40%,rgba(65,19,50,.12));z-index:1}
 @media(max-width:680px){.app-home .app-lead-image.inv-photo-montage{grid-template-columns:repeat(4,minmax(0,1fr))!important;right:0!important;width:100%!important;top:0!important;height:76%!important;gap:3px!important}.inv-photo-montage .inv-photo{background-position:50% 20%}.inv-photo-running{background-position:55% 15%!important}}
+
+/* INVICTAS 2.0 — full-bleed editorial sports cover */
+.top.inv-top-home{background:#340d23!important;box-shadow:none!important}
+.inv-top-home .shell.bar{max-width:1660px!important;width:100%!important;padding:0 clamp(18px,3vw,55px)!important}
+.inv-top-home nav{background:transparent!important;border:0!important;box-shadow:none!important;gap:clamp(3px,.7vw,14px)!important}
+.inv-top-home nav button{color:#fcebf2!important;font-weight:750!important;font-size:clamp(11px,.8vw,14px)!important;border-radius:0!important;padding:13px 8px!important;opacity:.94}
+.inv-top-home nav button.active{background:transparent!important;border:0!important;border-bottom:3px solid #f72b77!important;color:#fff!important;opacity:1}
+.inv-top-home .invictas-wordmark{font-size:clamp(23px,2vw,33px)!important;letter-spacing:-.045em!important}
+.inv-top-home .logo small{font-size:9px!important;letter-spacing:.08em!important}
+@media(min-width:901px){
+main.shell:has(.app-home){max-width:none!important;padding:0!important}
+main.shell:has(.app-home)>.app-home{width:100%!important}
+.app-home .inv-home-intro{display:none!important}
+.app-home .app-bento{margin:0!important}
+.app-home .app-bento>.app-lead{border-radius:0!important;min-height:clamp(540px,42vw,690px)!important;padding:clamp(35px,4vw,85px)!important}
+.app-home .app-lead-content{width:48%!important;max-width:610px!important}
+.app-home .app-lead-content h2{font-size:clamp(55px,5.5vw,104px)!important}
+.app-home .app-lead-image.inv-photo-montage{width:77%!important}
+.app-home .app-bento-side{max-width:none!important;margin:0!important;grid-template-columns:1fr 1fr!important;gap:0!important}
+.app-home .app-bento-side>article{border-radius:0!important}
+.app-home .invictas-shortcuts{margin:0!important;padding:20px clamp(24px,4vw,80px)!important;background:#4a102e!important;color:#fff!important}
+.app-home .invictas-shortcuts button{color:#fff!important}
+.app-home .invictas-shortcuts strong,.app-home .invictas-shortcuts small{color:#fff!important}
+.app-home .app-discover,.app-home .app-reward-link,.app-home .myf-home,.app-home .story-grid,.app-home .app-section-head{max-width:1450px;margin-left:auto!important;margin-right:auto!important}
+}
+.app-home .app-lead-image.inv-photo-montage{gap:0!important;grid-template-columns:1fr 1.1fr 1.05fr 1fr!important}
+.inv-photo-montage .inv-photo{transform:scale(1.07);filter:saturate(.95) contrast(1.12);background-position:center 30%;clip-path:polygon(15% 0,100% 0,85% 100%,0 100%);margin-left:-9%;margin-right:-9%}
+.inv-photo-montage .inv-photo:nth-child(2){background-position:52% 35%}
+.inv-photo-montage .inv-photo:nth-child(3){background-position:50% 25%}
+.inv-photo-montage .inv-photo:nth-child(4){background-position:55% 25%}
+.app-home .app-lead:before{background:linear-gradient(90deg,#280d22 0%,rgba(44,12,35,.97) 25%,rgba(47,12,35,.65) 43%,rgba(47,12,35,.1) 72%)!important}
+.app-home .app-lead:after{display:none!important}
+.app-home .app-lead-content h2{font-family:Arial,Helvetica,sans-serif!important;font-weight:950!important;font-style:italic!important;letter-spacing:-.065em!important;line-height:.93!important}
+.app-home .app-lead-content h2 em{font-family:Arial,Helvetica,sans-serif!important;font-weight:950!important;font-style:italic!important;color:#fc2d7a!important}
+.app-home .app-lead-content p{font-size:clamp(16px,1.25vw,20px)!important;line-height:1.4!important;max-width:420px!important}
+.app-home .app-lead-content>button{background:#fa2a76!important;color:#fff!important;font-size:16px!important;padding:16px 30px!important}
+.app-home .app-chip{border:0!important;background:transparent!important;padding:0!important;font-size:12px!important}
+@media(max-width:900px){
+.inv-top-home nav.mobile-nav-open{background:#350f29!important}
+.inv-top-home nav.mobile-nav-open button{color:#fff!important}
+.app-home .app-bento>.app-lead{min-height:650px!important}
+.app-home .app-lead-image.inv-photo-montage{width:100%!important;right:0!important}
+.app-home .app-lead:before{background:linear-gradient(0deg,#280d22 0%,rgba(40,13,34,.95) 28%,rgba(40,13,34,.1) 75%)!important}
+.app-home .app-lead-content h2{font-size:clamp(45px,9.5vw,75px)!important}
+.inv-photo-montage .inv-photo{clip-path:none;margin:0;transform:none}
+}
