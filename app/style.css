@@ -209,3 +209,36 @@ h1,h2,h3{letter-spacing:-.055em}
 .inv-guide-grid a{font-size:12px;font-weight:800;color:#78395d;text-decoration:underline;text-underline-offset:3px}
 .inv-guide-footer{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid #d9c7d1;padding-top:20px}.inv-guide-footer strong{font-size:15px}.inv-guide-footer p{font-size:13px;flex:1;min-width:180px;color:#6b5b69}.inv-guide-footer button{background:#4c2e48;color:#fff;border:0;border-radius:999px;padding:13px 20px;cursor:pointer}
 @media(max-width:900px){.inv-guide-grid{grid-template-columns:1fr}.inv-guide-grid article{padding:21px}}@media(max-width:600px){.inv-academy-guides{padding:21px 16px;border-radius:17px}}
+
+/* Brand refresh 2026: integrated sports-first header and hero */
+.top.inv-top-home{background:#302037!important;border:0!important;position:relative;z-index:40}
+.inv-top-home .bar{min-height:88px}
+.inv-top-home .logo,.inv-top-home .logo small,.inv-top-home .invictas-wordmark{color:#fff!important}
+.inv-top-home .logo-dot{color:#f39bc0!important}
+.inv-top-home nav button{color:#f1dce8!important;background:transparent}
+.inv-top-home nav button.active{color:#fff!important;border-color:#f3a4c7!important}
+.inv-top-home nav button:hover{color:#fff!important}
+.inv-top-home .mobile-menu-toggle{color:#fff!important}
+.app-home{position:relative}
+.inv-home-intro{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.inv-home-intro>span{font-size:11px;letter-spacing:.18em;font-weight:850;color:#76536b}
+.inv-home-intro>button{border:1px solid #dcc8d4;border-radius:50px;background:#fff;padding:11px 18px;color:#4e2b46;font-weight:800;cursor:pointer}
+.app-home .app-bento{gap:0!important;display:block!important}
+.app-home .app-bento>.app-lead{min-height:clamp(560px,56vw,710px)!important;border-radius:25px!important;overflow:hidden!important;isolation:isolate;background:linear-gradient(115deg,#281b32 0%,#4c2b49 48%,#9d5276 100%)!important;position:relative!important;display:flex!important;align-items:center!important;padding:clamp(28px,6vw,78px)!important}
+.app-home .app-lead:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(30,18,38,.97) 0%,rgba(40,22,45,.88) 36%,rgba(54,29,52,.25) 72%,rgba(54,29,52,0) 100%);pointer-events:none}
+.app-home .app-lead:after{content:"";position:absolute;right:-12%;top:-32%;width:65%;height:145%;border-left:3px solid rgba(255,190,217,.26);transform:rotate(22deg);pointer-events:none;z-index:1}
+.app-home .app-lead-image{position:absolute!important;inset:0 0 0 auto!important;width:67%!important;height:100%!important;max-width:none!important;opacity:1!important;display:flex!important;align-items:center!important;justify-content:center!important;z-index:0!important;transform:none!important}
+.app-home .app-lead-image svg{height:100%!important;width:100%!important;object-fit:cover;filter:saturate(.88) contrast(1.08)}
+.app-home .app-lead-content{position:relative!important;z-index:3!important;width:min(680px,67%)!important;max-width:680px!important;margin:0!important;padding:0!important;text-align:left!important;color:#fff!important}
+.app-home .app-lead-content h2{font-size:clamp(45px,6.4vw,94px)!important;line-height:.95!important;letter-spacing:-.055em!important;color:#fff!important;font-weight:950!important;margin:20px 0!important;text-transform:uppercase}
+.app-home .app-lead-content h2 em{color:#f5aacb!important;font-style:normal!important}
+.app-home .app-lead-content p{font-size:clamp(15px,1.5vw,19px)!important;line-height:1.65!important;color:#f4e8f0!important;max-width:480px!important}
+.app-home .app-chip{background:rgba(255,255,255,.12)!important;color:#fff!important;border:1px solid rgba(255,255,255,.3)!important;padding:9px 14px!important;border-radius:40px!important;font-size:10px!important;letter-spacing:.14em}
+.app-home .app-lead-content>button{background:#ed98bc!important;color:#301b31!important;border:0!important;border-radius:100px!important;font-weight:900!important;padding:17px 24px!important;margin-top:24px!important;box-shadow:0 10px 25px rgba(0,0,0,.17);cursor:pointer}
+.app-home .app-lead-content>button:hover{background:#ffc0d8!important;transform:translateY(-2px)}
+.app-home .app-bento-side{display:grid!important;grid-template-columns:1fr 1fr!important;gap:16px!important;margin-top:16px!important}
+.app-home .app-bento-side>article{min-height:190px!important;border-radius:20px!important}
+.app-home .invictas-shortcuts{margin-top:28px!important}
+@media(max-width:900px){.inv-top-home .bar{min-height:72px}.inv-top-home nav.mobile-nav-open{background:#35223b!important;box-shadow:0 18px 35px rgba(20,10,20,.3)}.inv-top-home nav.mobile-nav-open button{color:#fff!important}}
+@media(max-width:680px){.inv-home-intro{padding:14px 0}.inv-home-intro>span{font-size:9px;letter-spacing:.1em}.inv-home-intro>button{font-size:12px;padding:10px 13px}.app-home .app-bento>.app-lead{min-height:620px!important;padding:28px 23px 38px!important;align-items:flex-end!important;border-radius:19px!important}.app-home .app-lead-image{width:100%!important;height:75%!important;top:0!important;bottom:auto!important;right:-13%!important;opacity:.9!important}.app-home .app-lead:before{background:linear-gradient(0deg,rgba(32,19,40,.98) 0%,rgba(35,20,42,.92) 29%,rgba(35,20,42,.15) 68%,rgba(35,20,42,.05) 100%)}.app-home .app-lead-content{width:100%!important;max-width:100%!important}.app-home .app-lead-content h2{font-size:clamp(43px,10vw,65px)!important;margin:15px 0!important}.app-home .app-lead-content p{font-size:14px!important;max-width:350px!important}.app-home .app-lead-content>button{margin-top:16px!important}.app-home .app-bento-side{grid-template-columns:1fr!important;gap:10px!important}.app-home .app-bento-side>article{min-height:150px!important}.app-home .app-lead:after{right:-40%}}
+@media(prefers-reduced-motion:reduce){.app-home .app-lead-content>button{transition:none!important}}
