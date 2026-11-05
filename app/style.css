@@ -188,3 +188,14 @@ h1,h2,h3{letter-spacing:-.055em}
 .inv-partners-footer strong{color:#fff}
 .inv-store>.secondary{margin-top:22px;background:#fff;color:#43263c;border:0}
 @media(max-width:700px){.inv-partners-grid,.inv-store-grid{grid-template-columns:1fr}.inv-partners,.inv-store{border-radius:18px;padding:26px 20px}.inv-partners-grid article,.inv-store-grid article{padding:19px}}
+
+/* INVICTAS practical tools */
+.inv-tools{background:#fff;border:1px solid #e9dce4;border-radius:24px;padding:clamp(22px,4vw,48px);box-shadow:0 12px 35px rgba(55,31,49,.05)}
+.inv-tools-header{max-width:720px}.inv-tools-header h2{font-size:clamp(29px,4vw,45px);margin:10px 0}.inv-tools-header p{line-height:1.65;color:#665969}
+.inv-tool-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}
+.inv-tool-form label{display:flex;flex-direction:column;gap:8px;font-weight:750;color:#4a3047;font-size:13px}
+.inv-tool-form input,.inv-tool-form select,.inv-tool-form textarea{width:100%;border:1px solid #dfcfdb;border-radius:12px;padding:13px 14px;font:inherit;background:#fff;color:#29232d}
+.inv-tool-wide{grid-column:1/-1}.inv-tool-checks{margin-top:26px;padding:20px;border-radius:17px;background:#f7eff4}.inv-tool-checks h3{margin:0 0 15px}.inv-tool-checks label{display:flex;align-items:center;gap:10px;margin:10px 0;cursor:pointer}.inv-tool-checks input{accent-color:#8b466a;width:17px;height:17px}
+.inv-tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.inv-tool-note{font-size:12px;color:#716676;margin-top:16px}
+.inv-tool-next{background:#f1e4ed;border-radius:20px;padding:26px;margin:22px 0 45px}.inv-tool-next h2{font-size:26px}.inv-tool-next p{max-width:700px}.inv-tool-next button{background:#4b2c45;color:#fff;border:0;border-radius:30px;padding:12px 20px;cursor:pointer}
+@media(max-width:640px){.inv-tool-form{grid-template-columns:1fr}.inv-tool-wide{grid-column:auto}.inv-tools{border-radius:17px;padding:22px 17px}}
