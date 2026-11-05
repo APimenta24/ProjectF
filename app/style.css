@@ -298,3 +298,18 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .app-home .app-lead-content h2{font-size:clamp(45px,9.5vw,75px)!important}
 .inv-photo-montage .inv-photo{clip-path:none;margin:0;transform:none}
 }
+
+/* Founder-value modules */
+.inv-value-panel{background:#fff;border:1px solid #e5d3de;border-radius:22px;padding:clamp(22px,4vw,42px);margin:22px 0 28px;box-shadow:0 8px 28px rgba(57,24,44,.05)}
+.inv-value-panel h2{font-size:clamp(25px,3.2vw,38px);margin:12px 0}.inv-value-panel p{max-width:720px;color:#6d5c6a;line-height:1.65}
+.inv-reflection-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:23px 0}
+.inv-reflection-fields label{display:flex;flex-direction:column;gap:9px;font-weight:750;font-size:13px}
+.inv-reflection-fields textarea{width:100%;border:1px solid #decbd6;border-radius:13px;padding:14px;font:inherit;resize:vertical}
+.inv-value-panel>button{background:#4d2444;border:0;border-radius:30px;color:#fff;padding:13px 20px;font-weight:800;cursor:pointer}
+.inv-value-panel>button:disabled{opacity:.45;cursor:not-allowed}
+.inv-value-panel>small{display:block;margin-top:14px;color:#796c77}
+.inv-questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:22px 0}
+.inv-questions>div{display:flex;gap:14px;align-items:flex-start;background:#f7eff4;padding:17px;border-radius:13px}
+.inv-questions b{color:#a44571;font-size:12px}.inv-questions span{font-weight:750;line-height:1.4}
+.inv-voice-note{font-size:12px}
+@media(max-width:680px){.inv-reflection-fields,.inv-questions{grid-template-columns:1fr}}
