@@ -313,3 +313,18 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-questions b{color:#a44571;font-size:12px}.inv-questions span{font-weight:750;line-height:1.4}
 .inv-voice-note{font-size:12px}
 @media(max-width:680px){.inv-reflection-fields,.inv-questions{grid-template-columns:1fr}}
+
+/* INVICTAS Pulse */
+.pulse{background:#fff;border:1px solid #e7d5df;border-radius:24px;padding:clamp(22px,4vw,45px);margin:18px 0 35px;box-shadow:0 12px 35px rgba(60,25,45,.06)}
+.pulse-head{max-width:750px}.pulse-head h2{font-size:clamp(34px,4.2vw,53px);letter-spacing:-.04em;margin:12px 0;color:#3d1935}.pulse-head p{line-height:1.65;color:#655768}
+.pulse-profile{margin:26px 0;padding:17px 0;border-top:1px solid #eadce4;border-bottom:1px solid #eadce4}.pulse-profile>span{font-weight:850;display:block;margin-bottom:12px}.pulse-profile>div{display:flex;flex-wrap:wrap;gap:10px}.pulse-profile button{border:1px solid #d9bfce;background:#fff;color:#59364d;padding:11px 17px;border-radius:100px;font-weight:800;cursor:pointer}.pulse-profile button.selected{background:#52203e;color:#fff;border-color:#52203e}.pulse-profile small{display:block;margin-top:10px;color:#766777}
+.pulse-columns{display:grid;grid-template-columns:1fr 1fr;gap:20px}.pulse-check,.pulse-history{padding:25px;background:#fbf7f9;border-radius:19px}.pulse-check h3,.pulse-history h3{font-size:24px;margin:0 0 8px}.pulse-check>p{color:#756779;font-size:13px}.pulse-question{margin:23px 0}.pulse-question>div{display:flex;justify-content:space-between;gap:12px;font-size:14px}.pulse-question b{color:#9c3e70}.pulse-question input{width:100%;accent-color:#c12f72;margin-top:11px}.pulse-question small{color:#766777;font-size:11px}
+.pulse-consent{display:flex;gap:10px;font-size:12px;line-height:1.5;color:#5b4d5a;margin:25px 0 15px;align-items:flex-start}.pulse-consent input{accent-color:#a32e69;flex:none;margin-top:3px}
+.pulse-save{border:0;background:#ed2d79;color:#fff;border-radius:99px;padding:15px 20px;font-weight:850;cursor:pointer}.pulse-notice{font-size:13px;color:#67465b;line-height:1.5}
+.pulse-history-title{display:flex;align-items:center;justify-content:space-between;gap:8px}.pulse-history-title span{font-size:12px;color:#816a7b}
+.pulse-averages{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:25px}.pulse-averages>div{padding:14px;border-radius:13px;background:#fff}.pulse-averages span{font-size:12px;color:#746373;display:block}.pulse-averages strong{font-size:28px;color:#542344}.pulse-averages small{font-size:12px;color:#7b6c7a}
+.pulse-trends{margin-top:25px}.pulse-trends h4{margin:0 0 16px}.pulse-trend{margin:13px 0}.pulse-trend>span{font-size:12px;font-weight:750}.pulse-trend>div{display:flex;align-items:flex-end;gap:5px;height:42px;border-bottom:1px solid #d8bdcd;padding:0 3px}.pulse-trend i{flex:1;background:#d85b91;border-radius:4px 4px 0 0;min-width:4px;max-width:24px}
+.pulse-hint,.pulse-empty p{font-size:12px;color:#796d7b;line-height:1.6}.pulse-empty{margin:30px 0;padding:22px;background:#fff;border-radius:13px}
+.pulse-delete{border:0;background:transparent;color:#8b3d60;text-decoration:underline;cursor:pointer;font-size:12px;margin-top:22px;padding:0}.pulse-delete:disabled{opacity:.4}
+.pulse-privacy{font-size:12px;line-height:1.7;color:#6d606c;margin:22px 0 0}
+@media(max-width:750px){.pulse-columns{grid-template-columns:1fr}.pulse-check,.pulse-history{padding:19px}.pulse{padding:20px 15px}.pulse-head h2{font-size:36px}}
