@@ -328,3 +328,5 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .pulse-delete{border:0;background:transparent;color:#8b3d60;text-decoration:underline;cursor:pointer;font-size:12px;margin-top:22px;padding:0}.pulse-delete:disabled{opacity:.4}
 .pulse-privacy{font-size:12px;line-height:1.7;color:#6d606c;margin:22px 0 0}
 @media(max-width:750px){.pulse-columns{grid-template-columns:1fr}.pulse-check,.pulse-history{padding:19px}.pulse{padding:20px 15px}.pulse-head h2{font-size:36px}}
+
+.pulse-periods{display:flex;gap:7px;margin-top:18px;flex-wrap:wrap}.pulse-periods button{border:1px solid #d7c0ce;border-radius:100px;padding:8px 13px;background:#fff;color:#633b56;font-size:12px;font-weight:750;cursor:pointer}.pulse-periods button.selected{background:#542344;color:#fff;border-color:#542344}.pulse-export{display:block;border:1px solid #9c5b7a;background:#fff;color:#6b3052;padding:10px 14px;border-radius:100px;font-size:12px;font-weight:800;cursor:pointer;margin-top:23px}.pulse-export:disabled{opacity:.4;cursor:not-allowed}
