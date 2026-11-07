@@ -385,3 +385,14 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-cycle>small{display:block;margin-top:1rem}
 .inv-consent-publication{display:flex;align-items:flex-start;gap:.6rem;margin:1rem 0;font-size:.9rem}
 .inv-consent-publication input{margin-top:.25rem}
+
+/* Seven-day individual challenge */
+.inv-seven-days{margin:1.5rem 0;padding:clamp(1rem,3vw,2rem);border:1px solid #d9d0cb;border-radius:18px}
+.inv-seven-days>label{display:flex;align-items:center;flex-wrap:wrap;gap:.8rem}
+.inv-seven-days select{border:1px solid #b8aca8;border-radius:8px;padding:.6rem;background:transparent;color:inherit}
+.inv-seven-days ol{list-style:none;padding:0;display:grid;gap:.65rem}
+.inv-seven-days li{border:1px solid #d9d0cb;border-radius:10px;padding:.8rem}
+.inv-seven-days li label{display:flex;align-items:flex-start;gap:.8rem;cursor:pointer}
+.inv-seven-days li input{margin-top:.3rem;accent-color:#292324}
+.inv-seven-days button{border:0;border-radius:10px;background:#292324;color:white;padding:.75rem 1rem;cursor:pointer}
+.inv-seven-days small{display:block;margin-top:.8rem}
