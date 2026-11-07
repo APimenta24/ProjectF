@@ -552,3 +552,26 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-story-mode button.active{background:#442b37;color:#fff;border-color:#442b37}
 .inv-story-privacy{background:#f5eff1;border-radius:10px;padding:12px;font-size:13px;line-height:1.6}
 .inv-story-submit .primary:disabled{opacity:.5;cursor:not-allowed}
+
+/* Published A Voz Delas story pages and editorial analytics */
+.inv-story-list{margin:24px 0;padding:24px 0}
+.inv-story-list-head h2{font-size:clamp(26px,3vw,38px);margin:10px 0 18px}
+.inv-story-list-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.inv-story-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:25px;border:1px solid #e5d6dc;border-radius:16px;background:#fff;color:#382532;min-height:230px}
+.inv-story-card h3{font-size:22px;margin:12px 0}
+.inv-story-card p{flex:1;line-height:1.5}
+.inv-story-card>span:last-child{font-weight:700;color:#673344}
+.inv-story-detail{max-width:820px;margin:28px auto 55px;padding:clamp(22px,5vw,52px);background:#fff;border:1px solid #eadfe2;border-radius:20px}
+.inv-story-detail>.eyebrow{display:block;margin-top:24px}
+.inv-story-detail h1{font-size:clamp(32px,5vw,56px);line-height:1.13;margin:14px 0}
+.inv-story-detail-date,.inv-story-detail-note{color:#74656e;font-size:14px}
+.inv-story-detail-body{margin:35px 0;font-size:17px;line-height:1.85;white-space:pre-wrap;overflow-wrap:anywhere}
+.inv-story-detail-body p{margin:0 0 18px}
+.inv-story-detail-actions{display:flex;flex-wrap:wrap;gap:10px}
+.inv-story-detail-actions button{border:1px solid #673344;background:#673344;color:#fff;padding:12px 16px;border-radius:10px}
+.inv-story-detail-actions button+button{background:#fff;color:#673344}
+.inv-analytics-table{overflow-x:auto}
+.inv-analytics-table table{width:100%;border-collapse:collapse;text-align:left}
+.inv-analytics-table th,.inv-analytics-table td{padding:12px;border-bottom:1px solid #e8dfe2}
+@media(max-width:800px){.inv-story-list-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.inv-story-list-grid{grid-template-columns:1fr}.inv-story-card{min-height:0}.inv-story-detail{margin:16px 0 30px}.inv-story-detail-actions{flex-direction:column}.inv-story-detail-actions button{width:100%}}
