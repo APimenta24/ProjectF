@@ -512,3 +512,20 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
  .pulse-tabs button{min-height:44px;font-size:13px}
  .pulse-day-picker{flex-wrap:wrap}
 }
+
+/* INVICTAS community-first editorial direction */
+.inv-community-home{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(250px,1fr);gap:16px;margin:24px 0}
+.inv-community-home-head,.inv-community-home-side{padding:clamp(22px,3vw,38px);border-radius:17px}
+.inv-community-home-head{background:#efe4e5;color:#33252f}
+.inv-community-home-side{background:#392132;color:#fff}
+.inv-community-home h2{font-size:clamp(27px,3.4vw,43px);line-height:1.12;max-width:620px;margin:12px 0}
+.inv-community-home h3{font-size:clamp(23px,2.4vw,30px);line-height:1.2;margin:12px 0}
+.inv-community-home p,.inv-pulse-secondary p{line-height:1.65;max-width:660px}
+.inv-community-home button,.inv-pulse-secondary button{border:0;background:#612f3b;color:#fff;padding:13px 18px;border-radius:10px;font-weight:700;min-height:46px}
+.inv-community-home-side button{background:#f4d6e1;color:#392132}
+.inv-community-home-side .eyebrow{color:#f3b9d0}
+.inv-pulse-secondary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 30px;margin:30px 0;background:#f1eae4;border:1px solid #e1d6d0;border-radius:16px}
+.inv-pulse-secondary h2{font-size:clamp(24px,3vw,34px);margin:10px 0}
+.inv-pulse-secondary button{flex:none}
+@media(max-width:750px){.inv-community-home{grid-template-columns:1fr}.inv-pulse-secondary{flex-direction:column;align-items:stretch}.inv-pulse-secondary button{width:100%}}
+@media(max-width:520px){.inv-community-home{margin:16px 0;gap:10px}.inv-community-home-head,.inv-community-home-side{padding:22px}.inv-pulse-secondary{padding:22px;margin:20px 0}}
