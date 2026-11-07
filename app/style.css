@@ -344,3 +344,22 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 
 /* Profile: premium personal dashboard */
 .inv-dashboard-hero{min-height:310px;display:grid;grid-template-columns:1.15fr .85fr;border-radius:24px;overflow:hidden;background:linear-gradient(125deg,#271623,#4c273e 65%,#70344d);color:#fff;margin:8px 0 22px}.inv-dashboard-hero-copy{padding:clamp(26px,5vw,55px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.inv-dashboard-hero-copy .eyebrow{color:#ffc0d9}.inv-dashboard-hero h1{font-size:clamp(38px,5vw,66px);line-height:1.03;letter-spacing:-.055em;margin:16px 0}.inv-dashboard-hero h1 em{color:#f8a0c4;font-style:italic}.inv-dashboard-hero p{max-width:420px;color:#f2dfe9;line-height:1.65}.inv-dashboard-hero button{border:0;border-radius:99px;background:#f4a4c5;color:#341d2c;padding:12px 20px;font-weight:850;cursor:pointer;margin-top:14px}.inv-dashboard-hero-art{position:relative;min-height:260px;display:flex;align-items:flex-end;justify-content:center;padding:35px;background:linear-gradient(135deg,rgba(41,22,36,.05),rgba(41,22,36,.6)),url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&auto=format&fit=crop&q=85') center/cover}.inv-dashboard-hero-art span{font-size:clamp(20px,3vw,39px);font-weight:950;letter-spacing:-.04em;line-height:1.06;text-align:right;text-shadow:0 2px 12px #291622}.inv-dashboard-quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:18px 0 35px}.inv-dashboard-quick button{text-align:left;border:1px solid #ead8e2;border-radius:19px;background:#fff;min-height:195px;padding:22px;display:flex;flex-direction:column;align-items:flex-start;cursor:pointer;transition:transform .2s,box-shadow .2s}.inv-dashboard-quick button:hover{transform:translateY(-3px);box-shadow:0 10px 30px #4e233217}.inv-dashboard-quick button:nth-child(4){background:#f7e6ee}.inv-dashboard-quick span{font-size:27px;color:#b44e7e}.inv-dashboard-quick strong{font-size:19px;margin:15px 0 7px;color:#392232}.inv-dashboard-quick small{font-size:12px;color:#806d79;line-height:1.4}.inv-dashboard-quick b{font-size:12px;color:#9b3566;margin-top:auto;padding-top:18px}.inv-dashboard-intro{margin-top:25px}@media(max-width:1050px){.inv-dashboard-quick{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.inv-dashboard-hero{grid-template-columns:1fr}.inv-dashboard-hero-art{min-height:160px}.inv-dashboard-quick{gap:10px}.inv-dashboard-quick button{min-height:180px;padding:16px}.inv-dashboard-quick strong{font-size:16px}}
+
+/* INVICTAS Playbook: individual-first free resources */
+.inv-playbook{margin:2rem 0;padding:clamp(1rem,3vw,2rem);border:1px solid var(--line,#ded8d4);border-radius:20px}
+.inv-playbook-filters{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.25rem 0}
+.inv-playbook-filters button,.inv-playbook-list button{border:1px solid #b8aca8;border-radius:12px;background:transparent;color:inherit;padding:.7rem 1rem;cursor:pointer;text-align:left}
+.inv-playbook-filters button[aria-pressed=true],.inv-playbook-list button.selected{background:#292324;color:#fff;border-color:#292324}
+.inv-playbook-layout{display:grid;grid-template-columns:minmax(170px,1fr) minmax(0,2fr);gap:1rem}
+.inv-playbook-list{display:flex;flex-direction:column;gap:.5rem}
+.inv-playbook-list button{display:flex;flex-direction:column;gap:.3rem}
+.inv-playbook-list small{opacity:.75}
+.inv-playbook-detail{border-radius:14px;background:#f6f2ef;color:#292324;padding:1.5rem}
+.inv-playbook-detail h3{margin:.6rem 0}
+.inv-playbook-detail ol{padding-left:1.3rem}
+.inv-playbook-detail li{margin:.8rem 0}
+.inv-playbook-detail li label{display:flex;align-items:flex-start;gap:.7rem;cursor:pointer}
+.inv-playbook-detail li input{margin-top:.25rem;accent-color:#292324}
+.inv-playbook-detail button{border:0;border-radius:10px;background:#292324;color:white;padding:.8rem 1rem;cursor:pointer}
+.inv-playbook-detail small{display:block;margin-top:1rem;line-height:1.5}
+@media(max-width:700px){.inv-playbook-layout{grid-template-columns:1fr}.inv-playbook-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.inv-playbook-detail{padding:1rem}}
