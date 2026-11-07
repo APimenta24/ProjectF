@@ -370,3 +370,18 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .pulse-reflection button,.inv-voice-actions button{border:0;border-radius:10px;background:#292324;color:white;padding:.8rem 1rem;cursor:pointer}
 .pulse-reflection button:disabled{opacity:.45;cursor:not-allowed}
 .pulse-reflection small,.inv-voice-actions small{display:block;margin-top:.8rem;line-height:1.5}
+
+/* Menstrual journal: private, optional, local-only */
+.inv-cycle{margin:1.5rem 0;padding:clamp(1rem,3vw,1.5rem);border:1px solid #d9d0cb;border-radius:16px}
+.inv-cycle-fields{display:grid;gap:1rem;margin:1rem 0}
+.inv-cycle-fields>label{display:flex;flex-direction:column;gap:.4rem}
+.inv-cycle-fields select{width:100%;padding:.65rem;border-radius:8px;border:1px solid #b8aca8;background:transparent;color:inherit}
+.inv-cycle fieldset{display:flex;flex-wrap:wrap;gap:.6rem 1rem;border:1px solid #d9d0cb;border-radius:10px;padding:1rem}
+.inv-cycle fieldset label{display:flex;align-items:center;gap:.4rem}
+.inv-cycle button{border:0;border-radius:10px;padding:.75rem 1rem;background:#292324;color:#fff;cursor:pointer}
+.inv-cycle .inv-cycle-delete{background:transparent;color:inherit;border:1px solid #9e8585}
+.inv-cycle-history ul{padding-left:1.2rem}
+.inv-cycle-history li{margin:.4rem 0}
+.inv-cycle>small{display:block;margin-top:1rem}
+.inv-consent-publication{display:flex;align-items:flex-start;gap:.6rem;margin:1rem 0;font-size:.9rem}
+.inv-consent-publication input{margin-top:.25rem}
