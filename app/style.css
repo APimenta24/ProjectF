@@ -396,3 +396,24 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-seven-days li input{margin-top:.3rem;accent-color:#292324}
 .inv-seven-days button{border:0;border-radius:10px;background:#292324;color:white;padding:.75rem 1rem;cursor:pointer}
 .inv-seven-days small{display:block;margin-top:.8rem}
+
+/* Pulse 2.0: activity context, calendar and descriptive insights */
+.pulse-context{display:grid;gap:.75rem;margin:1.25rem 0;padding:1rem;border:1px solid #d9d0cb;border-radius:12px}
+.pulse-context label{display:flex;flex-direction:column;gap:.35rem}
+.pulse-context input,.pulse-context select,.pulse-context textarea{max-width:100%;padding:.65rem;border:1px solid #b8aca8;border-radius:8px;background:transparent;color:inherit}
+.pulse-context input[type=range]{padding:0}
+.pulse-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;margin:1rem 0}
+.pulse-summary>div{display:flex;flex-direction:column;gap:.3rem;padding:.8rem;border:1px solid #d9d0cb;border-radius:10px}
+.pulse-summary strong{font-size:1.4rem}
+.pulse-summary span{font-size:.8rem}
+.pulse-calendar{margin:1.25rem 0}
+.pulse-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.35rem}
+.pulse-calendar-day{min-height:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #d9d0cb;border-radius:8px}
+.pulse-calendar-day small{font-weight:700}
+.pulse-calendar-day.treino{background:#dce9e2;color:#183f30}
+.pulse-calendar-day.competicao{background:#e9dce7;color:#54244d}
+.pulse-calendar-day.descanso{background:#e4e9ee;color:#283b4b}
+.pulse-calendar-day.empty{opacity:.55}
+.pulse-insights{margin:1.2rem 0;padding:1rem;border:1px solid #d9d0cb;border-radius:12px}
+.pulse-insights p{margin:.6rem 0}
+@media(max-width:480px){.pulse-summary{grid-template-columns:repeat(3,minmax(0,1fr))}.pulse-summary>div{padding:.45rem}.pulse-summary strong{font-size:1.1rem}.pulse-summary span{font-size:.7rem}.pulse-calendar-day{min-height:2.5rem}}
