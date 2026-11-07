@@ -1,0 +1,22 @@
+'use client';
+import {useEffect,useState} from 'react';
+type CycleEntry={day:string;bleeding:'none'|'light'|'moderate'|'heavy';symptoms:string[];impact:'none'|'some'|'strong'|'unsure'};
+const KEY='invictas-cycle-local-v1';
+const symptoms=['Cólicas','Dor de cabeça','Fadiga','Alterações de humor','Desconforto abdominal'];
+const today=()=>new Date().toLocaleDateString('sv-SE');
+export default function CycleJournal(){
+ const [enabled,setEnabled]=useState(false),[loaded,setLoaded]=useState(false),[bleeding,setBleeding]=useState<CycleEntry['bleeding']>('none'),[selected,setSelected]=useState<string[]>([]),[impact,setImpact]=useState<CycleEntry['impact']>('unsure'),[entries,setEntries]=useState<CycleEntry[]>([]),[notice,setNotice]=useState('');
+ useEffect(()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v?.enabled===true&&Array.isArray(v.entries)){setEnabled(true);setEntries(v.entries.filter((e:CycleEntry)=>e&&typeof e.day==='string').slice(-90))}}catch{}setLoaded(true)},[]);
+ const save=()=>{if(!enabled)return;const entry:CycleEntry={day:today(),bleeding,symptoms:selected,impact};const next=[...entries.filter(e=>e.day!==entry.day),entry].sort((a,b)=>a.day.localeCompare(b.day)).slice(-90);try{localStorage.setItem(KEY,JSON.stringify({enabled:true,entries:next}));setEntries(next);setNotice('Registo guardado apenas neste dispositivo.')}catch{setNotice('Não foi possível guardar o registo.')}};
+ const erase=()=>{try{localStorage.removeItem(KEY)}catch{}setEnabled(false);setEntries([]);setNotice('Os registos locais do ciclo foram apagados.')};
+ if(!loaded)return null;
+ return <section className="inv-cycle" aria-label="Ciclo e desporto"><span className="eyebrow">INVICTAS PULSE · OPCIONAL</span><h3>Ciclo &amp; Desporto</h3><p>Regista sintomas e o impacto que sentiste na prática desportiva. Estes dados não preveem rendimento, fases hormonais ou cargas de treino.</p>
+ {!enabled?<div><p><strong>Privacidade:</strong> os registos ficam apenas neste navegador, sem encriptação, sincronização ou partilha com a comunidade. Evita dispositivos partilhados. Podes apagá-los quando quiseres.</p><button type="button" onClick={()=>setEnabled(true)}>Quero ativar o registo local</button></div>:<>
+ <div className="inv-cycle-fields"><label>Fluxo menstrual hoje<select value={bleeding} onChange={e=>setBleeding(e.target.value as CycleEntry['bleeding'])}><option value="none">Sem menstruação</option><option value="light">Ligeiro</option><option value="moderate">Moderado</option><option value="heavy">Intenso</option></select></label>
+ <fieldset><legend>Sintomas (opcional)</legend>{symptoms.map(v=><label key={v}><input type="checkbox" checked={selected.includes(v)} onChange={()=>setSelected(old=>old.includes(v)?old.filter(x=>x!==v):[...old,v])}/>{v}</label>)}</fieldset>
+ <label>Impacto percebido no treino<select value={impact} onChange={e=>setImpact(e.target.value as CycleEntry['impact'])}><option value="unsure">Não sei / não treinei</option><option value="none">Nenhum</option><option value="some">Algum</option><option value="strong">Elevado</option></select></label></div>
+ <button type="button" onClick={save}>Guardar registo de hoje</button><p className="pulse-hint">{entries.length} {entries.length===1?'dia registado':'dias registados'} neste dispositivo.</p>
+ {entries.length>0&&<div className="inv-cycle-history"><h4>Últimos registos</h4><ul>{entries.slice(-7).reverse().map(e=><li key={e.day}><strong>{e.day}</strong> · {({none:'Sem menstruação',light:'Fluxo ligeiro',moderate:'Fluxo moderado',heavy:'Fluxo intenso'} as const)[e.bleeding]} · {e.symptoms.length?e.symptoms.join(', '):'Sem sintomas assinalados'}</li>)}</ul></div>}
+ <button type="button" className="inv-cycle-delete" onClick={erase}>Apagar todos os dados do ciclo e desativar</button></>}
+ {notice&&<p role="status">{notice}</p>}<small>Registos de bem-estar não substituem avaliação clínica. Se os sintomas forem intensos ou persistentes, procura aconselhamento profissional.</small></section>;
+}
