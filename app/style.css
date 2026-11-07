@@ -529,3 +529,16 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-pulse-secondary button{flex:none}
 @media(max-width:750px){.inv-community-home{grid-template-columns:1fr}.inv-pulse-secondary{flex-direction:column;align-items:stretch}.inv-pulse-secondary button{width:100%}}
 @media(max-width:520px){.inv-community-home{margin:16px 0;gap:10px}.inv-community-home-head,.inv-community-home-side{padding:22px}.inv-pulse-secondary{padding:22px;margin:20px 0}}
+
+/* A Voz Delas: ambassador and community editorial entry */
+.inv-voices-entry{background:#f2e8e8;border:1px solid #e7d8dd;border-radius:20px;padding:clamp(20px,4vw,40px);margin:24px 0}
+.inv-voices-entry>div:first-child{max-width:750px}
+.inv-voices-entry h2{font-size:clamp(28px,4vw,45px);line-height:1.15;margin:12px 0}
+.inv-voices-entry p{line-height:1.65}
+.inv-voices-entry-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.inv-voices-entry-grid article{display:flex;flex-direction:column;align-items:flex-start;background:#fff;border-radius:15px;padding:24px}
+.inv-voices-entry-grid h3{font-size:24px;margin:12px 0 0}
+.inv-voices-entry-grid p{flex:1}
+.inv-voices-entry-grid button{background:#612f3b;color:#fff;border:0;border-radius:10px;min-height:46px;padding:12px 17px;font-weight:700}
+.inv-voices-entry-grid small{display:block;margin-top:12px;color:#6b5c65;line-height:1.5}
+@media(max-width:650px){.inv-voices-entry-grid{grid-template-columns:1fr}.inv-voices-entry-grid article{padding:20px}.inv-voices-entry-grid button{width:100%}}
