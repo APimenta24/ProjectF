@@ -363,3 +363,10 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-playbook-detail button{border:0;border-radius:10px;background:#292324;color:white;padding:.8rem 1rem;cursor:pointer}
 .inv-playbook-detail small{display:block;margin-top:1rem;line-height:1.5}
 @media(max-width:700px){.inv-playbook-layout{grid-template-columns:1fr}.inv-playbook-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.inv-playbook-detail{padding:1rem}}
+
+/* Individual-first additions */
+.pulse-reflection,.inv-voice-actions{margin-top:1.5rem;padding:1.25rem;border:1px solid #d9d0cb;border-radius:14px}
+.pulse-reflection textarea{display:block;width:100%;box-sizing:border-box;min-height:90px;margin:.5rem 0 1rem;padding:.75rem;border:1px solid #b8aca8;border-radius:10px;font:inherit}
+.pulse-reflection button,.inv-voice-actions button{border:0;border-radius:10px;background:#292324;color:white;padding:.8rem 1rem;cursor:pointer}
+.pulse-reflection button:disabled{opacity:.45;cursor:not-allowed}
+.pulse-reflection small,.inv-voice-actions small{display:block;margin-top:.8rem;line-height:1.5}
