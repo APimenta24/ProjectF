@@ -439,3 +439,18 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .pulse-data-options{display:grid;gap:.7rem}
 .inv-pulse-extras{padding:1.4rem 0 0;margin-top:2rem;border-top:1px solid #d9d0cb}
 @media(max-width:480px){.pulse-tabs button{font-size:.76rem;padding:.75rem .15rem}}
+
+/* INVICTAS rebuild: Pulse-first navigation and focused daily use */
+.inv-pulse-home-cta{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;background:#ede3dc;border:1px solid #dfd0c8;border-radius:18px;padding:clamp(1.2rem,3vw,2rem);margin:1rem 0 1.5rem}
+.inv-pulse-home-cta h2{font-size:clamp(1.45rem,3vw,2.4rem);line-height:1.15;max-width:680px;margin:.5rem 0}
+.inv-pulse-home-cta p{max-width:620px}
+.inv-pulse-home-cta button{border:0;border-radius:10px;background:#612f3b;color:#fff;padding:1rem 1.25rem;font-weight:700;white-space:nowrap}
+.inv-profile-shortcut{border:1px solid #d9d0cb;border-radius:9px;background:transparent;padding:.65rem .8rem}
+.inv-optional-tools{margin:1.5rem 0;border:1px solid #d9d0cb;border-radius:12px;padding:1rem}
+.inv-optional-tools summary{cursor:pointer;font-weight:700}
+.pulse-day-picker{display:flex;align-items:center;gap:.75rem;margin:.8rem 0}
+.pulse-day-picker input{padding:.5rem;border:1px solid #c8bcb5;border-radius:8px}
+.pulse-details-toggle{border:1px solid #b9a9a3;background:transparent;border-radius:8px;padding:.65rem}
+.pulse-calendar-day{font:inherit;cursor:pointer;color:inherit}
+.pulse-calendar-day:hover,.pulse-calendar-day:focus-visible{outline:2px solid #612f3b;outline-offset:1px}
+@media(max-width:700px){.inv-pulse-home-cta{flex-direction:column;align-items:stretch}.inv-pulse-home-cta button{white-space:normal}.inv-profile-shortcut{font-size:.8rem}}
