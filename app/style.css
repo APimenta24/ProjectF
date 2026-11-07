@@ -417,3 +417,6 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .pulse-insights{margin:1.2rem 0;padding:1rem;border:1px solid #d9d0cb;border-radius:12px}
 .pulse-insights p{margin:.6rem 0}
 @media(max-width:480px){.pulse-summary{grid-template-columns:repeat(3,minmax(0,1fr))}.pulse-summary>div{padding:.45rem}.pulse-summary strong{font-size:1.1rem}.pulse-summary span{font-size:.7rem}.pulse-calendar-day{min-height:2.5rem}}
+
+.pulse-import,.inv-cycle-import{display:flex;flex-direction:column;gap:.4rem;margin:.8rem 0;font-size:.9rem}
+.pulse-import input,.inv-cycle-import input{max-width:100%;font-size:.85rem}
