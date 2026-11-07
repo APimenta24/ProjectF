@@ -429,3 +429,13 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .pulse-share input[type=checkbox]{accent-color:#292324}
 .pulse-share button{justify-self:start;border:0;border-radius:9px;background:#292324;color:white;padding:.8rem 1rem;cursor:pointer}
 .pulse-share button:disabled{opacity:.45;cursor:not-allowed}
+
+.pulse [hidden]{display:none!important}
+.pulse-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.4rem;margin:1rem 0 1.4rem}
+.pulse-tabs button{border:1px solid #cfc4c0;border-radius:10px;background:transparent;color:inherit;padding:.85rem .3rem;font-size:.9rem;cursor:pointer}
+.pulse-tabs button.selected{background:#292324;color:#fff;border-color:#292324;font-weight:700}
+.pulse-columns{display:block}
+.pulse-check,.pulse-history,.pulse-data-options{width:100%;max-width:800px;margin:0 auto}
+.pulse-data-options{display:grid;gap:.7rem}
+.inv-pulse-extras{padding:1.4rem 0 0;margin-top:2rem;border-top:1px solid #d9d0cb}
+@media(max-width:480px){.pulse-tabs button{font-size:.76rem;padding:.75rem .15rem}}
