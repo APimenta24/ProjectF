@@ -454,3 +454,9 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .pulse-calendar-day{font:inherit;cursor:pointer;color:inherit}
 .pulse-calendar-day:hover,.pulse-calendar-day:focus-visible{outline:2px solid #612f3b;outline-offset:1px}
 @media(max-width:700px){.inv-pulse-home-cta{flex-direction:column;align-items:stretch}.inv-pulse-home-cta button{white-space:normal}.inv-profile-shortcut{font-size:.8rem}}
+
+/* Brand: compact trophy emblem for the approved INVICTAS cup identity */
+.invictas-trophy-mark{display:block;width:44px;height:44px;flex:none;padding:5px;border-radius:11px;background:#3a0928;object-fit:contain}
+.invictas-footer-mark{display:inline-block;width:32px;height:32px;vertical-align:middle;background:#3a0928;border-radius:7px;padding:4px;margin-right:7px}
+.logo{gap:9px}.logo .invictas-wordmark{font-size:clamp(23px,3vw,34px);letter-spacing:-1.5px}
+@media(max-width:700px){.invictas-trophy-mark{width:35px;height:35px}.logo .invictas-wordmark{font-size:22px;letter-spacing:-1px}}
