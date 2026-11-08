@@ -73,3 +73,19 @@ revoke all on function public.site_traffic_summary() from public;
 grant execute on function public.site_traffic_summary() to authenticated;
 -- Purge old events (90-day maximum) with an actual scheduled job before launch.
 -- Browser tokens only exist after opt-in and can be cleared by withdrawing consent.
+
+-- GDPR operations: explicit withdrawal of previously collected browser-linked events.
+-- Anonymous RPC accepts only a high-entropy random UUID. Do not reuse this token for other purposes.
+create or replace function public.erase_visitor_events(p_visitor uuid)
+returns void language plpgsql security definer set search_path='' as $$
+begin
+ if p_visitor is null then return; end if;
+ delete from public.site_events where visitor_token=p_visitor;
+end $$;
+revoke all on function public.erase_visitor_events(uuid) from public;
+grant execute on function public.erase_visitor_events(uuid) to anon,authenticated;
+-- Install pg_cron (if available) and schedule:
+-- select cron.schedule('invictas-events-retention','0 3 * * *',
+--   $$delete from public.site_events where created_at < now() - interval '90 days'$$);
+-- IMPORTANT: the event RPC is public and can be abused for fake counts.
+-- Add server-side rate limiting / abuse protection before production.
