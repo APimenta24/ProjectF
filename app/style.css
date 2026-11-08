@@ -597,3 +597,13 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-legal-page h1{font-size:clamp(34px,5vw,54px);line-height:1.2}
 .inv-legal-page h2{margin-top:32px;font-size:24px}
 .inv-legal-page a{text-decoration:underline}
+
+.inv-opportunity-submit,.inv-opportunity-admin{max-width:940px;margin:30px auto;padding:24px;border:1px solid #e4d7dc;border-radius:18px;background:#fff}
+.inv-opportunity-submit h2,.inv-opportunity-admin h2{margin:0 0 10px}
+.inv-opportunity-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:20px}
+.inv-opportunity-form>p,.inv-opportunity-form>button{grid-column:1/-1}
+.inv-opportunity-form label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.inv-opportunity-form input,.inv-opportunity-form select{width:100%;min-height:42px;padding:9px;border:1px solid #d4c5ca;border-radius:8px;background:#fff;color:#29232a}
+.inv-opportunity-admin article{padding:18px 0;border-bottom:1px solid #e4d7dc}
+.inv-opportunity-admin article div{display:flex;gap:10px;margin-top:12px}
+@media(max-width:680px){.inv-opportunity-form{grid-template-columns:1fr}.inv-opportunity-submit,.inv-opportunity-admin{padding:16px}}
