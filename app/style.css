@@ -799,3 +799,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .inv-fashion-story .inv-fashion-scene{top:0!important;height:100svh!important}
 }
 @media(min-width:901px){.top.inv-fashion-header nav button{color:#fff;text-shadow:0 1px 8px #24101b}.top.inv-fashion-header nav button.active{background:rgba(255,255,255,.16);color:#fff}}
+
+/* Keep pink accent in the floating brand; do not monochrome the SVG */
+.top.inv-fashion-header .invictas-trophy-mark{filter:drop-shadow(0 2px 9px rgba(18,8,16,.5))!important;background:transparent!important}
+.top.inv-fashion-header .logo .invictas-wordmark{color:#fff!important}
+.top.inv-fashion-header .logo .logo-dot{color:#f1a9c6!important}
