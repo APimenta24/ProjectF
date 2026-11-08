@@ -725,3 +725,26 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .inv-scroll-cue{font-size:9px;right:25px;bottom:13px}
 }
 @media(prefers-reduced-motion:reduce){.inv-fashion-image{animation:none!important;transform:none!important}}
+
+/* Fashion-editorial discovery: immersive imagery with fast, usable access */
+.inv-discovery-rail{display:flex;align-items:stretch;gap:0;background:#fbf6ef;border-bottom:1px solid #e5d8dc;margin:0 calc(50% - 50vw) 36px;padding:0 max(24px,calc((100vw - 1240px)/2 + 32px));overflow-x:auto;scrollbar-width:thin;scrollbar-color:#caa5b5 transparent}
+.inv-discovery-label{align-self:center;font-size:10px;letter-spacing:.2em;font-weight:800;color:#8c6074;white-space:nowrap;margin-right:24px}
+.inv-discovery-rail button{display:flex;align-items:center;gap:11px;flex:1;min-width:165px;justify-content:space-between;text-align:left;padding:23px 18px;background:transparent;border:0;border-left:1px solid #e8d9df;color:#4f2b3e;font-size:13px;font-weight:800;transition:background .2s}
+.inv-discovery-rail button:hover{background:#f1dce4}
+.inv-discovery-rail button>span:first-child{font-size:10px;color:#aa6b83}
+.inv-discovery-rail button>span:last-child{font-size:17px}
+.inv-fashion-header{background:rgba(251,246,239,.97)!important;border-bottom:1px solid rgba(87,39,61,.12)}
+.inv-fashion-story{scroll-margin-top:60px}
+.inv-fashion-scene{content-visibility:auto;contain-intrinsic-size:auto 750px}
+.inv-fashion-copy{max-width:820px}
+.inv-fashion-copy button{min-height:44px}
+@media(max-width:700px){
+ .inv-discovery-rail{position:relative;margin-bottom:25px;padding:0 12px;gap:0}
+ .inv-discovery-label{display:none}
+ .inv-discovery-rail button{min-width:145px;flex:0 0 auto;padding:19px 13px;gap:7px;font-size:12px}
+ .inv-fashion-scene{min-height:480px;max-height:860px}
+ .inv-fashion-copy{margin-bottom:12px}
+ .inv-fashion-copy h1,.inv-fashion-copy h2{font-size:clamp(42px,11vw,62px)}
+ .inv-fashion-copy p{max-width:320px}
+}
+@media(prefers-reduced-motion:reduce){.inv-discovery-rail button{transition:none}}
