@@ -607,3 +607,39 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-opportunity-admin article{padding:18px 0;border-bottom:1px solid #e4d7dc}
 .inv-opportunity-admin article div{display:flex;gap:10px;margin-top:12px}
 @media(max-width:680px){.inv-opportunity-form{grid-template-columns:1fr}.inv-opportunity-submit,.inv-opportunity-admin{padding:16px}}
+
+/* INVICTAS launch visual system: cream, rose and bordeaux */
+:root{--inv-cream:#fbf6ef;--inv-rose:#eac4d0;--inv-bordeaux:#57273d;--inv-ink:#352333;--inv-line:#ead9de;background:var(--inv-cream);color:var(--inv-ink)}
+body{background:var(--inv-cream);color:var(--inv-ink)}
+.top{background:rgba(251,246,239,.97);border-bottom:1px solid var(--inv-line);backdrop-filter:blur(12px)}
+.announcement{background:var(--inv-bordeaux)}
+.logo{color:var(--inv-bordeaux)}
+nav button.active{color:var(--inv-bordeaux);border-bottom-color:var(--inv-bordeaux)}
+.app-home{padding-bottom:32px}
+.inv-home-intro{letter-spacing:.08em}
+.app-lead{border-radius:24px;overflow:hidden}
+.app-lead-content{background:linear-gradient(125deg,#54263d 0%,#6a344c 100%);color:#fff}
+.app-lead-content h2{letter-spacing:-.045em}
+.app-lead-content h2 em{color:#f2c7d5}
+.app-lead-content button,.invictas-final-grid button:hover{background:#f1cbd7;color:#4b2336}
+.app-daily{background:#f2dbe2;color:#4c293a;border-radius:20px}
+.app-academy-teaser{background:#e9d4d9;border-radius:20px}
+.inv-community-home{border-radius:22px;overflow:hidden}
+.invictas-final-paths{margin:54px 0 44px}
+.invictas-final-heading{max-width:720px;margin-bottom:24px}
+.invictas-final-heading h2{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,52px);line-height:1.13;letter-spacing:-.03em;color:#4e263a;margin:12px 0}
+.invictas-final-heading h2 em{color:#a55d77}
+.invictas-final-heading p{color:#6c5962;line-height:1.7}
+.invictas-final-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.invictas-final-grid button{border:1px solid #ead7df;border-radius:20px;background:#fffaf6;padding:26px;min-height:245px;display:flex;align-items:flex-start;flex-direction:column;text-align:left;color:#4c293a;transition:background .2s,transform .2s}
+.invictas-final-grid button:hover{transform:translateY(-3px)}
+.invictas-final-num{font-size:10px;font-weight:800;letter-spacing:.13em;color:#a3657d}
+.invictas-final-grid strong{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,2.3vw,29px);line-height:1.15;margin:28px 0 12px}
+.invictas-final-grid small{font-size:13px;line-height:1.6;color:#745e69}
+.invictas-final-grid button>span:last-child{font-size:22px;margin-top:auto;align-self:flex-end}
+.editorial-home{margin-top:42px}
+.editorial-home-item{border-radius:16px}
+.inv-pulse-secondary{border-radius:22px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b65f82;outline-offset:3px}
+@media(max-width:760px){.invictas-final-grid{grid-template-columns:1fr}.invictas-final-grid button{min-height:175px;padding:22px}.invictas-final-grid strong{margin:14px 0 8px}.invictas-final-paths{margin:32px 0}.app-lead{border-radius:16px}}
+@media(prefers-reduced-motion:reduce){.invictas-final-grid button{transition:none}.invictas-final-grid button:hover{transform:none}}
