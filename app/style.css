@@ -804,3 +804,29 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .top.inv-fashion-header .invictas-trophy-mark{filter:drop-shadow(0 2px 9px rgba(18,8,16,.5))!important;background:transparent!important}
 .top.inv-fashion-header .logo .invictas-wordmark{color:#fff!important}
 .top.inv-fashion-header .logo .logo-dot{color:#f1a9c6!important}
+
+/* Interior editorial system — continuity with the immersive INVICTAS homepage */
+.inv-interior-cover{position:relative;isolation:isolate;min-height:clamp(390px,66svh,740px);display:flex;align-items:flex-end;overflow:hidden;margin:0 calc(50% - 50vw) 48px;background:#442335;color:#fff}
+.inv-interior-cover-photo{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center 40%;filter:saturate(.77) contrast(1.08)}
+.inv-cover-photo-voices{background-image:url("https://images.pexels.com/photos/25824000/pexels-photo-25824000.jpeg?auto=compress&cs=tinysrgb&w=1600")}
+.inv-cover-photo-academy{background-image:url("https://images.pexels.com/photos/8820688/pexels-photo-8820688.jpeg?auto=compress&cs=tinysrgb&w=1600")}
+.inv-cover-photo-opportunities{background-image:url("https://images.pexels.com/photos/32402135/pexels-photo-32402135.jpeg?auto=compress&cs=tinysrgb&w=1600")}
+.inv-interior-cover-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(31,11,24,.92) 0%,rgba(31,11,24,.40) 50%,rgba(31,11,24,.06) 100%)}
+.inv-interior-cover-copy{padding:clamp(28px,6vw,80px) max(24px,calc((100vw - 1200px)/2 + 32px));max-width:1100px}
+.inv-interior-cover-kicker{font-size:11px;font-weight:800;letter-spacing:.22em;color:#f1c6d5}
+.inv-interior-cover h1{font-size:clamp(46px,7.8vw,98px);line-height:1;letter-spacing:-.06em;margin:18px 0;color:#fff}
+.inv-interior-cover h1 em{font-family:Georgia,serif;font-weight:500;color:#f1c6d5}
+.inv-interior-cover p{font-size:clamp(15px,1.6vw,19px);max-width:520px;line-height:1.6;color:#fff}
+.inv-interior-cover-rule{display:block;width:65px;height:2px;background:#f1c6d5;margin-top:28px}
+.inv-voices-entry,.inv-academy-guides,.inv-opportunity-submit,.opportunities-list{scroll-margin-top:80px}
+.inv-opportunity-submit{margin-top:0!important;border-radius:0!important;border-left:0!important;border-right:0!important;background:#fbf6ef!important;box-shadow:none!important}
+.inv-opportunity-submit h2{font-family:Georgia,serif;font-size:clamp(30px,4vw,45px);color:#57273d}
+@media(max-width:700px){
+ .inv-interior-cover{min-height:65svh;margin-bottom:28px}
+ .inv-interior-cover-copy{padding:28px 24px 35px}
+ .inv-interior-cover h1{font-size:clamp(43px,11vw,65px)}
+ .inv-interior-cover p{font-size:15px}
+ .inv-cover-photo-voices{background-position:60% center}
+ .inv-cover-photo-academy{background-position:48% center}
+ .inv-cover-photo-opportunities{background-position:54% center}
+}
