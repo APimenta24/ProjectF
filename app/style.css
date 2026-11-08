@@ -762,3 +762,22 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 @media(min-width:901px){.inv-fashion-scene{top:66px;height:calc(100svh - 66px)}}
 @media(max-width:700px){.inv-fashion-scene{height:calc(100svh - 58px);min-height:480px}.inv-fashion-copy{padding-bottom:48px}}
 @media(prefers-reduced-motion:reduce){.inv-fashion-scene{scroll-snap-align:none}.inv-fashion-image{transform:none!important}}
+
+/* INVICTAS persistent editorial navigation */
+.inv-floating-dock{position:fixed;z-index:90;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;padding:9px 7px;background:rgba(251,246,239,.94);border:1px solid rgba(87,39,61,.13);border-radius:25px;box-shadow:0 14px 45px rgba(42,17,33,.15);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.inv-floating-dock button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:69px;min-height:62px;border:0;border-radius:17px;background:transparent;color:#715064;font-size:10px;font-weight:700;transition:background .2s,color .2s}
+.inv-floating-dock button.is-active{background:#57273d;color:#fff}
+.inv-floating-dock .inv-dock-glyph{font-family:Georgia,serif;font-size:24px;line-height:1}
+.inv-floating-dock button:hover:not(.is-active){background:#f1dce4;color:#57273d}
+@media(max-width:900px){
+ .inv-floating-dock{top:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:12px;right:12px;transform:none;flex-direction:row;justify-content:space-around;gap:0;border-radius:23px;padding:6px 5px;background:rgba(251,246,239,.97)}
+ .inv-floating-dock button{min-width:0;flex:1;min-height:55px;border-radius:16px;font-size:10px;gap:1px}
+ .inv-floating-dock .inv-dock-glyph{font-size:22px}
+ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+ .inv-fashion-header{position:sticky!important;top:0;z-index:80}
+ .inv-fashion-header .bar{min-height:54px!important}
+ .inv-fashion-scene{top:54px!important;height:calc(100svh - 54px)!important}
+ .inv-analytics-consent{bottom:calc(90px + env(safe-area-inset-bottom,0px))!important;max-height:60svh;overflow-y:auto}
+}
+@media(max-width:380px){.inv-floating-dock{left:7px;right:7px}.inv-floating-dock button{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.inv-floating-dock button{transition:none}}
