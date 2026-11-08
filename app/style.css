@@ -688,3 +688,40 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .inv-premium-bento .app-bento-side>article{min-height:145px!important}
 }
 @media(max-width:380px){.top .logo .invictas-wordmark{font-size:20px!important}.inv-premium-hero h1{font-size:36px}.inv-premium-hero-copy{padding:20px 17px}}
+
+/* INVICTAS immersive editorial experience: mobile-first, no external animation dependencies */
+.inv-fashion-header{background:rgba(251,246,239,.94)!important;backdrop-filter:blur(16px);border-bottom:1px solid rgba(87,39,61,.08)}
+.inv-fashion-header .bar{min-height:66px}
+.inv-fashion-story{position:relative;margin:0 calc(50% - 50vw) 0;overflow:clip;background:#321726}
+.inv-fashion-scene{position:relative;height:100svh;min-height:550px;max-height:1100px;isolation:isolate;color:#fff;display:flex;align-items:flex-end;overflow:clip}
+.inv-fashion-image{position:absolute;inset:-12% 0;z-index:-3;background-size:cover;background-position:center;transform:scale(1.02)}
+.inv-fashion-image-one{background-image:url("https://images.pexels.com/photos/32266256/pexels-photo-32266256.jpeg?auto=compress&cs=tinysrgb&w=1600");background-position:center 32%}
+.inv-fashion-image-two{background-image:url("https://images.pexels.com/photos/25824000/pexels-photo-25824000.jpeg?auto=compress&cs=tinysrgb&w=1600");background-position:center 40%}
+.inv-fashion-image-three{background-image:url("https://images.pexels.com/photos/8820688/pexels-photo-8820688.jpeg?auto=compress&cs=tinysrgb&w=1600");background-position:center 40%}
+.inv-fashion-image-four{background-image:url("https://images.pexels.com/photos/32402135/pexels-photo-32402135.jpeg?auto=compress&cs=tinysrgb&w=1600");background-position:center 38%}
+.inv-fashion-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(26,11,22,.82) 0%,rgba(26,11,22,.44) 37%,rgba(26,11,22,.02) 78%),linear-gradient(90deg,rgba(39,15,29,.2),transparent)}
+.inv-fashion-copy{padding:clamp(28px,7vw,90px);width:min(100%,900px);margin-bottom:clamp(35px,7vh,90px)}
+.inv-fashion-overline{display:block;font-size:11px;letter-spacing:.24em;font-weight:800;color:#ffe1e9}
+.inv-fashion-copy h1,.inv-fashion-copy h2{font-family:'DM Sans',Arial,sans-serif;font-size:clamp(53px,7.2vw,105px);line-height:.99;font-weight:700;letter-spacing:-.07em;margin:22px 0 18px;color:#fff}
+.inv-fashion-copy h1 em,.inv-fashion-copy h2 em{font-family:'Playfair Display',Georgia,serif;font-weight:500;color:#f6d4e0;letter-spacing:-.045em}
+.inv-fashion-copy p{font-size:clamp(16px,1.7vw,20px);line-height:1.6;max-width:480px;color:#fff6f6}
+.inv-fashion-copy button{margin-top:20px;padding:13px 0;border:0;border-bottom:1px solid #fff;color:#fff;background:transparent;font-weight:700;font-size:14px;letter-spacing:.02em}
+.inv-fashion-copy button:hover{color:#f6d4e0;border-color:#f6d4e0}
+.inv-scroll-cue{position:absolute;bottom:22px;right:28px;font-size:10px;font-weight:800;letter-spacing:.16em;color:#fff}
+@supports (animation-timeline:view()){
+ .inv-fashion-image{animation:inv-fashion-parallax linear both;animation-timeline:view();animation-range:cover}
+ @keyframes inv-fashion-parallax{from{transform:translateY(-5%) scale(1.07)}to{transform:translateY(5%) scale(1.07)}}
+}
+@media(min-width:901px){.inv-fashion-story{margin-top:0}.inv-fashion-scene{height:92svh}.inv-fashion-copy{padding-left:max(6vw,calc((100vw - 1240px)/2 + 32px))}}
+@media(max-width:700px){
+ .inv-fashion-header .bar{min-height:58px!important}
+ .inv-fashion-scene{height:calc(100svh - 58px);min-height:540px}
+ .inv-fashion-image{inset:-9% 0}
+ .inv-fashion-copy{padding:24px 25px 45px;margin-bottom:22px}
+ .inv-fashion-copy h1,.inv-fashion-copy h2{font-size:clamp(47px,12vw,67px);line-height:1.02;margin:17px 0}
+ .inv-fashion-copy p{font-size:15px;max-width:330px;line-height:1.55}
+ .inv-fashion-copy button{font-size:13px}
+ .inv-fashion-overline{font-size:10px;letter-spacing:.18em}
+ .inv-scroll-cue{font-size:9px;right:25px;bottom:13px}
+}
+@media(prefers-reduced-motion:reduce){.inv-fashion-image{animation:none!important;transform:none!important}}
