@@ -847,3 +847,22 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .inv-voices-entry,.inv-academy-guides,.inv-opportunity-submit{margin-top:22px}
 }
 @media(prefers-reduced-motion:reduce){.inv-interior-cover-photo{transform:none}.inv-guide-grid article,.inv-voices-entry-grid article{transition:none}}
+
+/* INVICTAS — shared polish across all pages */
+:root{--inv-focus:#a84971;--inv-surface:#fffdf9}
+.top:not(.inv-fashion-header) .invictas-trophy-mark{filter:drop-shadow(0 1px 1px rgba(44,19,32,.15)) brightness(.42) sepia(.65) saturate(1.7) hue-rotate(285deg)!important}
+:where(button,a,input,select,textarea):focus-visible{outline:3px solid var(--inv-focus)!important;outline-offset:3px!important}
+:where(button,a){-webkit-tap-highlight-color:rgba(168,73,113,.16)}
+:where(input,select,textarea){accent-color:var(--inv-focus)}
+:where(input,select,textarea):disabled{opacity:.58;cursor:not-allowed}
+:where(.panel,.post,.content-card,.story-mini,.empty){box-shadow:0 5px 25px rgba(61,31,45,.035)}
+:where(.panel,.post,.content-card) :where(p,li){line-height:1.65}
+:where(.intro,.panel,.inv-analytics-panel) h1,:where(.intro,.panel,.inv-analytics-panel) h2{overflow-wrap:break-word;text-wrap:balance}
+.inv-analytics-table{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.inv-analytics-table table{min-width:480px}
+@media(max-width:900px){
+ :where(button,input,select,textarea){font-size:16px}
+ :where(.panel,.post,.content-card){max-width:100%}
+ .inv-analytics-table table{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
