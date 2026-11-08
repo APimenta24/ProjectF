@@ -781,3 +781,21 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 }
 @media(max-width:380px){.inv-floating-dock{left:7px;right:7px}.inv-floating-dock button{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.inv-floating-dock button{transition:none}}
+
+/* Minimal fashion masthead: transparent wordmark floats over imagery on home only */
+.top.inv-fashion-header{position:fixed!important;top:0!important;left:0;right:0;width:100%;z-index:80;background:linear-gradient(180deg,rgba(17,8,16,.43),rgba(17,8,16,0))!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;pointer-events:none}
+.top.inv-fashion-header .bar{min-height:66px!important;pointer-events:none}
+.top.inv-fashion-header .logo{pointer-events:auto;color:#fff!important;text-shadow:0 2px 12px rgba(18,8,16,.65);filter:drop-shadow(0 2px 9px rgba(18,8,16,.4))}
+.top.inv-fashion-header .logo .invictas-wordmark,.top.inv-fashion-header .logo .logo-dot,.top.inv-fashion-header .logo small{color:#fff!important}
+.top.inv-fashion-header .invictas-trophy-mark{filter:brightness(0) invert(1);background:transparent!important}
+.top.inv-fashion-header .inv-header-actions,.top.inv-fashion-header nav{pointer-events:auto}
+.top.inv-fashion-header .mobile-menu-toggle{background:rgba(255,255,255,.12)!important;color:#fff!important;border:1px solid rgba(255,255,255,.55)!important;backdrop-filter:blur(8px)}
+.top.inv-fashion-header .inv-profile-shortcut{background:rgba(40,16,30,.38);color:#fff;border-color:rgba(255,255,255,.5)}
+.inv-fashion-story .inv-fashion-scene{top:0!important;height:100svh!important}
+@media(max-width:900px){
+ .top.inv-fashion-header .bar{min-height:60px!important}
+ .top.inv-fashion-header .inv-header-actions{display:none!important}
+ .top.inv-fashion-header .logo{margin-left:0}
+ .inv-fashion-story .inv-fashion-scene{top:0!important;height:100svh!important}
+}
+@media(min-width:901px){.top.inv-fashion-header nav button{color:#fff;text-shadow:0 1px 8px #24101b}.top.inv-fashion-header nav button.active{background:rgba(255,255,255,.16);color:#fff}}
