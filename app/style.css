@@ -588,3 +588,12 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .inv-analytics-metrics strong{display:block;font-size:30px}
 .inv-analytics-metrics span{font-size:13px}
 @media(max-width:560px){.inv-analytics-consent{bottom:8px;padding:16px}.inv-analytics-consent>div{flex-direction:column}.inv-analytics-consent button{width:100%}}
+
+.inv-analytics-consent>strong{display:block;font-size:18px;margin-bottom:8px}
+.inv-analytics-consent .inv-cookie-detail{display:block;background:#f7f2f4;padding:12px;border-radius:10px;margin:12px 0}
+.inv-analytics-consent .inv-cookie-detail p{margin:0 0 9px}
+.inv-analytics-consent .inv-cookie-detail a{text-decoration:underline}
+.inv-legal-page{max-width:840px;margin:45px auto;padding:20px 26px 80px;line-height:1.75}
+.inv-legal-page h1{font-size:clamp(34px,5vw,54px);line-height:1.2}
+.inv-legal-page h2{margin-top:32px;font-size:24px}
+.inv-legal-page a{text-decoration:underline}
