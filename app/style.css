@@ -748,3 +748,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .inv-fashion-copy p{max-width:320px}
 }
 @media(prefers-reduced-motion:reduce){.inv-discovery-rail button{transition:none}}
+
+/* Sticky editorial chapters: images remain with the reader as new chapters slide over */
+.inv-fashion-story{overflow:visible!important;isolation:isolate}
+.inv-fashion-scene{position:sticky!important;top:58px;height:calc(100svh - 58px);min-height:480px;max-height:none;overflow:hidden;content-visibility:visible!important;contain:none!important;box-shadow:0 -14px 40px rgba(26,10,22,.12)}
+.inv-fashion-scene:nth-child(1){z-index:1}
+.inv-fashion-scene:nth-child(2){z-index:2}
+.inv-fashion-scene:nth-child(3){z-index:3}
+.inv-fashion-scene:nth-child(4){z-index:4}
+.inv-fashion-image{inset:0!important;transform:scale(1.035);will-change:auto}
+.inv-fashion-copy{position:relative;z-index:2}
+.inv-discovery-rail{position:relative;z-index:5}
+@media(min-width:901px){.inv-fashion-scene{top:66px;height:calc(100svh - 66px)}}
+@media(max-width:700px){.inv-fashion-scene{height:calc(100svh - 58px);min-height:480px}.inv-fashion-copy{padding-bottom:48px}}
+@media(prefers-reduced-motion:reduce){.inv-fashion-scene{scroll-snap-align:none}.inv-fashion-image{transform:none!important}}
