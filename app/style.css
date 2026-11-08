@@ -830,3 +830,20 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .inv-cover-photo-academy{background-position:48% center}
  .inv-cover-photo-opportunities{background-position:54% center}
 }
+
+/* Consistent editorial covers and clear interactive content on inner pages */
+.inv-interior-cover{min-height:clamp(440px,85svh,900px);margin-bottom:0}
+.inv-interior-cover-photo{transform:scale(1.035)}
+.inv-interior-cover-copy{padding-top:125px;padding-bottom:clamp(48px,9vh,115px)}
+.inv-interior-cover h1{max-width:820px}
+.inv-voices-entry,.inv-academy-guides,.inv-opportunity-submit{margin-top:42px}
+.inv-guide-grid article,.inv-voices-entry-grid article{transition:transform .2s ease,box-shadow .2s ease}
+@media(hover:hover){.inv-guide-grid article:hover,.inv-voices-entry-grid article:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(64,28,47,.08)}}
+@media(max-width:900px){
+ .inv-interior-cover{min-height:100svh!important}
+ .inv-interior-cover-copy{padding:110px 24px calc(125px + env(safe-area-inset-bottom,0px))}
+ .inv-interior-cover h1{font-size:clamp(47px,11vw,70px)}
+ .inv-interior-cover-photo{background-position:center 38%}
+ .inv-voices-entry,.inv-academy-guides,.inv-opportunity-submit{margin-top:22px}
+}
+@media(prefers-reduced-motion:reduce){.inv-interior-cover-photo{transform:none}.inv-guide-grid article,.inv-voices-entry-grid article{transition:none}}
