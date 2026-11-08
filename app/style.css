@@ -643,3 +643,48 @@ nav button.active{color:var(--inv-bordeaux);border-bottom-color:var(--inv-bordea
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b65f82;outline-offset:3px}
 @media(max-width:760px){.invictas-final-grid{grid-template-columns:1fr}.invictas-final-grid button{min-height:175px;padding:22px}.invictas-final-grid strong{margin:14px 0 8px}.invictas-final-paths{margin:32px 0}.app-lead{border-radius:16px}}
 @media(prefers-reduced-motion:reduce){.invictas-final-grid button{transition:none}.invictas-final-grid button:hover{transform:none}}
+
+/* Premium integrated hero: replaces mobile collage and overlapping text */
+.inv-premium-hero{position:relative;isolation:isolate;min-height:530px;margin:20px 0 16px;border-radius:24px;overflow:hidden;background:#351a2a;color:#fff;display:flex;align-items:flex-end}
+.inv-premium-hero-photos{position:absolute;inset:0;display:grid;grid-template-columns:58% 42%;z-index:-2}
+.inv-premium-photo{background-size:cover;background-position:center 38%;filter:saturate(.78) contrast(1.06)}
+.inv-premium-photo-one{background-image:url("https://images.pexels.com/photos/32266256/pexels-photo-32266256.jpeg?auto=compress&cs=tinysrgb&w=1200")}
+.inv-premium-photo-two{background-image:url("https://images.pexels.com/photos/25824000/pexels-photo-25824000.jpeg?auto=compress&cs=tinysrgb&w=900");border-left:3px solid rgba(255,255,255,.16)}
+.inv-premium-hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(39,13,29,.92) 0%,rgba(46,19,35,.64) 53%,rgba(46,19,35,.2) 100%),linear-gradient(0deg,rgba(36,14,28,.86),transparent 60%)}
+.inv-premium-hero-copy{padding:clamp(28px,5vw,66px);width:min(100%,780px)}
+.inv-premium-kicker{font-size:11px;font-weight:800;letter-spacing:.18em;color:#f6d6e0}
+.inv-premium-hero h1{font-family:'DM Sans',Arial,sans-serif;font-size:clamp(45px,6.2vw,83px);line-height:1.01;letter-spacing:-.06em;font-weight:800;margin:22px 0}
+.inv-premium-hero h1 em{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:#f2bcd1}
+.inv-premium-hero p{max-width:510px;font-size:clamp(15px,1.5vw,19px);line-height:1.65;color:#fff4f5}
+.inv-premium-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+.inv-premium-hero-actions button{border:1px solid #f1cad9;border-radius:999px;background:#f1cad9;color:#432339;padding:14px 22px;font-weight:800;font-size:14px}
+.inv-premium-hero-actions button.inv-premium-secondary{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.65)}
+.inv-premium-bento{display:block!important;margin-top:0!important}
+.inv-premium-bento .app-bento-side{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+.inv-premium-bento .app-bento-side>article{min-height:175px!important}
+.inv-top-home{background:#fbf6ef!important}
+.inv-top-home .logo,.inv-top-home .logo .invictas-wordmark{color:#57273d!important}
+.inv-top-home .inv-profile-shortcut{background:#57273d;color:#fff}
+@media(max-width:700px){
+ .top .bar{min-height:62px!important;flex-wrap:nowrap!important;gap:8px!important}
+ .top .logo{font-size:initial!important;gap:7px!important;min-width:0!important}
+ .top .logo .invictas-wordmark{font-size:clamp(20px,5.6vw,27px)!important;letter-spacing:-1.2px!important}
+ .top .invictas-trophy-mark{width:32px!important;height:32px!important;flex:none}
+ .top .inv-header-actions{gap:0!important}
+ .top .inv-profile-shortcut{display:none!important}
+ .top .mobile-menu-toggle{background:#fff8f6;border-color:#d8bfc8;color:#57273d;width:44px!important;height:44px!important}
+ .inv-premium-hero{min-height:535px;margin:12px 0 14px;border-radius:18px;align-items:flex-end}
+ .inv-premium-hero-photos{grid-template-columns:62% 38%}
+ .inv-premium-photo-one{background-position:43% center}
+ .inv-premium-photo-two{background-position:48% center}
+ .inv-premium-hero-shade{background:linear-gradient(0deg,rgba(41,15,31,.97) 0%,rgba(41,15,31,.82) 35%,rgba(41,15,31,.10) 85%)}
+ .inv-premium-hero-copy{padding:24px 22px 27px}
+ .inv-premium-kicker{font-size:10px;letter-spacing:.13em}
+ .inv-premium-hero h1{font-size:clamp(38px,10vw,54px);line-height:1.04;margin:13px 0}
+ .inv-premium-hero p{font-size:14px;line-height:1.55;max-width:350px}
+ .inv-premium-hero-actions{margin-top:18px;gap:8px}
+ .inv-premium-hero-actions button{font-size:12px;padding:12px 15px}
+ .inv-premium-bento .app-bento-side{grid-template-columns:1fr!important}
+ .inv-premium-bento .app-bento-side>article{min-height:145px!important}
+}
+@media(max-width:380px){.top .logo .invictas-wordmark{font-size:20px!important}.inv-premium-hero h1{font-size:36px}.inv-premium-hero-copy{padding:20px 17px}}
