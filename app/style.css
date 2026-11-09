@@ -1026,3 +1026,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-admin-main .panel{margin:0 0 20px;max-width:100%}
 .inv-admin-main .inv-analytics-table{overflow-x:auto}
 @media(max-width:850px){.inv-admin-shell{grid-template-columns:1fr}.inv-admin-sidebar{padding:12px}.inv-admin-brand{padding:8px 10px 12px}.inv-admin-sidebar nav{display:flex;overflow-x:auto;gap:4px;padding-bottom:5px}.inv-admin-sidebar nav button{width:auto;white-space:nowrap;padding:10px 12px}.inv-admin-main{padding:18px}}
+
+.inv-admin-subnav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px;padding-bottom:12px;border-bottom:1px solid #eadce1}
+.inv-admin-subnav button{padding:10px 17px;border:1px solid #e2cbd5;border-radius:9px;background:#fff;color:#63344a;cursor:pointer;font:inherit}
+.inv-admin-subnav button.is-active{background:#63344a;color:#fff;border-color:#63344a}
+.inv-admin-main .inv-cms-list>div{min-height:60px}
