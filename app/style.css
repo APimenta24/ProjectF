@@ -1031,3 +1031,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-admin-subnav button{padding:10px 17px;border:1px solid #e2cbd5;border-radius:9px;background:#fff;color:#63344a;cursor:pointer;font:inherit}
 .inv-admin-subnav button.is-active{background:#63344a;color:#fff;border-color:#63344a}
 .inv-admin-main .inv-cms-list>div{min-height:60px}
+
+/* Backoffice: reversible removal actions, without duplicate visual badges */
+.inv-admin-danger{border:1px solid #b85d70;border-radius:8px;padding:9px 13px;background:transparent;color:#922c47;font:inherit;cursor:pointer}
+.inv-admin-danger:hover{background:#fff0f3}
+.inv-admin-danger:focus-visible{outline:3px solid #a84971;outline-offset:2px}
