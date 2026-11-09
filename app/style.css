@@ -866,3 +866,36 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .inv-analytics-table table{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Editorial-to-utility handoff: immersive entry without hiding the actual page */
+.inv-interior-cover{min-height:clamp(460px,74svh,790px)!important}
+.inv-interior-cover-copy{width:100%;max-width:1200px;padding-bottom:clamp(52px,8vh,96px)}
+.inv-interior-cover h1{max-width:780px;text-wrap:balance}
+.inv-interior-cover p{max-width:570px}
+.inv-voices-entry,.inv-academy-guides,.inv-opportunity-submit{margin-top:0!important}
+.inv-voices-entry,.inv-academy-guides{padding-top:clamp(34px,5vw,72px);padding-bottom:clamp(32px,5vw,64px)}
+.inv-voices-entry h2,.inv-guide-head h2,.inv-opportunity-submit h2{line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.inv-voices-entry-grid article,.inv-guide-grid article{height:100%;border:1px solid rgba(87,39,61,.11);background:var(--inv-surface);box-shadow:0 8px 30px rgba(50,22,39,.035)}
+.inv-voices-entry-grid article p,.inv-guide-grid article p{line-height:1.65}
+.inv-opportunity-submit{padding-top:clamp(36px,5vw,70px)!important;padding-bottom:clamp(36px,5vw,70px)!important}
+.inv-opportunity-submit .primary{min-height:48px}
+.inv-opportunity-form{max-width:820px}
+.inv-opportunity-form :where(input,select,textarea){max-width:100%}
+.inv-floating-dock button{cursor:pointer}
+@media(max-width:900px){
+ .inv-interior-cover{min-height:clamp(500px,76svh,740px)!important}
+ .inv-interior-cover-copy{padding:104px 24px 65px}
+ .inv-interior-cover h1{font-size:clamp(44px,10.4vw,70px)}
+ .inv-interior-cover p{max-width:440px}
+ .inv-voices-entry,.inv-academy-guides{padding-top:36px}
+ .inv-floating-dock{max-width:580px;margin-inline:auto}
+}
+@media(max-width:600px){
+ .inv-interior-cover{min-height:clamp(440px,69svh,620px)!important}
+ .inv-interior-cover-copy{padding:98px 22px 48px}
+ .inv-interior-cover h1{font-size:clamp(42px,11vw,60px)}
+ .inv-interior-cover p{font-size:14px;line-height:1.55}
+ .inv-interior-cover-rule{margin-top:20px}
+ .inv-voices-entry-grid,.inv-guide-grid{gap:14px}
+ .inv-opportunity-submit{padding-inline:20px!important}
+}
