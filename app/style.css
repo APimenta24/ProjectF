@@ -1117,3 +1117,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-admin-user-danger input{width:100%;max-width:440px;padding:12px;border:1px solid #caaeb9;border-radius:7px;display:block}
 .inv-admin-danger{background:#8b3042!important;color:#fff!important;border:0;border-radius:7px;padding:11px 15px;cursor:pointer}
 .inv-admin-danger:disabled{opacity:.5;cursor:not-allowed}
+
+/* P0: explicit approval and contributor-consent controls */
+.inv-admin-approval-check{display:flex!important;align-items:flex-start;gap:10px;line-height:1.5;margin:14px 0;padding:12px 14px;border:1px solid #e7cbd4;border-radius:9px;background:#fff8fa;color:#543344;font-size:14px}
+.inv-admin-approval-check input[type="checkbox"]{width:18px!important;height:18px!important;min-width:18px;margin:2px 0 0;accent-color:#713e55;cursor:pointer}
+.inv-admin-review .actions button:disabled,.inv-opportunity-admin button:disabled{opacity:.45;cursor:not-allowed}
