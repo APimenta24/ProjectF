@@ -945,3 +945,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-community-poll>*{max-width:100%}
 .inv-academy-guides{margin-top:64px!important;padding-top:50px!important;border-top:1px solid rgba(87,39,61,.16)}
 @media(max-width:760px){.inv-community-welcome{flex-direction:column;align-items:start;margin:16px 0 26px;padding:30px 23px}.inv-community-welcome button{width:100%}.community-layout{display:flex;flex-direction:column}.community-layout>section{width:100%}.inv-community-poll{margin:30px 0}.inv-academy-guides{margin-top:40px!important;padding-top:35px!important}}
+
+/* Six destination mobile dock: keep Opportunities visible and tappable */
+@media(max-width:900px){.inv-floating-dock{gap:1px;padding:6px 3px}.inv-floating-dock button{min-width:0;padding:6px 2px;font-size:clamp(8px,1.8vw,10px);overflow-wrap:anywhere}.inv-floating-dock .inv-dock-glyph{font-size:20px}}
+@media(max-width:390px){.inv-floating-dock button{font-size:8px}.inv-floating-dock .inv-dock-glyph{font-size:18px}}
