@@ -1106,3 +1106,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   padding:10px 12px!important;
  }
 }
+
+.inv-admin-users-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:20px 0}
+.inv-admin-users-toolbar span{font-size:13px;color:#705465}
+.inv-admin-user-detail{margin:22px 0;padding:22px;border:1px solid #dfcbd3;border-radius:12px;background:#fff9f9}
+.inv-admin-user-detail h3{margin:0 0 16px}
+.inv-admin-user-detail p{margin:8px 0;overflow-wrap:anywhere}
+.inv-admin-user-detail button{margin:10px 10px 10px 0}
+.inv-admin-user-danger{padding:16px;margin:20px 0;background:#fff0f1;border:1px solid #e8c4c9;border-radius:10px}
+.inv-admin-user-danger input{width:100%;max-width:440px;padding:12px;border:1px solid #caaeb9;border-radius:7px;display:block}
+.inv-admin-danger{background:#8b3042!important;color:#fff!important;border:0;border-radius:7px;padding:11px 15px;cursor:pointer}
+.inv-admin-danger:disabled{opacity:.5;cursor:not-allowed}
