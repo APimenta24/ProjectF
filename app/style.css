@@ -899,3 +899,26 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .inv-voices-entry-grid,.inv-guide-grid{gap:14px}
  .inv-opportunity-submit{padding-inline:20px!important}
 }
+
+/* Editorial reading system: stories are intimate, Academy is practical */
+.inv-story-detail,.editorial-reading{width:min(100%,960px);margin:clamp(28px,5vw,72px) auto;padding:clamp(26px,5vw,72px);background:#fffdf9;border:1px solid rgba(87,39,61,.1);box-shadow:0 20px 65px rgba(55,22,40,.055)}
+.inv-story-detail{max-width:880px}
+.inv-story-detail h1,.editorial-reading-head h1{font-family:Georgia,serif;font-weight:500;line-height:1.08;letter-spacing:-.045em;font-size:clamp(38px,6vw,76px);color:#4c2437;text-wrap:balance;margin:18px 0 22px}
+.inv-story-detail-date{font-size:12px;letter-spacing:.08em;color:#826f77}
+.inv-story-detail-body,.editorial-reading>section{max-width:690px;margin-inline:auto}
+.inv-story-detail-body p,.editorial-reading>section p{font-size:clamp(16px,1.4vw,19px);line-height:1.88;color:#392e34;margin:0 0 1.4em}
+.inv-story-detail-body p:first-child{font-size:clamp(19px,2.2vw,25px);line-height:1.6;color:#653b50}
+.editorial-reading-head{max-width:790px;margin-bottom:clamp(36px,5vw,70px);padding-bottom:30px;border-bottom:1px solid rgba(87,39,61,.18)}
+.editorial-reading-head>p{font-size:clamp(18px,2vw,24px);line-height:1.6;color:#68545d}
+.editorial-reading>section h2{font-family:Georgia,serif;color:#57273d;font-size:clamp(26px,3vw,38px);line-height:1.18;letter-spacing:-.03em;margin:2em 0 .7em}
+.inv-story-editorial-footer,.inv-editorial-transparency{margin-top:40px;padding:26px clamp(18px,3vw,36px);background:#f8f0f1;border-left:3px solid #a84971;border-radius:0 12px 12px 0}
+.inv-story-editorial-footer p,.inv-editorial-transparency p{font-size:14px;line-height:1.75;color:#5c4751}
+.inv-editorial-transparency h2{font-family:Georgia,serif;font-size:25px;color:#57273d;margin:12px 0}
+.inv-story-detail-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.inv-story-detail-actions button{min-height:44px}
+.top.inv-fashion-header{background:linear-gradient(180deg,rgba(22,9,18,.78),rgba(22,9,18,.35) 62%,transparent)!important}
+.top.inv-fashion-header nav button{border-radius:999px!important;padding:10px 13px!important;background:rgba(35,14,27,.32)!important;border:1px solid rgba(255,255,255,.2)!important;color:#fff!important}
+.top.inv-fashion-header nav button.active{background:#fbf6ef!important;color:#57273d!important;text-shadow:none!important;border-color:#fbf6ef!important}
+.top.inv-fashion-header nav button:hover{background:rgba(255,255,255,.24)!important}
+@media(max-width:900px){.inv-story-detail,.editorial-reading{margin:18px auto;padding:30px 22px}.top.inv-fashion-header nav button{color:#57273d!important;background:transparent!important;border-color:transparent!important}}
+@media(max-width:600px){.inv-story-detail,.editorial-reading{border-left:0;border-right:0;padding:30px 20px}.inv-story-detail-body p,.editorial-reading>section p{line-height:1.75}.inv-story-editorial-footer,.inv-editorial-transparency{padding:22px 18px}}
