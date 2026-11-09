@@ -1036,3 +1036,19 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-admin-danger{border:1px solid #b85d70;border-radius:8px;padding:9px 13px;background:transparent;color:#922c47;font:inherit;cursor:pointer}
 .inv-admin-danger:hover{background:#fff0f3}
 .inv-admin-danger:focus-visible{outline:3px solid #a84971;outline-offset:2px}
+
+/* Backoffice sidebar: remove inherited decorative oval overlays */
+.inv-admin-sidebar,.inv-admin-sidebar nav,.inv-admin-sidebar nav button{background-image:none!important}
+.inv-admin-sidebar nav button{position:relative;isolation:isolate;box-shadow:none!important;appearance:none!important;min-height:44px;display:block;line-height:1.35}
+.inv-admin-sidebar nav button::before,.inv-admin-sidebar nav button::after,.inv-admin-brand::before,.inv-admin-brand::after{content:none!important;display:none!important}
+.inv-admin-sidebar nav button.is-active{background:#704356!important;box-shadow:inset 3px 0 #eeb8cb!important}
+.inv-admin-sidebar nav button:not(.is-active){background:transparent!important}
+.inv-admin-sidebar nav button:not(.is-active):hover{background:#ffffff1b!important}
+.inv-admin-review textarea,.inv-opportunity-admin textarea{display:block;width:100%;min-height:78px;padding:12px;margin:12px 0;border:1px solid #dbc6d0;border-radius:8px;font:inherit}
+.inv-editorial-contribute{margin:28px 0}
+.inv-editorial-contribute .panel{max-width:720px;margin-top:16px}
+.inv-editorial-contribute input,.inv-editorial-contribute textarea{display:block;width:100%;padding:12px;margin:12px 0;border:1px solid #dbc6d0;border-radius:8px;font:inherit}
+.inv-member-notifications{margin:22px 0}
+.inv-member-notification{border-top:1px solid #eadde2;padding:16px 0;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.inv-member-notification p{margin:0;white-space:pre-wrap}
+.inv-member-notification small{opacity:.7}
