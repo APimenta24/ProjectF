@@ -47,6 +47,7 @@ export default function Home(){
  const [analyticsRows,setAnalyticsRows]=useState<{event_type:string;event_label:string;event_count:number}[]>([]),[analyticsError,setAnalyticsError]=useState('');
  const [memberOverview,setMemberOverview]=useState<{total:number;signed_in_7d:number;signed_in_30d:number;new_30d:number;members:{id:string;display_name:string|null;role:string;created_at:string;last_sign_in_at:string|null}[]}|null>(null);
  const [memberError,setMemberError]=useState('');
+  const [admin,setAdmin]=useState(false),[users,setUsers]=useState<number|null>(null),[pending,setPending]=useState<Post[]>([]),[newContent,setNewContent]=useState(''),[newSummary,setNewSummary]=useState(''),[kind,setKind]=useState('artigo');
  const [coverOverrides,setCoverOverrides]=useState<Record<string,string>>({});
  const [cmsArticles,setCmsArticles]=useState<CmsArticle[]>([]),[cmsOpen,setCmsOpen]=useState<string|null>(null);
  const [coverDraft,setCoverDraft]=useState<Record<string,string>>({});
@@ -58,7 +59,7 @@ export default function Home(){
  useEffect(()=>{if(admin)void loadMembers()},[admin]);
  const saveCover=async(id:string)=>{if(!db||!admin)return;const value=(coverDraft[id]??coverOverrides[id]??'').trim();if(value&&!/^https:\/\//i.test(value)&&!value.startsWith('/')){setCoverNotice('Usa uma ligação HTTPS ou um caminho interno.');return}const r=value?await db.from('editorial_cover_overrides').upsert({article_id:id,image_url:value,updated_at:new Date().toISOString()}):await db.from('editorial_cover_overrides').delete().eq('article_id',id);if(r.error)setCoverNotice(r.error.message);else{setCoverNotice('Imagem publicada para todos os visitantes.');await loadEditorial()}};
  const uploadCover=async(id:string,file:File)=>{if(!db||!admin)return;if(file.size>5242880||!['image/jpeg','image/png','image/webp'].includes(file.type)){setCoverNotice('JPG, PNG ou WebP até 5 MB.');return}const ext=file.type.split('/')[1].replace('jpeg','jpg');const key=crypto.randomUUID()+'.'+ext;const r=await db.storage.from('editorial-images').upload(key,file,{contentType:file.type});if(r.error){setCoverNotice(r.error.message);return}const url=db.storage.from('editorial-images').getPublicUrl(key).data.publicUrl;const saved=await db.from('editorial_cover_overrides').upsert({article_id:id,image_url:url,updated_at:new Date().toISOString()});if(saved.error)setCoverNotice(saved.error.message);else{setCoverNotice('Fotografia publicada.');await loadEditorial()}};
- const [admin,setAdmin]=useState(false),[users,setUsers]=useState<number|null>(null),[pending,setPending]=useState<Post[]>([]),[newContent,setNewContent]=useState(''),[newSummary,setNewSummary]=useState(''),[kind,setKind]=useState('artigo');
+
  const [interests,setInterests]=useState<string[]>([]),[sports,setSports]=useState<string[]>([]),[goal,setGoal]=useState(''),[prefsLoaded,setPrefsLoaded]=useState(false),[prefsSaving,setPrefsSaving]=useState(false);
  const [birthDate,setBirthDate]=useState(''),[gender,setGender]=useState(''),[signupInterests,setSignupInterests]=useState<string[]>([]),[signupSports,setSignupSports]=useState<string[]>([]),[signupMode,setSignupMode]=useState(false),[profileSection,setProfileSection]=useState<'inicio'|'preferencias'|'percurso'|'para-mim'>('inicio');
  const [weeklyActions,setWeeklyActions]=useState<string[]>([]);
