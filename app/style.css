@@ -949,3 +949,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 /* Six destination mobile dock: keep Opportunities visible and tappable */
 @media(max-width:900px){.inv-floating-dock{gap:1px;padding:6px 3px}.inv-floating-dock button{min-width:0;padding:6px 2px;font-size:clamp(8px,1.8vw,10px);overflow-wrap:anywhere}.inv-floating-dock .inv-dock-glyph{font-size:20px}}
 @media(max-width:390px){.inv-floating-dock button{font-size:8px}.inv-floating-dock .inv-dock-glyph{font-size:18px}}
+
+/* Consistent photographic identity from article card to reading page */
+.inv-editorial-card-photo{position:relative;aspect-ratio:1.42;overflow:hidden;background:#e8dfe1}
+.inv-editorial-card-photo img,.inv-editorial-hero-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.inv-editorial-card-photo img{transition:transform .5s ease}
+.editorial-card:hover .inv-editorial-card-photo img{transform:scale(1.045)}
+.inv-editorial-card-photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(26,13,22,.6))}
+.inv-editorial-card-photo span{position:absolute;bottom:16px;left:19px;z-index:1;color:#fff;font-size:11px;letter-spacing:.16em;font-weight:700}
+.inv-editorial-hero-photo{width:100%;height:clamp(240px,42vw,520px);overflow:hidden;margin-bottom:clamp(28px,4vw,48px);background:#e8dfe1}
+.inv-editorial-hero-photo img{object-position:center 42%}
+@media(max-width:600px){.inv-editorial-card-photo{aspect-ratio:1.45}.inv-editorial-hero-photo{height:245px;margin-bottom:26px}}
+@media(prefers-reduced-motion:reduce){.inv-editorial-card-photo img{transition:none}.editorial-card:hover .inv-editorial-card-photo img{transform:none}}
