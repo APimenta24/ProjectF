@@ -1122,3 +1122,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-admin-approval-check{display:flex!important;align-items:flex-start;gap:10px;line-height:1.5;margin:14px 0;padding:12px 14px;border:1px solid #e7cbd4;border-radius:9px;background:#fff8fa;color:#543344;font-size:14px}
 .inv-admin-approval-check input[type="checkbox"]{width:18px!important;height:18px!important;min-width:18px;margin:2px 0 0;accent-color:#713e55;cursor:pointer}
 .inv-admin-review .actions button:disabled,.inv-opportunity-admin button:disabled{opacity:.45;cursor:not-allowed}
+
+/* P0: editorial evidence and photography permissions */
+.inv-cms-provenance{margin:20px 0;padding:18px;border:1px solid #d8c4cb;border-radius:12px;display:grid;gap:12px}
+.inv-cms-provenance legend{padding:0 8px;font-weight:700;color:#623749}
+.inv-cms-provenance label{display:grid;gap:7px}
+.inv-cms-provenance input:not([type="checkbox"]),.inv-cms-provenance textarea{width:100%;padding:11px;border:1px solid #d8c4cb;border-radius:8px;font:inherit}
+.inv-cms-provenance .inv-cms-check{display:flex;align-items:flex-start;gap:9px}
+.inv-cms-provenance p{font-size:.9rem;color:#6e5a62}
+.inv-editorial-provenance{margin:38px 0;padding:22px;border-top:1px solid #dec9d1;background:#fbf5f6}
+.inv-editorial-provenance p{overflow-wrap:anywhere;line-height:1.7}
+.inv-editorial-image-credit{font-size:.82rem;opacity:.75;margin-top:12px}
