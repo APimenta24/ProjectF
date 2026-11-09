@@ -961,3 +961,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-editorial-hero-photo img{object-position:center 42%}
 @media(max-width:600px){.inv-editorial-card-photo{aspect-ratio:1.45}.inv-editorial-hero-photo{height:245px;margin-bottom:26px}}
 @media(prefers-reduced-motion:reduce){.inv-editorial-card-photo img{transition:none}.editorial-card:hover .inv-editorial-card-photo img{transform:none}}
+
+/* Academy: image is a quiet headline strip, not a competing card */
+.editorial-card{overflow:hidden}
+.inv-editorial-card-photo{aspect-ratio:auto;height:clamp(84px,9vw,118px);border-bottom:1px solid rgba(87,39,61,.12)}
+.inv-editorial-card-photo img{object-position:center 44%;filter:saturate(.68) contrast(.94) brightness(.9)}
+.inv-editorial-card-photo:after{inset:0;background:linear-gradient(90deg,rgba(45,20,34,.34),rgba(45,20,34,.08))}
+.inv-editorial-card-photo span{bottom:12px;left:16px;font-size:10px;letter-spacing:.13em}
+.editorial-card:hover .inv-editorial-card-photo img{transform:scale(1.025)}
+.inv-editorial-hero-photo{height:clamp(280px,40vw,500px);border-radius:3px}
+.inv-editorial-hero-photo img{filter:saturate(.9);object-position:center}
+@media(max-width:600px){.inv-editorial-card-photo{height:92px;aspect-ratio:auto}.inv-editorial-hero-photo{height:260px}}
