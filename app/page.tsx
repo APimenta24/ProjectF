@@ -14,8 +14,22 @@ const primaryTab=(t:string)=>t==='Pulse'?'Ferramentas':t==='Descobrir'?'Academia
 const themes=['Todos','Competição','Treino','Saúde e bem-estar','Carreira','Maternidade','Liderança'];
 const interestOptions=['Rendimento','Bem-estar','Liderança','Carreira','Comunidade','Saúde','Oportunidades','Aprendizagem'];
 const sportOptions=['Hóquei em patins','Futebol','Basquetebol','Voleibol','Andebol','Atletismo','Patinagem artística','Outra modalidade'];
-const articlePhotos=['photo-1530549387789-4c1017266635','photo-1518611012118-696072aa579a','photo-1517836357463-d25dfeac3438','photo-1547347298-4074fc3086f0','photo-1571019613454-1cb2f99b2d8b','photo-1526676037777-05a232554f77'];
-const articlePhoto=(id:string)=>'https://images.unsplash.com/'+articlePhotos[[...id].reduce((n,c)=>n+c.charCodeAt(0),0)%articlePhotos.length]+'?auto=format&fit=crop&w=1400&q=80';
+// Curated editorial cover assignments. Replace with licensed local assets before public launch.
+const articleCoverById:Record<string,string>={
+ 'nutricao-rendimento':'photo-1517836357463-d25dfeac3438',
+ 'energia-reds':'photo-1518611012118-696072aa579a',
+ 'ferro-atletas':'photo-1547347298-4074fc3086f0',
+ 'ciclo-rendimento':'photo-1530549387789-4c1017266635',
+ 'lesoes-prevencao':'photo-1571019613454-1cb2f99b2d8b',
+ 'saude-psicologica':'photo-1526676037777-05a232554f77',
+ 'energia-disponibilidade':'photo-1517836357463-d25dfeac3438',
+ 'ciclo-sem-regras':'photo-1530549387789-4c1017266635',
+ 'sono-recuperacao-rotina':'photo-1518611012118-696072aa579a',
+ 'lesao-regresso':'photo-1571019613454-1cb2f99b2d8b',
+ 'conciliar-vida-desporto':'photo-1547347298-4074fc3086f0',
+ 'pressao-saude-mental':'photo-1526676037777-05a232554f77'
+};
+const articlePhoto=(id:string)=>'https://images.unsplash.com/'+(articleCoverById[id]||'photo-1547347298-4074fc3086f0')+'?auto=format&fit=crop&w=1400&q=80';
 const prompts=['O que gostavas que tivesse sido diferente no início do teu percurso desportivo?','Que barreira ainda sentes no desporto?','Quem foi a mulher que mais te inspirou no desporto?'];
 export default function Home(){
  const db=supabase(),configured=!!db;
