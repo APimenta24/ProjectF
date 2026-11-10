@@ -1166,3 +1166,46 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-platform-bridge button{margin-top:10px;background:#642e51;color:#fff;border:0;border-radius:999px;padding:12px 19px;font-weight:700}
 .pulse-agent button:focus-visible,.pulse-agent input:focus-visible{outline:3px solid #c58aa9;outline-offset:3px}
 @media(max-width:720px){.pulse-agent .pa-header{border-radius:21px;padding:22px 18px}.pulse-agent .pa-nav{overflow-x:auto;scrollbar-width:thin;justify-content:flex-start}.pulse-agent .pa-nav button{flex:0 0 auto}.pulse-agent .pa-platform-bridge{padding:20px;border-radius:18px}}
+
+
+/* Pulse mockup fidelity — app-first layout and interaction */
+.pulse-agent{--pa:#7b315b;max-width:1080px;margin:0 auto}
+.pulse-agent .pa-header{background:linear-gradient(125deg,#fffafd 0%,#f9e7ef 62%,#edcddd 100%);box-shadow:0 14px 38px rgba(91,39,70,.06);padding:30px}
+.pulse-agent .pa-header h2{font-size:clamp(29px,4vw,43px);line-height:1.09;color:#49213c}
+.pulse-agent .pa-hero{border-radius:23px;background:linear-gradient(120deg,#f7dfe9,#f3e7ee);color:#43213b;padding:26px;position:relative;overflow:hidden}
+.pulse-agent .pa-hero::after{content:"♡";font-size:135px;line-height:1;position:absolute;right:-12px;bottom:-39px;color:rgba(125,48,91,.11);pointer-events:none}
+.pulse-agent .pa-hero h3{font-size:clamp(23px,3vw,33px);max-width:470px;line-height:1.16;letter-spacing:-.035em}
+.pulse-agent .pa-actions button{border-radius:18px;background:#fff;box-shadow:0 5px 18px rgba(80,31,62,.045);min-height:65px}
+.pulse-agent .pa-actions button:hover{transform:translateY(-1px)}
+.pulse-agent .pa-card{border-radius:18px}
+.pulse-agent .pa-primary,.pulse-agent .pa-send button{border-radius:999px;background:#7b315b;color:#fff}
+.pulse-agent .pa-chat{background:#fffbfd;border-radius:22px}
+.pulse-agent .pa-bubble{border-radius:18px}
+.pulse-agent .pa-user{background:#8b3666;color:white;border-bottom-right-radius:5px}
+.pulse-agent .pa-bot{background:#f3eaf0;color:#3d2637;border-bottom-left-radius:5px}
+.pulse-agent .pa-mobile-nav{display:none}
+.pulse-agent .pa-sport-picker{display:flex;flex-wrap:wrap;gap:8px}
+.pulse-agent .pa-sport-picker button,.pulse-agent .pa-feeling button{border:1px solid #e8d6e0;background:#fff;border-radius:14px;padding:11px 14px;color:#512f43}
+.pulse-agent .pa-sport-picker button.is-active,.pulse-agent .pa-feeling button.is-active,.pulse-agent .pa-period button.is-active{background:#80325d;color:#fff;border-color:#80325d}
+.pulse-agent .pa-feeling{display:flex;flex-wrap:wrap;gap:7px;border:0;padding:0;margin:12px 0}
+.pulse-agent .pa-feeling legend{font-weight:700;margin-bottom:10px}
+.pulse-agent .pa-period{display:flex;gap:3px;background:#f4edf1;border-radius:999px;padding:4px;max-width:430px}
+.pulse-agent .pa-period button{flex:1;border:0;background:transparent;border-radius:999px;padding:11px 8px;font-size:13px}
+.pulse-agent .pa-profile-shortcuts{display:grid;gap:8px}
+.pulse-agent .pa-profile-shortcuts button{border:1px solid #e9d7e0;background:#fff;border-radius:14px;text-align:left;padding:14px;color:#562b44;font-weight:700}
+@media(max-width:720px){
+.pulse-agent{padding-bottom:83px}
+.pulse-agent .pa-header{padding:23px 19px;border-radius:23px}
+.pulse-agent .pa-header h2{font-size:30px}
+.pulse-agent .pa-nav{display:none!important}
+.pulse-agent .pa-mobile-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;position:sticky;bottom:8px;z-index:15;margin:10px 0 0;padding:7px 5px;background:rgba(255,250,253,.97);backdrop-filter:blur(14px);border:1px solid #e9d8e1;border-radius:20px;box-shadow:0 9px 35px rgba(61,24,47,.15)}
+.pulse-agent .pa-mobile-nav button{display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:transparent;border-radius:14px;padding:9px 2px;color:#715d6a;font-size:10px;min-width:0}
+.pulse-agent .pa-mobile-nav button span{font-size:20px;line-height:1.1}
+.pulse-agent .pa-mobile-nav button.is-active{background:#f3e3eb;color:#68254a;font-weight:800}
+.pulse-agent .pa-hero{padding:22px}
+.pulse-agent .pa-actions{grid-template-columns:1fr}
+.pulse-agent .pa-sport-picker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.pulse-agent .pa-sport-picker button{padding:12px 4px;font-size:12px}
+.pulse-agent .pa-feeling button{flex:1 1 30%;font-size:12px}
+.pulse-agent .pa-platform-bridge{padding:19px}
+}
