@@ -1247,3 +1247,42 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .p2-item small{color:#87677b}
 .pulse-agent .p2-item>div:last-child{display:flex;gap:6px;flex-shrink:0}
 @media(max-width:520px){.pulse-agent .p2-item{align-items:flex-start;flex-direction:column}.pulse-agent .p2-item>div:last-child{align-self:flex-end}}
+
+
+/* Pulse mobile UX: closer to the original eight-screen concept */
+.pulse-agent{max-width:820px;background:#fffafd;border:1px solid #f0e1e9;border-radius:28px;box-shadow:0 12px 45px rgba(77,35,59,.045);padding:24px}
+.pulse-agent .pa-header{box-shadow:none;border:0;background:transparent;padding:9px 6px 18px;border-radius:0}
+.pulse-agent .pa-header h2{font-size:clamp(24px,3vw,31px);margin:5px 0 8px}
+.pulse-agent .pa-header p{max-width:460px;font-size:13px;color:#796474}
+.pulse-agent .pa-mark{border-radius:50%;box-shadow:none}
+.pulse-agent .pa-nav{position:static;justify-content:space-around;border:1px solid #efdfeb;background:#fff;border-radius:16px;padding:5px;margin-bottom:19px}
+.pulse-agent .pa-nav button{flex:1}
+.pulse-agent .pa-stack{gap:16px}
+.pulse-agent .pa-hero{min-height:190px;display:flex;flex-direction:column;justify-content:center;padding:28px;background:linear-gradient(120deg,#f8e4ee,#f4d5e5)}
+.pulse-agent .pa-hero h3{max-width:350px;font-size:clamp(25px,3vw,33px);margin:10px 0}
+.pulse-agent .pa-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.pulse-agent .pa-actions button{min-height:85px;padding:18px;line-height:1.45;text-align:left;border:1px solid #ecdde5}
+.pulse-agent .p1-wrap{gap:14px}
+.pulse-agent .p1-panel{background:#fff;border-color:#efe2e9;box-shadow:0 5px 18px rgba(79,34,58,.025)}
+.pulse-agent .pa-form{max-width:100%}
+.pulse-agent .pa-chat{min-height:260px;max-height:50vh;overflow-y:auto}
+.pulse-agent .pa-send{position:sticky;bottom:0;background:#fffafd;padding:8px 0;z-index:2}
+.pulse-agent .pa-profile-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pulse-agent .pa-profile-shortcuts button{min-height:70px}
+@media(max-width:720px){
+ .pulse-agent{padding:12px 12px calc(110px + env(safe-area-inset-bottom,0px));border:0;border-radius:0;box-shadow:none;margin:0 auto}
+ .pulse-agent .pa-header{padding:12px 9px 16px}
+ .pulse-agent .pa-header h2{font-size:26px}
+ .pulse-agent .pa-header p{font-size:12px}
+ .pulse-agent .pa-nav{display:none}
+ .pulse-agent .pa-mobile-nav{position:fixed;bottom:calc(9px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);width:min(96vw,520px);margin:0;z-index:120;box-shadow:0 10px 36px rgba(64,26,47,.19)}
+ .pulse-agent .pa-hero{min-height:190px;padding:23px;border-radius:22px}
+ .pulse-agent .pa-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .pulse-agent .pa-actions button{min-height:94px;font-size:12px;padding:14px;border-radius:15px}
+ .pulse-agent .pa-actions button span{display:block;text-align:right;margin-top:5px}
+ .pulse-agent .p1-panel{padding:17px}
+ .pulse-agent .p1-panel h3{font-size:20px}
+ .pulse-agent .pa-profile-shortcuts{grid-template-columns:1fr}
+ .pulse-agent .pa-chat{max-height:44vh}
+ .pulse-agent .pa-send{bottom:78px}
+}
