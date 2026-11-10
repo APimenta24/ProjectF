@@ -4,7 +4,7 @@ import type {Session} from '@supabase/supabase-js';
 import {supabase} from '../lib/supabase';
 import {editorial} from './editorial';
 import {editorialArticles} from '../lib/editorial';
-import Pulse from './Pulse';
+import Pulse from './PulseAgent';
 import Playbook from './Playbook';
 import EditorialManager from './EditorialManager';
 import type {CmsArticle} from './EditorialManager';
