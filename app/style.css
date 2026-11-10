@@ -1314,3 +1314,42 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .pulse-agent .pa-identity h3{font-size:23px}
  .pulse-agent .pa-hero::after{font-size:105px}
 }
+
+
+/* Pulse mockup: calm surfaces, vertical plan submenu and clear post-training actions */
+.pulse-agent .pa-plan-layout{display:grid;grid-template-columns:176px minmax(0,1fr);gap:16px;align-items:start}
+.pulse-agent .pa-plan-subnav{display:grid;gap:10px;position:sticky;top:16px}
+.pulse-agent .pa-plan-subnav button{display:grid;grid-template-columns:26px 1fr;column-gap:9px;align-items:center;text-align:left;background:#fff;border:1px solid #ebdbe4;color:#60344f;padding:16px 12px;border-radius:17px;cursor:pointer;transition:background .15s}
+.pulse-agent .pa-plan-subnav button>span{grid-row:span 2;font-size:22px}
+.pulse-agent .pa-plan-subnav button strong{font-size:14px}
+.pulse-agent .pa-plan-subnav button small{font-size:10px;color:#96758a;margin-top:4px}
+.pulse-agent .pa-plan-subnav button.is-active{background:#7b3459;color:#fff;border-color:#7b3459;box-shadow:0 8px 22px #7b345923}
+.pulse-agent .pa-plan-subnav button.is-active small{color:#f5dce9}
+.pulse-agent .pa-plan-main{min-width:0}
+.pulse-agent .pa-plan-sessions{display:grid;gap:10px}
+.pulse-agent .pa-plan-sessions article{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border-radius:15px;background:#fff7fb;border:1px solid #ead9e3}
+.pulse-agent .pa-plan-sessions article p{margin:5px 0;color:#613c53}
+.pulse-agent .pa-plan-sessions article small{font-size:11px;color:#755c6b}
+.pulse-agent .pa-plan-session-actions{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}
+.pulse-agent .pa-plan-session-actions button,.pulse-agent .pa-add-session summary,.pulse-agent .pa-linked-session button{padding:10px 12px;border:1px solid #d8b9cb;border-radius:11px;background:#fff;color:#773756;cursor:pointer;font-weight:650;font-size:12px}
+.pulse-agent .pa-plan-session-actions button:first-child{background:#81365e;color:#fff;border-color:#81365e}
+.pulse-agent .pa-add-session{margin-top:12px}
+.pulse-agent .pa-add-session summary{display:inline-block;list-style:none}
+.pulse-agent .pa-add-session[open] summary{margin-bottom:15px}
+.pulse-agent .pa-linked-session{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:13px;background:#f8e8f1;border-radius:13px}
+.pulse-agent .pa-linked-session span{color:#815b72;font-size:12px}
+.inv-pulse-preferences{margin-top:20px}
+.inv-prefs-list{display:grid;gap:10px}
+.inv-prefs-list label{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px;border:1px solid #eadce4;border-radius:15px;background:#fff9fc}
+.inv-prefs-list label>span{display:grid;gap:5px}
+.inv-prefs-list label small{color:#806a78}
+.inv-prefs-list select{max-width:160px}
+.inv-prefs-list input[type=checkbox]{width:22px;height:22px;accent-color:#80325d;flex-shrink:0}
+@media(max-width:720px){
+ .pulse-agent .pa-plan-layout{grid-template-columns:1fr;gap:13px}
+ .pulse-agent .pa-plan-subnav{position:static;grid-template-columns:1fr;gap:8px}
+ .pulse-agent .pa-plan-subnav button{grid-template-columns:30px 1fr;padding:12px 15px}
+ .pulse-agent .pa-plan-sessions article{align-items:stretch;flex-direction:column}
+ .pulse-agent .pa-plan-session-actions{justify-content:flex-start}
+ .inv-prefs-list label{align-items:flex-start}
+}
