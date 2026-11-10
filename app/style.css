@@ -382,3 +382,17 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .pulse-activity-list>div{background:#fbf6f9;padding:14px 16px;border-radius:12px;display:grid;gap:5px}
 .pulse-activity-list strong{color:#542344}.pulse-activity-list span,.pulse-activity-list small{font-size:12px;color:#766477;overflow-wrap:anywhere}
 @media(max-width:750px){.pulse-v2-grid{grid-template-columns:1fr}.pulse-v2-hero{grid-row:auto;min-height:290px}.pulse-app-mark{width:45px;height:45px;font-size:30px}.pulse-app-nav{gap:1px;padding:5px}.pulse-app-nav button{font-size:10px;padding:9px 3px}.pulse-app-nav button span{font-size:18px}.pulse-chat-form{flex-direction:column;align-items:stretch}.pulse-chat-form button{align-self:flex-end}}
+
+
+/* Pulse v0.3: ligação editorial à plataforma e planeamento pessoal */
+.pulse-invictas-card{grid-column:1/-1;background:#f6e9f0}
+.pulse-invictas-card .pulse-platform-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.pulse-invictas-card .pulse-platform-links button{background:#542344;color:#fff;border-radius:100px;padding:11px 15px;border:0;font-size:12px;font-weight:800}
+.pulse-plan-list{display:grid;gap:12px;margin-top:20px}
+.pulse-plan-list>div{display:flex;justify-content:space-between;gap:14px;align-items:center;background:#fcf7fa;padding:15px;border:1px solid #eee0e8;border-radius:13px}
+.pulse-plan-list>div>div:first-child{display:grid;gap:5px}
+.pulse-plan-list strong{font-size:13px;color:#4f2745}
+.pulse-plan-list span{font-size:12px;color:#7a6977}
+.pulse-plan-actions{display:flex;gap:7px;flex-wrap:wrap}
+.pulse-v2-card .pulse-plan-actions button{border:1px solid #d8bbce!important;border-radius:100px!important;background:#fff!important;color:#542344!important;padding:8px 11px!important;font-size:11px!important}
+@media(max-width:750px){.pulse-plan-list>div{align-items:flex-start;flex-direction:column}.pulse-invictas-card .pulse-platform-links{flex-direction:column;align-items:stretch}}
