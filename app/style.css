@@ -1209,3 +1209,26 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-feeling button{flex:1 1 30%;font-size:12px}
 .pulse-agent .pa-platform-bridge{padding:19px}
 }
+
+
+/* Pulse phase one — check-in, week and reflection */
+.pulse-agent .p1-wrap{display:grid;gap:18px}
+.pulse-agent .p1-panel{padding:24px;border:1px solid #e9d9e2;border-radius:23px;background:#fffafc;display:grid;gap:13px}
+.pulse-agent .p1-panel h3{margin:0;color:#4e2740;font-size:23px;letter-spacing:-.025em}
+.pulse-agent .p1-ratings{display:grid;gap:14px}
+.pulse-agent .p1-rating{display:grid;gap:8px}
+.pulse-agent .p1-rating>div:first-child{display:flex;justify-content:space-between;color:#5b3850}
+.pulse-agent .p1-rating>div:last-child{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.pulse-agent .p1-rating button{padding:10px;border-radius:12px;border:1px solid #ead7e1;background:white;color:#633b52;cursor:pointer}
+.pulse-agent .p1-rating button.is-active{background:#80325d;color:white;border-color:#80325d}
+.pulse-agent .p1-title{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.pulse-agent .p1-week-controls{display:flex;gap:5px}
+.pulse-agent .p1-week-controls button,.pulse-agent .p1-link{border:1px solid #e5ceda;border-radius:12px;padding:9px 12px;background:#fff;color:#703050;cursor:pointer}
+.pulse-agent .p1-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}
+.pulse-agent .p1-day{min-width:0;border:1px solid #eadce3;border-radius:14px;padding:12px 7px;background:#fff;display:flex;flex-direction:column;align-items:center;gap:7px;min-height:100px}
+.pulse-agent .p1-day.is-today{border-color:#9b4d77;background:#f9eaf1}
+.pulse-agent .p1-day strong{font-size:12px;text-transform:capitalize}
+.pulse-agent .p1-day span{font-size:18px;font-weight:750;color:#622e4d}
+.pulse-agent .p1-day small{width:100%;font-size:10px;line-height:1.35;overflow-wrap:anywhere;background:#f6e8f0;border-radius:6px;padding:4px;color:#61324d}
+.pulse-agent .p1-insight{background:#f2e4ed;padding:17px;border-radius:16px;color:#4f2b42;line-height:1.55}
+@media(max-width:720px){.pulse-agent .p1-panel{padding:18px;border-radius:19px}.pulse-agent .p1-week{overflow-x:auto;grid-template-columns:repeat(7,minmax(94px,1fr));padding-bottom:6px}.pulse-agent .p1-day{min-height:112px}.pulse-agent .p1-title h3{font-size:20px}}
