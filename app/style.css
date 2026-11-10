@@ -396,3 +396,27 @@ main.shell:has(.app-home)>.app-home{width:100%!important}
 .pulse-plan-actions{display:flex;gap:7px;flex-wrap:wrap}
 .pulse-v2-card .pulse-plan-actions button{border:1px solid #d8bbce!important;border-radius:100px!important;background:#fff!important;color:#542344!important;padding:8px 11px!important;font-size:11px!important}
 @media(max-width:750px){.pulse-plan-list>div{align-items:flex-start;flex-direction:column}.pulse-invictas-card .pulse-platform-links{flex-direction:column;align-items:stretch}}
+
+
+/* Pulse prototype — refined mobile app visual language */
+.pulse-v2{--pulse-plum:#552442;--pulse-rose:#f5e7ee;--pulse-ink:#302132;color:var(--pulse-ink);max-width:1140px;margin-inline:auto}
+.pulse-app-top{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(125deg,#fff9fc 0%,#f9e9f0 68%,#f0d9e7 100%);padding:30px 34px;margin-bottom:17px}
+.pulse-app-top::after{content:"";position:absolute;width:200px;height:200px;border:1px solid rgba(112,47,84,.15);border-radius:50%;right:-75px;top:-115px;pointer-events:none}
+.pulse-app-top h2{font-size:clamp(29px,4vw,48px);line-height:1.05;letter-spacing:-.05em;color:#50213f;margin:9px 0 12px}
+.pulse-app-top p{max-width:610px;line-height:1.6}
+.pulse-app-mark{background:#fff!important;color:#6d3158!important;border:1px solid #ead1df;border-radius:20px!important;box-shadow:0 10px 25px rgba(70,27,57,.08)}
+.pulse-app-nav{position:sticky;top:8px;z-index:4;background:rgba(255,250,253,.96);backdrop-filter:blur(12px);border:1px solid #ecdde6;border-radius:19px;box-shadow:0 10px 24px rgba(65,22,50,.07);margin-bottom:18px}
+.pulse-app-nav button{border-radius:13px;transition:background .15s ease,color .15s ease}
+.pulse-app-nav button.active{background:#642e51!important;color:#fff!important;box-shadow:0 5px 12px rgba(93,37,73,.15)}
+.pulse-v2-card{border-radius:22px!important;border:1px solid #eddee7!important;box-shadow:0 8px 25px rgba(77,31,61,.035)}
+.pulse-v2-card h3{letter-spacing:-.025em}
+.pulse-v2-hero{background:linear-gradient(145deg,#642e51,#8a4a70)!important;color:#fff!important;border-color:transparent!important;position:relative;overflow:hidden}
+.pulse-v2-hero::after{content:"✳";position:absolute;font-size:210px;right:-36px;bottom:-87px;color:rgba(255,255,255,.09);pointer-events:none}
+.pulse-v2-hero h3,.pulse-v2-hero p{color:#fff!important}
+.pulse-v2-hero button{background:#fff!important;color:#582744!important;border-radius:999px!important;position:relative;z-index:1}
+.pulse-invictas-card{background:linear-gradient(110deg,#fff9fc,#f4e2eb)!important}
+.pulse-platform-links button{box-shadow:0 4px 10px rgba(80,31,61,.12)}
+.pulse-chat-bubble{border-radius:18px 18px 18px 5px!important}
+.pulse-chat-bubble.mine{border-radius:18px 18px 5px 18px!important}
+.pulse-v2 input:focus-visible,.pulse-v2 button:focus-visible,.pulse-v2 select:focus-visible{outline:3px solid #c78cad;outline-offset:3px}
+@media(max-width:750px){.pulse-v2{padding-bottom:18px}.pulse-app-top{border-radius:22px;padding:24px 21px}.pulse-app-top h2{font-size:34px}.pulse-app-mark{width:40px!important;height:40px!important}.pulse-app-nav{top:5px;border-radius:17px;padding:5px!important;gap:0!important}.pulse-app-nav button{font-size:9px!important;min-width:0;padding:9px 2px!important}.pulse-app-nav button span{font-size:17px!important}.pulse-v2-card{border-radius:19px!important}.pulse-v2-hero{min-height:245px!important}}
