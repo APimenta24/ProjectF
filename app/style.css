@@ -1406,3 +1406,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-pulse-privacy-actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 12px}
 .inv-pulse-privacy-actions button{min-height:44px}
 @media(max-width:720px){.inv-profile-overview{flex-wrap:wrap;align-items:flex-start}.inv-profile-overview-copy{flex-basis:calc(100% - 100px)}.inv-profile-overview>.secondary{width:100%}.profile-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.profile-tabs button{min-height:46px;padding:8px 4px;font-size:12px}}
+
+/* Community activity is a factual record, not a rewards programme */
+.inv-community-activity-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}
+.inv-community-activity-grid article{padding:20px;border:1px solid #eadce5;border-radius:16px;background:#fff}
+.inv-community-activity-grid strong{display:block;font-size:clamp(25px,3vw,36px);line-height:1.1;color:#713354}
+.inv-community-activity-grid span{display:block;margin-top:8px;font-size:13px;line-height:1.4}
+.inv-community-activity-list{display:grid;gap:12px;margin:20px 0}
+.inv-community-activity-list article{padding:18px 22px;border:1px solid #eadce5;border-radius:16px;background:#fff}
+.inv-community-activity-list h3{margin:8px 0;font-size:18px;overflow-wrap:anywhere}
+@media(max-width:600px){.inv-community-activity-grid{grid-template-columns:1fr}.inv-community-activity-grid article{padding:14px 18px}}
