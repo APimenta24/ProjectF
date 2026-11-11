@@ -30,3 +30,15 @@ A eventual app Pulse independente deve ser avaliada com uma proposta de valor es
 - Política de privacidade e bases legais confirmadas; revisão jurídica dos dados sensíveis.
 
 **Estado:** auditoria estática concluída; correção pontual aplicada na branch; E2E e GO não concluídos.
+
+## Consolidação funcional + estética — implementação na branch (11/11/2026)
+- **Início:** três percursos principais com cartões informativos (conversar, registar, evolução); agenda e objetivos secundários.
+- **Conversa:** cabeçalho contextual, sugestões identificadas, área de conversa e campo de envio com linguagem consistente.
+- **Registo:** percurso visual em duas etapas (modalidade e detalhes) sem alterar os dados recolhidos nem a lógica de gravação.
+- **Evolução:** contexto antes dos indicadores, cartões de métricas harmonizados e preservação do aviso sobre ausência de registos.
+- **Planeamento:** entrada visual alinhada com os restantes módulos, sem alteração dos fluxos de agenda/objetivos.
+- **Privacidade:** erro de apagamento do agente já não é ocultado; a interface só confirma sucesso após verificar a remoção das três chaves locais.
+- **Responsividade e acessibilidade:** CSS para mobile, estados de foco e movimento reduzido.
+- **Testes estáticos:** acrescentadas asserções sobre hierarquia visual, ligações entre percursos e consentimento. **Não foram executados nem substituem validação em navegador.**
+
+**Limites desta etapa:** não foram redesenhados os componentes internos de agenda/objetivos/check-in, nem verificados visualmente os diferentes tamanhos de ecrã. Não houve merge, deploy ou alteração à base de dados.
