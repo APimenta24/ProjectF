@@ -56,3 +56,19 @@ test('SQL preparado revoga EXECUTE das funções legadas a PUBLIC',()=>{
  assert.match(sql,/REVOKE EXECUTE ON FUNCTION public\.erase_visitor_events\(uuid\) FROM PUBLIC, anon, authenticated/);
  assert.match(sql,/REVOKE EXECUTE ON FUNCTION public\.track_site_event\(text, text, uuid, text\) FROM PUBLIC, anon, authenticated/);
 });
+
+test('Pulse integra a hierarquia visual com ações funcionais',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
+ for(const label of ['Falar com o Pulse','Registar uma atividade','Ver a minha evolução','Organizar a agenda','Os meus objetivos'])assert.match(pulse,new RegExp(label));
+ assert.match(pulse,/pa-actions-primary/);
+ assert.match(css,/\.pa-actions-primary/);
+ assert.match(css,/prefers-reduced-motion:reduce/);
+});
+test('Fases Pulse não restauram dados locais sem consentimento',()=>{
+ for(const file of ['PulsePhaseOne.tsx','PulsePhaseTwo.tsx']){
+  const source=readFileSync(new URL('../app/'+file,import.meta.url),'utf8');
+  assert.match(source,/if\(!consent\)\{/);
+  assert.match(source,/\[userId,consent\]/);
+ }
+});
