@@ -29,9 +29,13 @@ test('Editorial deletion archives instead of permanently deleting',()=>{
  assert.match(cms,/archived:true/);
  assert.match(cms,/moderation_reason/);
 });
-test('Privacy policy is explicitly marked preliminary',()=>{
- assert.match(privacy,/provisória/);
+test('Privacy policy documents scope and unresolved pre-launch obligations',()=>{
+ assert.match(privacy,/Versão de trabalho/);
  assert.match(privacy,/antes do lançamento público/);
+ assert.match(privacy,/Supabase/);
+ assert.match(privacy,/Vercel/);
+ assert.match(privacy,/artigo 9.º/);
+ assert.match(privacy,/CNPD/);
 });
 
 test('Analytics exige consentimento e usa apenas funções com prova de posse',()=>{
