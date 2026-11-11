@@ -2,17 +2,19 @@
 import {useEffect,useMemo,useState} from 'react';
 type Check={day:string;energy:number;sleep:number;recovery:number;mood:string};
 type Session={day:string;activity:string};
-const KEY='invictas-pulse-phase1-v1';
+
 const today=()=>new Date().toLocaleDateString('sv-SE');
 const dayOffset=(n:number)=>{const d=new Date();d.setDate(d.getDate()+n);return d.toLocaleDateString('sv-SE')};
 const validDay=(s:string)=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;
-export default function PulsePhaseOne({consent,trainings,plans,onPlan,mode='all'}:{consent:boolean;trainings:{day:string;minutes:number;energy:number;recovery:number}[];plans:Session[];onPlan:()=>void;mode?:'all'|'agenda'|'checkin'}){
+export default function PulsePhaseOne({userId,consent,trainings,plans,onPlan,mode='all'}:{userId:string;consent:boolean;trainings:{day:string;minutes:number;energy:number;recovery:number}[];plans:Session[];onPlan:()=>void;mode?:'all'|'agenda'|'checkin'}){
+ const KEY='invictas-pulse-phase1-v2-'+userId;
  const [checks,setChecks]=useState<Check[]>([]);
  const [loaded,setLoaded]=useState(false);
  const [energy,setEnergy]=useState(3),[sleep,setSleep]=useState(3),[recovery,setRecovery]=useState(3),[mood,setMood]=useState('Bem');
  const [notice,setNotice]=useState('');
  const [week,setWeek]=useState(0);
- useEffect(()=>{try{const raw=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(raw))setChecks(raw.filter((x:Check)=>x&&validDay(x.day)&&x.day<=today()&&[x.energy,x.sleep,x.recovery].every(v=>Number.isInteger(v)&&v>=1&&v<=5)&&typeof x.mood==='string'&&x.mood.length<=40).slice(-90))}catch{}setLoaded(true)},[]);
+ useEffect(()=>{setChecks([]);try{const raw=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(raw))setChecks(raw.filter((x:Check)=>x&&validDay(x.day)&&x.day<=today()&&[x.energy,x.sleep,x.recovery].every(v=>Number.isInteger(v)&&v>=1&&v<=5)&&typeof x.mood==='string'&&x.mood.length<=40).slice(-90))}catch{}setLoaded(true)},[userId]);
+ useEffect(()=>{const sync=()=>{if(!consent)setChecks([])};window.addEventListener('invictas-pulse-settings-changed',sync);return()=>window.removeEventListener('invictas-pulse-settings-changed',sync)},[consent]);
  const current=checks.find(x=>x.day===today());
  useEffect(()=>{if(current){setEnergy(current.energy);setSleep(current.sleep);setRecovery(current.recovery);setMood(current.mood)}},[current?.day]);
  const save=()=>{if(!consent){setNotice('Ativa primeiro a autorização de armazenamento no Perfil.');return}const next=[...checks.filter(x=>x.day!==today()),{day:today(),energy,sleep,recovery,mood}].sort((a,b)=>a.day.localeCompare(b.day)).slice(-90);try{localStorage.setItem(KEY,JSON.stringify(next));setChecks(next);setNotice('Check-in guardado apenas neste navegador.')}catch{setNotice('Não foi possível guardar o check-in.')}};
