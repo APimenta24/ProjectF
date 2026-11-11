@@ -33,3 +33,22 @@ test('Privacy policy is explicitly marked preliminary',()=>{
  assert.match(privacy,/provisória/);
  assert.match(privacy,/antes do lançamento público/);
 });
+
+test('Analytics exige consentimento e usa apenas funções com prova de posse',()=>{
+ assert.match(page,/localStorage\.getItem\('invictas-analytics-consent'\)!=='yes'/);
+ assert.match(page,/db\.rpc\('track_site_event_verified'/);
+ assert.match(page,/db\.rpc\('erase_visitor_events_verified'/);
+ assert.doesNotMatch(page,/db\.rpc\('track_site_event'/);
+ assert.doesNotMatch(page,/db\.rpc\('erase_visitor_events'/);
+});
+test('Pulse usa chave local por utilizadora e exige consentimento',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ assert.match(pulse,/invictas-pulse-agent-v2-'\+userId/);
+ assert.match(pulse,/if\(data\?\.settings\?\.consent===true\)/);
+ assert.match(pulse,/if\(s\.consent\)localStorage\.setItem\(KEY/);
+});
+test('SQL preparado revoga EXECUTE das funções legadas a PUBLIC',()=>{
+ const sql=readFileSync(new URL('../docs/P0_ANALYTICS_RPC_RESTRICAO_PROPOSTA.sql',import.meta.url),'utf8');
+ assert.match(sql,/REVOKE EXECUTE ON FUNCTION public\.erase_visitor_events\(uuid\) FROM PUBLIC, anon, authenticated/);
+ assert.match(sql,/REVOKE EXECUTE ON FUNCTION public\.track_site_event\(text, text, uuid, text\) FROM PUBLIC, anon, authenticated/);
+});
