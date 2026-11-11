@@ -1,12 +1,13 @@
 'use client';
 import {useEffect,useState} from 'react';
 type CycleEntry={day:string;bleeding:'none'|'light'|'moderate'|'heavy';symptoms:string[];impact:'none'|'some'|'strong'|'unsure'};
-const KEY='invictas-cycle-local-v1';
+
 const symptoms=['Cólicas','Dor de cabeça','Fadiga','Alterações de humor','Desconforto abdominal'];
 const today=()=>new Date().toLocaleDateString('sv-SE');
-export default function CycleJournal(){
+export default function CycleJournal({userId}:{userId:string}){
+ const KEY='invictas-cycle-local-v2-'+userId;
  const [enabled,setEnabled]=useState(false),[loaded,setLoaded]=useState(false),[bleeding,setBleeding]=useState<CycleEntry['bleeding']>('none'),[selected,setSelected]=useState<string[]>([]),[impact,setImpact]=useState<CycleEntry['impact']>('unsure'),[entries,setEntries]=useState<CycleEntry[]>([]),[notice,setNotice]=useState('');
- useEffect(()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v?.enabled===true&&Array.isArray(v.entries)){setEnabled(true);setEntries(v.entries.filter((e:CycleEntry)=>e&&typeof e.day==='string').slice(-90))}}catch{}setLoaded(true)},[]);
+ useEffect(()=>{setEnabled(false);setEntries([]);try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v?.enabled===true&&Array.isArray(v.entries)){setEnabled(true);setEntries(v.entries.filter((e:CycleEntry)=>e&&typeof e.day==='string').slice(-90))}}catch{}setLoaded(true)},[userId]);
  const save=()=>{if(!enabled)return;const entry:CycleEntry={day:today(),bleeding,symptoms:selected,impact};const next=[...entries.filter(e=>e.day!==entry.day),entry].sort((a,b)=>a.day.localeCompare(b.day)).slice(-90);try{localStorage.setItem(KEY,JSON.stringify({enabled:true,entries:next}));setEntries(next);setNotice('Registo guardado apenas neste dispositivo.')}catch{setNotice('Não foi possível guardar o registo.')}};
  const exportBackup=()=>{const blob=new Blob([JSON.stringify({format:'invictas-cycle-backup',version:1,entries},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='invictas-ciclo-copia-privada.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setNotice('Cópia criada sem encriptação. Guarda-a num local privado.')};
  const importBackup=async(file:File|undefined)=>{if(!file)return;if(file.size>1000000){setNotice('Ficheiro demasiado grande.');return}try{const data=JSON.parse(await file.text());if(data?.format!=='invictas-cycle-backup'||data.version!==1||!Array.isArray(data.entries)||data.entries.length>90)throw Error('format');if(!data.entries.every((e:CycleEntry)=>e&&/^\d{4}-\d{2}-\d{2}$/.test(e.day)&&['none','light','moderate','heavy'].includes(e.bleeding)&&['none','some','strong','unsure'].includes(e.impact)&&Array.isArray(e.symptoms)&&e.symptoms.every(x=>symptoms.includes(x))))throw Error('data');if(!window.confirm('Substituir todos os registos atuais do ciclo pelos deste ficheiro?'))return;const next=[...data.entries].sort((a:CycleEntry,b:CycleEntry)=>a.day.localeCompare(b.day));localStorage.setItem(KEY,JSON.stringify({enabled:true,entries:next}));setEntries(next);setEnabled(true);setNotice('Cópia restaurada apenas neste navegador.')}catch{setNotice('Cópia inválida ou sem espaço para guardar.')}};
