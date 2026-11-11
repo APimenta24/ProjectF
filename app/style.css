@@ -1374,3 +1374,20 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .pulse-agent .pa-plan-session-actions button{min-height:42px}
  .pulse-agent .pa-plan-main .p1-panel{padding:16px}
 }
+
+
+/* INVICTAS design-system alignment: navigation, accessible controls, responsive rhythm */
+:root{--inv-focus:#9b3d70;--inv-control-radius:14px;--inv-touch-target:44px}
+.invictas-wordmark{letter-spacing:-.045em}
+.top button,.profile-tabs button,.inv-floating-dock button,.myf-chips button,.pulse-agent button{transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+.top button:focus-visible,.profile-tabs button:focus-visible,.inv-floating-dock button:focus-visible,.myf-chips button:focus-visible,.pulse-agent button:focus-visible,.inv-prefs-list input:focus-visible,.inv-prefs-list select:focus-visible{outline:3px solid var(--inv-focus);outline-offset:3px}
+.profile-tabs{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.profile-tabs button{min-height:var(--inv-touch-target);border-radius:var(--inv-control-radius)}
+.inv-pulse-login{max-width:640px;margin:32px auto;padding:clamp(24px,5vw,48px);border:1px solid #ebd9e3;border-radius:24px;background:linear-gradient(135deg,#fffafc,#f5e8f0)}
+.inv-pulse-login h2{font-size:clamp(25px,4vw,42px);line-height:1.12;margin:12px 0}
+.inv-pulse-login p{max-width:50ch;line-height:1.6}
+.inv-pulse-login button{min-height:var(--inv-touch-target);margin-top:14px}
+.pulse-agent .pa-actions button,.pulse-agent .pa-plan-session-actions button{min-height:var(--inv-touch-target)}
+.pulse-agent .pa-plan-main .pa-form input,.pulse-agent .pa-plan-main .pa-form select,.pulse-agent .pa-plan-main .pa-form textarea{max-width:100%;min-height:var(--inv-touch-target)}
+@media(max-width:720px){.profile-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.profile-tabs button{padding:10px 5px;font-size:12px}.inv-pulse-login{margin:16px 8px}.pulse-agent .pa-plan-main{width:100%}}
+@media(prefers-reduced-motion:reduce){.top button,.profile-tabs button,.inv-floating-dock button,.myf-chips button,.pulse-agent button{transition:none}}
