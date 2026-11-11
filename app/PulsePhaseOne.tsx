@@ -14,7 +14,7 @@ export default function PulsePhaseOne({userId,consent,trainings,plans,onPlan,mod
  const [notice,setNotice]=useState('');
  const [week,setWeek]=useState(0);
  useEffect(()=>{setChecks([]);try{const raw=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(raw))setChecks(raw.filter((x:Check)=>x&&validDay(x.day)&&x.day<=today()&&[x.energy,x.sleep,x.recovery].every(v=>Number.isInteger(v)&&v>=1&&v<=5)&&typeof x.mood==='string'&&x.mood.length<=40).slice(-90))}catch{}setLoaded(true)},[userId]);
- useEffect(()=>{const sync=()=>{if(!consent)setChecks([])};window.addEventListener('invictas-pulse-settings-changed',sync);return()=>window.removeEventListener('invictas-pulse-settings-changed',sync)},[consent]);
+ useEffect(()=>{const sync=()=>{try{const data=JSON.parse(localStorage.getItem(KEY)||'[]');setChecks(Array.isArray(data)?data.filter((x:Check)=>x&&validDay(x.day)).slice(-90):[])}catch{setChecks([])}};window.addEventListener('invictas-pulse-settings-changed',sync);return()=>window.removeEventListener('invictas-pulse-settings-changed',sync)},[consent]);
  const current=checks.find(x=>x.day===today());
  useEffect(()=>{if(current){setEnergy(current.energy);setSleep(current.sleep);setRecovery(current.recovery);setMood(current.mood)}},[current?.day]);
  const save=()=>{if(!consent){setNotice('Ativa primeiro a autorização de armazenamento no Perfil.');return}const next=[...checks.filter(x=>x.day!==today()),{day:today(),energy,sleep,recovery,mood}].sort((a,b)=>a.day.localeCompare(b.day)).slice(-90);try{localStorage.setItem(KEY,JSON.stringify(next));setChecks(next);setNotice('Check-in guardado apenas neste navegador.')}catch{setNotice('Não foi possível guardar o check-in.')}};
