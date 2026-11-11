@@ -1416,3 +1416,66 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-community-activity-list article{padding:18px 22px;border:1px solid #eadce5;border-radius:16px;background:#fff}
 .inv-community-activity-list h3{margin:8px 0;font-size:18px;overflow-wrap:anywhere}
 @media(max-width:600px){.inv-community-activity-grid{grid-template-columns:1fr}.inv-community-activity-grid article{padding:14px 18px}}
+
+/* INVICTAS / Profile design system — editorial, consistent and mobile-first */
+:root{--inv-profile-ink:#30212b;--inv-profile-plum:#67364f;--inv-profile-line:#e9dfe1;--inv-profile-paper:#fffdfb;--inv-profile-muted:#746b70;--inv-profile-radius:20px}
+.inv-profile-overview{position:relative;isolation:isolate;overflow:hidden;gap:clamp(18px,3vw,34px);padding:clamp(28px,5vw,58px);margin:28px 0 22px;border:1px solid #e7d9df;border-radius:24px;background:linear-gradient(117deg,#f4e8ec 0%,#faf5f1 56%,#f7f0eb 100%);color:var(--inv-profile-ink);box-shadow:0 14px 40px #41233a0a}
+.inv-profile-overview::after{content:"INVICTAS";position:absolute;z-index:-1;right:-2%;bottom:-16%;font-family:'Playfair Display',Georgia,serif;font-size:clamp(80px,15vw,210px);letter-spacing:-.075em;line-height:1;color:#63364e09;pointer-events:none}
+.inv-profile-overview-avatar{width:clamp(78px,10vw,112px);height:clamp(78px,10vw,112px);border:4px solid #fff9f7;box-shadow:0 5px 22px #44223b24;background:var(--inv-profile-plum)}
+.inv-profile-overview-copy .eyebrow{color:#84536b;letter-spacing:.15em;font-size:11px}
+.inv-profile-overview-copy h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.5vw,55px);letter-spacing:-.035em;line-height:1.07;margin:9px 0 13px}
+.inv-profile-overview-copy p{color:#62545c;font-size:clamp(14px,1.35vw,16px);max-width:48ch}
+.inv-profile-overview>.secondary{border-radius:999px;padding:12px 22px;border:1px solid #70415c;background:#70415c;color:#fff;transition:background .2s,transform .2s}
+.inv-profile-overview>.secondary:hover{background:#4e2940;transform:translateY(-1px)}
+.profile-tabs{display:flex;gap:6px;align-items:stretch;margin:0 0 28px;padding:6px;border:1px solid var(--inv-profile-line);border-radius:16px;background:#f4f0ee}
+.profile-tabs button{flex:1;min-height:48px;padding:12px 18px;border:0!important;border-radius:11px!important;background:transparent!important;color:#655963!important;font-size:13px;font-weight:700;letter-spacing:.015em;transition:background .18s,color .18s,box-shadow .18s}
+.profile-tabs button:hover{background:#ffffffa8!important;color:#42283a!important}
+.profile-tabs button.selected,.profile-tabs button[aria-current="page"]{background:var(--inv-profile-paper)!important;color:#592f49!important;box-shadow:0 2px 12px #4e23401a}
+.profile-tabs button:focus-visible,.inv-profile-overview button:focus-visible,.inv-profile-account button:focus-visible,.myf button:focus-visible,.inv-community-activity button:focus-visible{outline:3px solid #9b6886;outline-offset:3px}
+.inv-profile-section-intro{margin:0 0 22px;padding:0 3px}
+.inv-profile-section-intro .eyebrow{color:#84536b;font-size:11px;letter-spacing:.14em}
+.inv-profile-section-intro h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:-.025em;font-size:clamp(27px,3.2vw,41px);margin:9px 0}
+.inv-profile-section-intro h2 em{color:#8b536e}
+.inv-profile-section-intro p{max-width:62ch;color:var(--inv-profile-muted);line-height:1.65}
+.inv-profile-account,.inv-community-activity,.inv-member-notifications,.inv-pulse-preferences{border:1px solid var(--inv-profile-line);border-radius:var(--inv-profile-radius);background:var(--inv-profile-paper);box-shadow:0 7px 28px #422c3708}
+.inv-profile-account{max-width:100%;padding:clamp(22px,4vw,40px)}
+.inv-profile-account label{font-size:13px;font-weight:700;color:#44333e}
+.inv-profile-account label>input:not([type="file"]){width:100%;min-height:48px;border:1px solid #d9cbd2;border-radius:12px;background:#fff;padding:12px 14px;margin-top:8px}
+.inv-profile-account label>input:focus{outline:2px solid #9b6886;outline-offset:1px}
+.inv-profile-photo-edit{background:#faf4f6;border:1px solid #ebdfe4;padding:20px;border-radius:16px;margin-bottom:26px}
+.inv-profile-photo-edit>img,.inv-profile-photo-edit>span{width:80px;height:80px;flex:none}
+.inv-profile-photo-edit small{flex-basis:100%;color:#766b72;font-weight:400;line-height:1.5}
+.inv-profile-photo-edit input[type="file"]{display:block;max-width:100%;font-size:12px;margin-top:9px}
+.inv-profile-field-readonly{display:grid;gap:7px;margin:0 0 20px;padding:16px 18px;background:#f7f3f1;border-radius:12px;overflow-wrap:anywhere}
+.inv-profile-field-readonly .eyebrow{color:#8c6a7d;font-size:10px}
+.inv-profile-field-readonly strong{font-size:15px}
+.inv-profile-field-readonly small{color:#7a7076;font-size:12px}
+.inv-profile-account .primary,.myf .primary{min-height:46px;border-radius:12px;padding:12px 22px}
+.inv-profile-feedback{margin:12px 0 0;padding:12px 16px;background:#f5eef1;border-left:3px solid #83526d;border-radius:8px;font-size:13px;line-height:1.5}
+.myf{margin:0 0 28px}
+.myf .myf-head{margin-bottom:24px}
+.myf .myf-head h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:-.03em;font-size:clamp(30px,4vw,48px);line-height:1.13}
+.myf .myf-head h1 em{color:#89506c}
+.myf .myf-head p{color:var(--inv-profile-muted);line-height:1.65;max-width:64ch}
+.myf .myf-layout>.panel{border:1px solid var(--inv-profile-line);border-radius:var(--inv-profile-radius);background:var(--inv-profile-paper);padding:clamp(22px,3vw,32px);box-shadow:0 7px 28px #422c3708}
+.myf .myf-layout h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(24px,2.6vw,32px)}
+.myf .myf-layout h3{font-size:16px;margin-top:26px}
+.myf .myf-chips{gap:8px}
+.myf .myf-chips button{border:1px solid #e5d5dd;border-radius:999px;background:#fbf8f7;color:#5d4856;min-height:40px;padding:9px 14px;font-size:12px}
+.myf .myf-chips button.selected{background:#6d3a55;color:white;border-color:#6d3a55}
+.myf .myf-layout input{min-height:48px;border-radius:12px;border:1px solid #d9cbd2;padding:12px}
+.inv-pulse-preferences{margin-top:24px;padding:clamp(20px,3vw,30px)}
+.inv-pulse-preferences h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(24px,2.8vw,34px)}
+.inv-prefs-list label{border:1px solid #ebdfe4;border-radius:12px;background:#faf6f7}
+.inv-pulse-privacy-actions button{min-height:44px;border-radius:12px}
+.inv-community-activity .journey-head h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:-.035em;font-size:clamp(30px,4vw,48px)}
+.inv-community-activity .journey-head h1 em{color:#8b536e}
+.inv-community-activity .journey-head p{color:var(--inv-profile-muted);line-height:1.6;max-width:64ch}
+.inv-community-activity-grid article{background:#f9f4f5;border:1px solid #eddee4;border-radius:15px;box-shadow:none}
+.inv-community-activity-grid strong{font-family:'Playfair Display',Georgia,serif;font-size:clamp(31px,3vw,43px);font-weight:500;color:#713c58}
+.inv-community-activity-list article{background:var(--inv-profile-paper);border:1px solid var(--inv-profile-line);border-radius:14px}
+.inv-community-activity-list article .eyebrow{color:#8c5b73;letter-spacing:.09em;font-size:10px}
+.inv-community-activity-list h3{font-family:'DM Sans',Arial,sans-serif;font-size:16px;font-weight:700}
+@media(max-width:720px){.inv-profile-overview{margin:16px 0 18px;padding:24px 20px;gap:14px;border-radius:18px}.inv-profile-overview-avatar{width:72px;height:72px}.inv-profile-overview-copy{flex-basis:calc(100% - 90px)}.inv-profile-overview-copy h1{font-size:30px}.inv-profile-overview>.secondary{width:100%}.profile-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:4px;gap:3px;border-radius:12px}.profile-tabs button{padding:10px 4px;min-height:46px;font-size:clamp(11px,2.6vw,13px)}.inv-profile-account,.inv-community-activity,.inv-pulse-preferences{padding:20px 16px}.inv-community-activity-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.inv-community-activity-grid article{padding:12px 9px}.inv-community-activity-grid strong{font-size:29px}.inv-community-activity-grid span{font-size:11px}.inv-profile-photo-edit{padding:14px}.inv-profile-photo-edit>img,.inv-profile-photo-edit>span{width:64px;height:64px}}
+@media(max-width:380px){.inv-community-activity-grid{grid-template-columns:1fr}.inv-community-activity-grid article{display:flex;align-items:center;gap:16px}.inv-community-activity-grid span{margin:0}}
+@media(prefers-reduced-motion:reduce){.profile-tabs button,.inv-profile-overview>.secondary{transition:none}}
