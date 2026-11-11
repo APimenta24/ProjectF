@@ -1391,3 +1391,18 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-plan-main .pa-form input,.pulse-agent .pa-plan-main .pa-form select,.pulse-agent .pa-plan-main .pa-form textarea{max-width:100%;min-height:var(--inv-touch-target)}
 @media(max-width:720px){.profile-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.profile-tabs button{padding:10px 5px;font-size:12px}.inv-pulse-login{margin:16px 8px}.pulse-agent .pa-plan-main{width:100%}}
 @media(prefers-reduced-motion:reduce){.top button,.profile-tabs button,.inv-floating-dock button,.myf-chips button,.pulse-agent button{transition:none}}
+
+/* Profile: cohesive personal dashboard and accessible sections */
+.inv-profile-overview{display:flex;align-items:center;gap:clamp(16px,3vw,30px);padding:clamp(22px,4vw,40px);margin:0 0 18px;border:1px solid #eadce5;border-radius:24px;background:linear-gradient(125deg,#fff9fc 0%,#f5e9f0 62%,#f8f2eb 100%)}
+.inv-profile-overview-avatar{display:grid;place-items:center;flex:none;width:clamp(68px,10vw,100px);height:clamp(68px,10vw,100px);overflow:hidden;border-radius:50%;background:#79395f;color:white;font-size:clamp(28px,4vw,44px);font-weight:700}
+.inv-profile-overview-avatar img{width:100%;height:100%;object-fit:cover}
+.inv-profile-overview-copy{flex:1;min-width:0}
+.inv-profile-overview-copy h1{margin:8px 0;font-size:clamp(25px,3.5vw,42px);line-height:1.13;letter-spacing:-.035em}
+.inv-profile-overview-copy p{margin:0;max-width:60ch;line-height:1.55}
+.inv-profile-overview>.secondary{flex:none;min-height:44px}
+.profile-tabs{margin:0 0 24px;padding:5px;background:#f8f2f5;border:1px solid #ebdfe5;border-radius:17px}
+.profile-tabs button{flex:1;font-weight:650}
+.profile-tabs button.selected,.profile-tabs button[aria-current="page"]{background:white;box-shadow:0 2px 9px #4e23401a}
+.inv-pulse-privacy-actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 12px}
+.inv-pulse-privacy-actions button{min-height:44px}
+@media(max-width:720px){.inv-profile-overview{flex-wrap:wrap;align-items:flex-start}.inv-profile-overview-copy{flex-basis:calc(100% - 100px)}.inv-profile-overview>.secondary{width:100%}.profile-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.profile-tabs button{min-height:46px;padding:8px 4px;font-size:12px}}
