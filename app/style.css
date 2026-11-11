@@ -1353,3 +1353,24 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .pulse-agent .pa-plan-session-actions{justify-content:flex-start}
  .inv-prefs-list label{align-items:flex-start}
 }
+
+
+/* Final UX polish: five balanced tabs and clearer state transitions */
+.pulse-agent .pa-done-label{display:inline-flex;margin:6px 0;padding:5px 9px;background:#f0e8f0;border-radius:999px;color:#5b3853;font-weight:700}
+.pulse-agent .pa-plan-sessions article:has(.pa-done-label){background:#fdfafd;border-color:#e9e1e8}
+.pulse-agent .pa-plan-session-actions button:focus-visible,.pulse-agent .pa-plan-subnav button:focus-visible,.pulse-agent .pa-mobile-nav button:focus-visible{outline:3px solid #a45b85;outline-offset:3px}
+.pulse-agent .pa-mobile-nav{grid-template-columns:repeat(5,minmax(0,1fr))}
+.pulse-agent .pa-plan-main .p1-panel{margin-bottom:14px}
+.pulse-agent .pa-plan-main .p1-panel h3{line-height:1.2}
+.pulse-agent .pa-plan-main .p1-panel p{line-height:1.55}
+.pulse-agent .pa-plan-sessions article strong{font-size:13px}
+.pulse-agent .pa-plan-sessions article p{font-size:14px}
+.pulse-agent .pa-plan-subnav button{min-height:76px}
+@media(max-width:720px){
+ .pulse-agent .pa-mobile-nav{grid-template-columns:repeat(5,minmax(0,1fr));width:min(96vw,520px)}
+ .pulse-agent .pa-mobile-nav button{min-height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;line-height:1.15}
+ .pulse-agent .pa-plan-subnav button{min-height:64px}
+ .pulse-agent .pa-plan-sessions article{gap:8px}
+ .pulse-agent .pa-plan-session-actions button{min-height:42px}
+ .pulse-agent .pa-plan-main .p1-panel{padding:16px}
+}
