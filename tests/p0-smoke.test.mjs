@@ -72,3 +72,15 @@ test('Fases Pulse não restauram dados locais sem consentimento',()=>{
   assert.match(source,/\[userId,consent\]/);
  }
 });
+
+test('Pulse mantém percursos completos e estilos ligados às funcionalidades',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
+ for(const cls of ['pa-workspace-chat','pa-workspace-register','pa-workspace-progress','pa-workspace-plan','pa-view-intro','pa-register-form']){
+  assert.match(pulse,new RegExp(cls));
+  assert.match(css,new RegExp(cls));
+ }
+ assert.match(pulse,/setView\('registo'\)/);
+ assert.match(pulse,/setView\('evolucao'\)/);
+ assert.match(pulse,/Não foi possível confirmar o apagamento/);
+});
