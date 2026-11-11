@@ -3,16 +3,18 @@ import {useEffect,useMemo,useState} from 'react';
 type Training={day:string;sport:string;minutes:number;effort:number;energy:number;recovery:number};
 type Goal={id:string;title:string;created:string;done:string|null};
 type Win={id:string;day:string;title:string};
-const KEY='invictas-pulse-phase2-v1';
+
 const today=()=>new Date().toLocaleDateString('sv-SE');
 const shift=(n:number)=>{const d=new Date();d.setDate(d.getDate()+n);return d.toLocaleDateString('sv-SE')};
 const safeGoal=(x:Goal)=>!!x&&typeof x.id==='string'&&typeof x.title==='string'&&x.title.length<=120&&/^\d{4}-\d{2}-\d{2}$/.test(x.created)&&(x.done===null||typeof x.done==='string');
 const safeWin=(x:Win)=>!!x&&typeof x.id==='string'&&typeof x.title==='string'&&x.title.length<=120&&/^\d{4}-\d{2}-\d{2}$/.test(x.day);
-export default function PulsePhaseTwo({consent,trainings,goToChat,mode='all'}:{consent:boolean;trainings:Training[];goToChat:(message:string)=>void;mode?:'all'|'goals'|'insights'}){
+export default function PulsePhaseTwo({userId,consent,trainings,goToChat,mode='all'}:{userId:string;consent:boolean;trainings:Training[];goToChat:(message:string)=>void;mode?:'all'|'goals'|'insights'}){
+ const KEY='invictas-pulse-phase2-v2-'+userId;
  const [goals,setGoals]=useState<Goal[]>([]),[wins,setWins]=useState<Win[]>([]);
  const [goalText,setGoalText]=useState(''),[winText,setWinText]=useState('');
  const [notice,setNotice]=useState(''),[ready,setReady]=useState(false);
- useEffect(()=>{try{const data=JSON.parse(localStorage.getItem(KEY)||'null');if(data&&typeof data==='object'){setGoals(Array.isArray(data.goals)?data.goals.filter(safeGoal).slice(-30):[]);setWins(Array.isArray(data.wins)?data.wins.filter(safeWin).slice(-80):[])}}catch{}setReady(true)},[]);
+ useEffect(()=>{setGoals([]);setWins([]);try{const data=JSON.parse(localStorage.getItem(KEY)||'null');if(data&&typeof data==='object'){setGoals(Array.isArray(data.goals)?data.goals.filter(safeGoal).slice(-30):[]);setWins(Array.isArray(data.wins)?data.wins.filter(safeWin).slice(-80):[])}}catch{}setReady(true)},[userId]);
+ useEffect(()=>{const sync=()=>{if(!consent){setGoals([]);setWins([])}};window.addEventListener('invictas-pulse-settings-changed',sync);return()=>window.removeEventListener('invictas-pulse-settings-changed',sync)},[consent]);
  const persist=(g:Goal[],w:Win[])=>{if(!consent){setNotice('Ativa primeiro a autorização para guardar dados no Perfil.');return false}try{localStorage.setItem(KEY,JSON.stringify({goals:g,wins:w}));setGoals(g);setWins(w);setNotice('Guardado neste navegador.');return true}catch{setNotice('Não foi possível guardar neste dispositivo.');return false}};
  const addGoal=()=>{const title=goalText.trim().slice(0,120);if(title&&persist([...goals,{id:Date.now().toString(36),title,created:today(),done:null}].slice(-30),wins))setGoalText('')};
  const addWin=()=>{const title=winText.trim().slice(0,120);if(title&&persist(goals,[...wins,{id:Date.now().toString(36),day:today(),title}].slice(-80)))setWinText('')};
