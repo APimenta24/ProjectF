@@ -1741,3 +1741,30 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .p1-weekly-reflection p{font-size:14px;line-height:1.6;color:#685b65}
 .pulse-agent .p1-weekly-reflection button{background:#fff;border:1px solid #e1d4dc;color:#753a5b;border-radius:10px;padding:10px 14px;font-weight:700}
 @media(max-width:500px){.pulse-agent .pa-private-access summary{align-items:flex-start;flex-wrap:wrap}.pulse-agent .pa-private-access summary span{width:100%;margin:0}}
+
+/* Wellbeing: neutral, discreet, separate from menstrual data. */
+.pulse-agent .pa-wellbeing-entry{display:flex;align-items:center;gap:14px;width:100%;padding:17px 19px;border:1px solid #e7e3e6;border-radius:14px;background:#fff;text-align:left;color:#43353e}
+.pulse-agent .pa-wellbeing-entry>span:first-child{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#f4f1f3;color:#763c5c;font-size:25px}
+.pulse-agent .pa-wellbeing-entry>span:nth-child(2){flex:1;display:grid;gap:5px}
+.pulse-agent .pa-wellbeing-entry strong{font-size:14px}
+.pulse-agent .pa-wellbeing-entry small{font-size:12px;color:#7d7179}
+.pulse-agent .pa-wellbeing-entry:hover{border-color:#b992a7}
+.pulse-agent .pw-wellbeing{display:grid;gap:16px;color:#40333d}
+.pulse-agent .pw-wellbeing-intro{padding:23px;border:1px solid #eae5e8;border-radius:17px;background:#faf9fa}
+.pulse-agent .pw-wellbeing-intro h3{font-size:25px;font-weight:750;margin:9px 0;color:#372b34}
+.pulse-agent .pw-wellbeing-intro p,.pulse-agent .pw-wellbeing-panel p{font-size:13px;line-height:1.65;color:#746b72}
+.pulse-agent .pw-wellbeing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.pulse-agent .pw-wellbeing-panel{padding:20px;border:1px solid #eae5e8;border-radius:15px;background:#fff}
+.pulse-agent .pw-wellbeing-panel h4{margin:10px 0;font-size:17px}
+.pulse-agent .pw-wellbeing-panel small{display:block;margin-top:9px;font-size:11px;color:#817780}
+.pulse-agent .pw-stepper{display:flex;align-items:center;gap:17px;margin:20px 0 0}
+.pulse-agent .pw-stepper button{width:42px;height:42px;border:1px solid #e2d6dd;border-radius:11px;background:#faf8f9;color:#763c5c;font-size:22px}
+.pulse-agent .pw-stepper strong{min-width:24px;text-align:center;font-size:24px}
+.pulse-agent .pw-wellbeing-note{display:grid;gap:8px;font-size:13px;font-weight:700}
+.pulse-agent .pw-wellbeing-note textarea{width:100%;resize:vertical;border:1px solid #e2d8df;border-radius:12px;padding:13px;background:#fff;color:#3c3039;font:inherit}
+.pulse-agent .pw-wellbeing-save,.pulse-agent .pw-wellbeing-panel>button{justify-self:start;padding:12px 18px;border:0;border-radius:12px;background:#783a5b;color:#fff;font-weight:700}
+.pulse-agent .pw-wellbeing-last,.pulse-agent .pw-wellbeing-status{font-size:12px;color:#675c65}
+.pulse-agent .pw-wellbeing-privacy{border-top:1px solid #ece6ea;padding-top:14px}
+.pulse-agent .pw-wellbeing-privacy p{font-size:12px;color:#7c727a;line-height:1.6}
+.pulse-agent .pw-wellbeing-privacy button{border:1px solid #e3d6dd;border-radius:10px;background:#fff;color:#783a5b;padding:10px 13px}
+@media(max-width:600px){.pulse-agent .pw-wellbeing-grid{grid-template-columns:1fr}}
