@@ -109,3 +109,16 @@ test('Pulse Fase 1 usa fronteira e preview funcional protegido por sessão',()=>
  assert.match(css,/\.pulse-preview-real/);
  assert.match(css,/\.pulse-preview-real \.pulse-agent \.pa-hero-art\{display:none\}/);
 });
+
+test('Ciclo é descoberto no início e continua opcional, privado e separado',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const cycle=readFileSync(new URL('../app/CycleJournal.tsx',import.meta.url),'utf8');
+ const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
+ assert.match(pulse,/className="pa-cycle-entry"/);
+ assert.match(pulse,/setView\('ciclo'\)/);
+ assert.match(pulse,/Ciclo e bem-estar/);
+ assert.match(pulse,/<CycleJournal userId=\{userId\}/);
+ assert.match(cycle,/invictas-cycle-local-v2-/);
+ assert.match(cycle,/Quero ativar o registo local/);
+ assert.match(css,/\.pa-cycle-entry/);
+});
