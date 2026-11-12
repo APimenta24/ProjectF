@@ -1710,3 +1710,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .inv-cycle p{line-height:1.65;color:#6c6069}
 .pulse-agent .inv-cycle button:not([type="checkbox"]){border-radius:12px;min-height:42px}
 @media(max-width:500px){.pulse-agent .pa-cycle-entry{padding:14px;gap:10px}.pulse-agent .pa-cycle-entry-copy>span{font-size:11px}}
+
+/* Pulse photo header: multi-sport editorial composition, neutral base. */
+.pulse-agent .pa-hero-editorial{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(210px,.8fr);background:#fff;border-color:#e9e4e7;box-shadow:none}
+.pulse-agent .pa-hero-editorial .pa-hero-art{display:block;position:relative;min-height:265px;border-radius:18px 0 0 18px;background-image:linear-gradient(90deg,#432b3970,#432b3920),url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=900&q=80&fit=crop');background-position:center;background-size:cover}
+.pulse-agent .pa-hero-editorial .pa-hero-art:before{content:"";position:absolute;inset:0 0 0 50%;background:linear-gradient(90deg,#ffffff00,#34212b28),url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700&q=80&fit=crop');background-position:center;background-size:cover;clip-path:polygon(17% 0,100% 0,100% 100%,0 100%);opacity:.82}
+.pulse-agent .pa-hero-editorial .pa-hero-orbit,.pulse-agent .pa-hero-editorial .pa-hero-art-word,.pulse-agent .pa-hero-editorial .pa-hero-art-spark{display:none}
+.pulse-agent .pa-hero-editorial .pa-hero-art-caption{position:absolute;z-index:2;left:18px;bottom:16px;padding:8px 11px;border-radius:999px;background:#32252bbd;color:#fff;letter-spacing:.12em;font-size:9px}
+.pulse-agent .pa-hero-editorial .pa-hero-content{padding:clamp(22px,3.4vw,37px)}
+.pulse-agent .pa-hero-editorial .pa-identity h3{font-family:Arial,Helvetica,sans-serif;font-weight:750;font-size:clamp(25px,3vw,35px);color:#292329}
+.pulse-agent .pa-hero-editorial .pa-hero-content>p{color:#655b63;font-size:14px;font-weight:400}
+.pulse-preview-real .pulse-agent .pa-hero-editorial{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(210px,.8fr);background:#fff}
+.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-art{display:block}
+.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-content{grid-column:1;grid-row:1}
+@media(max-width:700px){.pulse-agent .pa-hero-editorial,.pulse-preview-real .pulse-agent .pa-hero-editorial{grid-template-columns:1fr}.pulse-agent .pa-hero-editorial .pa-hero-content,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-content{grid-column:1;grid-row:1}.pulse-agent .pa-hero-editorial .pa-hero-art,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-art{grid-column:1;grid-row:2;min-height:155px;border-radius:0 0 18px 18px}.pulse-agent .pa-hero-editorial .pa-hero-art-caption{bottom:12px}}
