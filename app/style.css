@@ -1694,3 +1694,19 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-preview-gate-card p{line-height:1.65;color:#746774}
 .pulse-preview-gate-card a{display:inline-block;background:#792e55;color:white;padding:12px 20px;border-radius:999px;text-decoration:none;margin-top:12px}
 @media(max-width:700px){.pulse-preview-real{padding:0 0 12px;background:#fff}.pulse-preview-top{padding:12px 16px;margin:0}.pulse-preview-top span:nth-child(2){display:none}.pulse-preview-real>.pulse-agent{padding:15px 13px 75px;border:0;border-radius:0;box-shadow:none}.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-content{padding:19px 16px}.pulse-preview-disclaimer{padding:0 18px}}
+
+/* Cycle is a discreet optional part of the functional Pulse, not a pink feature. */
+.pulse-agent .pa-cycle-entry{display:flex;align-items:center;gap:14px;width:100%;padding:17px 20px;border:1px solid #e5dfe4;border-radius:16px;background:#fff;color:#40323d;text-align:left;box-shadow:none}
+.pulse-agent .pa-cycle-entry:hover{border-color:#b7859e;background:#fcfafb}
+.pulse-agent .pa-cycle-entry-icon{display:grid;place-items:center;width:40px;height:40px;flex:none;border-radius:12px;background:#f6f0f3;color:#7b3c5c;font-size:26px}
+.pulse-agent .pa-cycle-entry-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:6px}
+.pulse-agent .pa-cycle-entry-copy strong{display:flex;align-items:center;gap:9px;font-size:14px;color:#3b2e38}
+.pulse-agent .pa-cycle-entry-copy strong small{font-size:10px;color:#835f75;font-weight:500;padding:3px 8px;border-radius:999px;background:#f6eff3}
+.pulse-agent .pa-cycle-entry-copy>span{font-size:12px;line-height:1.5;color:#766a73}
+.pulse-agent .pa-cycle-entry:focus-visible{outline:3px solid #945c7d;outline-offset:3px}
+.pulse-agent .pa-cycle-intro{background:#faf9fa;border-color:#ebe4e8}
+.pulse-agent .inv-cycle{border:1px solid #e9e3e7;border-radius:18px;padding:clamp(17px,3vw,26px);background:#fff}
+.pulse-agent .inv-cycle h3{font-family:Arial,Helvetica,sans-serif;font-size:23px;font-weight:750;letter-spacing:-.03em;color:#332a31}
+.pulse-agent .inv-cycle p{line-height:1.65;color:#6c6069}
+.pulse-agent .inv-cycle button:not([type="checkbox"]){border-radius:12px;min-height:42px}
+@media(max-width:500px){.pulse-agent .pa-cycle-entry{padding:14px;gap:10px}.pulse-agent .pa-cycle-entry-copy>span{font-size:11px}}
