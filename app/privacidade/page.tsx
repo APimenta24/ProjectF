@@ -8,7 +8,7 @@ export default function Privacidade() {
     <a href="/">← Voltar à INVICTAS</a>
     <p className="eyebrow">INVICTAS · PRIVACIDADE</p>
     <h1>Política de Privacidade e Cookies</h1>
-    <p><strong>Versão de trabalho · 11 de novembro de 2026.</strong> Este texto descreve o funcionamento conhecido da INVICTAS nesta fase de desenvolvimento. Antes da abertura pública, serão confirmados o contacto de privacidade, os prazos de conservação, a lista de prestadores de serviços e os restantes elementos identificados no final desta página.</p>
+    <p><strong>Versão de trabalho · 12 de novembro de 2026.</strong> Este texto descreve o funcionamento conhecido da INVICTAS nesta fase de desenvolvimento. Antes da abertura pública, serão confirmados o contacto de privacidade, os prazos de conservação, a lista de prestadores de serviços e os restantes elementos identificados no final desta página.</p>
 
     <h2>1. Quem é responsável pelos dados?</h2>
     <p>O responsável pelo tratamento é <strong>André Filipe Mendes Pimenta</strong>, enquanto promotor individual do projeto INVICTAS. O endereço de contacto dedicado ao exercício de direitos e às questões de privacidade será disponibilizado antes do lançamento público. Até existir esse canal, esta versão não deve ser considerada um aviso de privacidade definitivo.</p>
@@ -20,7 +20,7 @@ export default function Privacidade() {
       <li><strong>Participação na plataforma:</strong> publicações, histórias, propostas editoriais e oportunidades submetidas, decisões de moderação e notificações relacionadas.</li>
       <li><strong>Utilização do serviço:</strong> dados técnicos estritamente necessários à operação, segurança e manutenção, sujeitos às práticas dos prestadores de infraestrutura.</li>
       <li><strong>Estatísticas opcionais:</strong> eventos de navegação, categoria de origem de tráfego e identificador aleatório do navegador, apenas após consentimento.</li>
-      <li><strong>Pulse:</strong> treinos, planos, check-ins, conversas guardadas e dados opcionais do ciclo menstrual, de acordo com os controlos de cada módulo. Na implementação atual, estes registos são guardados localmente no navegador e não são sincronizados com a base de dados INVICTAS.</li>
+      <li><strong>Pulse:</strong> treinos, planos, check-ins, conversas guardadas e dados opcionais do ciclo menstrual, hidratação e nutrição, de acordo com os controlos de cada módulo. Na implementação atual, estes registos são guardados localmente no navegador e não são sincronizados com a base de dados INVICTAS.</li>
     </ul>
 
     <h2>3. Para que fins e com que fundamento?</h2>
@@ -37,8 +37,9 @@ export default function Privacidade() {
     <p>Conteúdos aprovados para publicação podem ficar visíveis a outras pessoas, conforme a funcionalidade. Submissões pendentes e notificações pessoais devem permanecer sujeitas a controlos de acesso. Não publiques informações de saúde, contactos privados ou dados de terceiros em conteúdos públicos. A autorização para submeter uma história não substitui a autorização específica da pessoa retratada para a publicação final do testemunho e das imagens.</p>
 
     <h2>5. Pulse: dados sensíveis e armazenamento local</h2>
-    <p>Os registos do Pulse são guardados no armazenamento local do navegador, associados ao identificador da conta nesse dispositivo. <strong>Não existe sincronização entre dispositivos nem encriptação própria desses registos no armazenamento local.</strong> Quem tiver acesso ao mesmo navegador ou dispositivo poderá, em determinadas circunstâncias, aceder à informação. A limpeza dos dados do navegador também pode eliminá-los definitivamente.</p>
-    <p>É possível exportar e apagar os dados privados do Pulse através dos respetivos controlos. O diário do ciclo possui mecanismos separados de exportação e eliminação: apagar os restantes dados Pulse não significa necessariamente apagar o diário do ciclo. As cópias exportadas não são encriptadas e devem ser guardadas num local privado. As conversas só são conservadas localmente quando a utilizadora ativa essa opção.</p>
+    <p>Os registos do Pulse são guardados localmente no navegador, associados ao identificador da conta neste dispositivo. <strong>Os dados do ciclo menstrual e os registos opcionais de hidratação e nutrição têm cofres cifrados com AES-256-GCM e uma frase-passe pessoal.</strong> A frase-passe não é guardada; se for esquecida, os dados cifrados não podem ser recuperados.</p>
+    <p><strong>Os restantes registos do Pulse — treinos, planos, check-ins, objetivos e conversas guardadas — ainda não têm encriptação própria no armazenamento local.</strong> A utilização num dispositivo partilhado ou comprometido pode expor estes dados. Não existe sincronização entre dispositivos. Limpar os dados do navegador pode eliminar permanentemente os registos.</p>
+    <p>Os cofres privados são opcionais e separados. Os registos do ciclo não são utilizados pelo agente. A eliminação geral do Pulse inclui hidratação e nutrição, mas o cofre do ciclo tem um controlo próprio de eliminação. As exportações antigas em JSON sem encriptação podem continuar no dispositivo ou em cópias pessoais e devem ser apagadas de forma consciente. O novo ecrã do ciclo não disponibiliza exportação de dados descifrados.</p>
     <p>O assistente Pulse disponibiliza informação geral de apoio desportivo e não substitui profissionais de saúde, diagnósticos ou acompanhamento clínico. A opção de IA local, quando suportada pelo navegador, deve ser distinguida de qualquer futuro serviço externo de IA.</p>
 
     <h2>6. Cookies, sessão e estatísticas</h2>
