@@ -176,3 +176,19 @@ test('Cofres bloqueiam ao ocultar aplicação e migram após verificação',()=>
   assert.match(component,/localStorage\.removeItem\(legacy\)/);
  }
 });
+
+test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const agenda=readFileSync(new URL('../app/pulse/PulseAgenda.tsx',import.meta.url),'utf8');
+ const reminders=readFileSync(new URL('../app/pulse/PulseReminders.tsx',import.meta.url),'utf8');
+ assert.match(pulse,/tab\('bemestar','Bem-estar'\)/);
+ assert.match(pulse,/\['bemestar','♡','Bem-estar'\]/);
+ assert.match(pulse,/<PulseAgenda plans=\{plans\}/);
+ assert.match(pulse,/Hidratação/);
+ assert.match(pulse,/Nutrição/);
+ assert.match(pulse,/Área privada/);
+ assert.match(agenda,/\['dia','semana','mes'\]/);
+ assert.match(agenda,/onRegister\(p\)/);
+ assert.match(reminders,/não existem alertas automáticos|Não existem alertas automáticos/);
+ assert.match(pulse,/localStorage\.removeItem\(remindersKey\)/);
+});
