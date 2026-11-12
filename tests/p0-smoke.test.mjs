@@ -139,3 +139,16 @@ test('Resumo semanal orienta reflexão sem incluir dados do ciclo',()=>{
  assert.match(phase,/não inclui o ciclo/);
  assert.match(phase,/Rever o meu planeamento/);
 });
+
+test('Bem-estar opcional inclui hidratação, nutrição e eliminação local',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const wellness=readFileSync(new URL('../app/pulse/PulseWellbeing.tsx',import.meta.url),'utf8');
+ const prefs=readFileSync(new URL('../app/PulsePreferences.tsx',import.meta.url),'utf8');
+ assert.match(pulse,/Hidratação e nutrição/);
+ assert.match(pulse,/<PulseWellbeing userId=\{userId\}/);
+ assert.match(wellness,/Ativar registo local/);
+ assert.match(wellness,/Eliminar registos de bem-estar/);
+ assert.match(wellness,/sem encriptação/);
+ assert.match(pulse,/localStorage\.removeItem\(wellbeingKey\)/);
+ assert.match(prefs,/localStorage\.removeItem\(wellbeingKey\)/);
+});
