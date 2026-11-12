@@ -1768,3 +1768,42 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pw-wellbeing-privacy p{font-size:12px;color:#7c727a;line-height:1.6}
 .pulse-agent .pw-wellbeing-privacy button{border:1px solid #e3d6dd;border-radius:10px;background:#fff;color:#783a5b;padding:10px 13px}
 @media(max-width:600px){.pulse-agent .pw-wellbeing-grid{grid-template-columns:1fr}}
+
+/* Pulse: agenda de verdade, bem-estar em três vertentes e lembretes discretos. */
+.pulse-agent .pa-wellbeing-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pulse-agent .pa-wellbeing-overview>div,.pulse-agent .pa-wellbeing-overview>button{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:20px;border:1px solid #e9e3e7;border-radius:16px;background:#fff;color:#40323d;text-align:left;min-width:0}
+.pulse-agent .pa-wellbeing-overview>div>span,.pulse-agent .pa-wellbeing-overview>button>span{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#f4eff2;color:#7c405f;font-size:23px}
+.pulse-agent .pa-wellbeing-overview strong{font-size:15px}
+.pulse-agent .pa-wellbeing-overview small{font-size:12px;line-height:1.45;color:#80747c}
+.pulse-agent .pa-wellbeing-overview>button:hover{border-color:#ac7d98}
+.pulse-agent .pa-wellbeing-reminders{border:1px solid #e9e3e7;border-radius:14px;background:#fff;padding:16px}
+.pulse-agent .pa-wellbeing-reminders summary{font-weight:700;cursor:pointer;color:#533c4c}
+.pulse-agent .pa-wellbeing-reminders>p,.pulse-agent .pulse-reminders small{font-size:12px;line-height:1.6;color:#7a7078}
+.pulse-agent .pulse-reminders{display:grid;gap:12px;padding-top:14px}
+.pulse-agent .pulse-reminders label{display:flex;gap:10px;align-items:center;font-size:13px}
+.pulse-agent .pulse-reminders input{accent-color:#7c405f}
+.pulse-agent .pulse-calendar{display:grid;gap:16px}
+.pulse-agent .pulse-calendar-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.pulse-agent .pulse-calendar-modes{display:flex;gap:4px;padding:4px;background:#f5f2f4;border-radius:12px}
+.pulse-agent .pulse-calendar-modes button{border:0;background:transparent;border-radius:9px;padding:9px 14px;color:#665760;font-weight:700}
+.pulse-agent .pulse-calendar-modes button.is-active{background:#783b5c;color:#fff}
+.pulse-agent .pulse-calendar-period{display:flex;align-items:center;gap:10px}
+.pulse-agent .pulse-calendar-period strong{font-size:13px;text-transform:capitalize;min-width:135px;text-align:center}
+.pulse-agent .pulse-calendar-period button{border:1px solid #e6dfe4;border-radius:9px;background:#fff;padding:8px 12px;color:#70445d}
+.pulse-agent .pulse-calendar-grid{display:grid;gap:5px;grid-template-columns:repeat(7,minmax(0,1fr))}
+.pulse-agent .pulse-calendar-grid.is-day{grid-template-columns:1fr}
+.pulse-agent .pulse-calendar-day{min-width:0;min-height:112px;border:1px solid #eae4e8;border-radius:11px;background:#fff;text-align:left;padding:10px;display:flex;flex-direction:column;gap:7px;color:#463942}
+.pulse-agent .pulse-calendar-day.is-today{border-color:#a66d8b}
+.pulse-agent .pulse-calendar-day.is-selected{background:#faf5f8}
+.pulse-agent .pulse-calendar-day>span{font-size:11px;text-transform:capitalize;color:#877782}
+.pulse-agent .pulse-calendar-day>span strong{display:block;font-size:17px;color:#493642}
+.pulse-agent .pulse-calendar-day small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:#f6eff3;color:#753c5d;border-radius:5px;padding:4px;font-size:10px;max-width:100%}
+.pulse-agent .pulse-calendar-detail{border-top:1px solid #ece7ea;padding-top:16px;display:grid;gap:10px}
+.pulse-agent .pulse-calendar-detail h4{margin:0;font-size:16px}
+.pulse-agent .pulse-calendar-detail>p{color:#857984;font-size:13px}
+.pulse-agent .pulse-calendar-detail article{display:flex;justify-content:space-between;gap:12px;border:1px solid #ebe5e9;border-radius:12px;padding:13px}
+.pulse-agent .pulse-calendar-detail article>div{display:grid;gap:6px}
+.pulse-agent .pulse-calendar-detail article time{font-size:11px;color:#867883}
+.pulse-agent .pulse-calendar-detail article strong{font-size:13px}
+.pulse-agent .pulse-calendar-detail article button{border:1px solid #e4d8e0;background:#fff;border-radius:8px;padding:8px;color:#75445e;font-size:11px}
+@media(max-width:680px){.pulse-agent .pa-wellbeing-overview{grid-template-columns:1fr 1fr}.pulse-agent .pa-wellbeing-overview>button{grid-column:1/-1}.pulse-agent .pulse-calendar-grid.is-week .pulse-calendar-day{min-height:80px;padding:6px}.pulse-agent .pulse-calendar-grid.is-month .pulse-calendar-day{min-height:64px;padding:5px}.pulse-agent .pulse-calendar-day small{font-size:9px}.pulse-agent .pulse-calendar-day>span strong{font-size:14px}.pulse-agent .pulse-calendar-detail article{flex-direction:column}.pulse-agent .pulse-calendar-detail article>div:last-child{display:flex;flex-wrap:wrap}.pulse-agent .pulse-calendar-toolbar{align-items:stretch}}
