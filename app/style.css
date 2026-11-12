@@ -1526,3 +1526,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-workspace-plan .pa-plan-intro h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(27px,3.2vw,38px)}
 .pulse-agent .pa-workspace button:focus-visible{outline:3px solid #925a7b;outline-offset:3px}
 @media(max-width:620px){.pulse-agent .pa-view-intro,.pulse-agent .pa-workspace-plan .pa-plan-intro{border-radius:17px;padding:20px 17px}.pulse-agent .pa-workspace-progress .pa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pulse-agent .pa-workspace-chat .pa-send{padding:5px}}
+
+/* Revisão de especificidade: neutralizar regras antigas de spans dos botões Pulse. */
+.pulse-agent .pa-actions-primary>button .pa-action-icon{display:grid;text-align:center;margin:0}
+.pulse-agent .pa-actions-primary>button .pa-action-copy{display:flex;flex-direction:column;gap:8px;text-align:left;margin:0}
+.pulse-agent .pa-actions-primary>button .pa-action-arrow{display:inline-block;text-align:right;margin:0}
+.pulse-agent .pa-actions-primary>button .pa-action-copy strong,.pulse-agent .pa-actions-primary>button .pa-action-copy small{display:block;text-align:left}
+@media(max-width:820px){.pulse-agent .pa-actions-primary>button .pa-action-copy{gap:4px}}
