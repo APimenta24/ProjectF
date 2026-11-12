@@ -93,3 +93,18 @@ test('Pulse Signature mantém arte original local e ligação ao percurso funcio
  assert.match(css,/@media\(max-width:700px\)/);
  assert.match(pulse,/onNavigate\?\.\('Perfil'\)/);
 });
+
+test('Pulse Fase 1 expõe fronteira de integração e protótipo sem persistência',()=>{
+ const workspace=readFileSync(new URL('../app/pulse/PulseWorkspace.tsx',import.meta.url),'utf8');
+ const home=readFileSync(new URL('../app/page.tsx',import.meta.url),'utf8');
+ const prototype=readFileSync(new URL('../app/pulse/prototipo/page.tsx',import.meta.url),'utf8');
+ const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
+ assert.match(home,/import Pulse from '\.\/pulse\/PulseWorkspace'/);
+ assert.match(workspace,/export default function PulseWorkspace/);
+ assert.match(workspace,/return <PulseAgent/);
+ assert.match(prototype,/PROTÓTIPO VISUAL · SEM DADOS REAIS/);
+ assert.match(prototype,/NENHUM_DADO_GUARDADO|Nenhum dado foi guardado/);
+ assert.doesNotMatch(prototype,/localStorage|sessionStorage|supabase|fetch\(/);
+ for(const label of ['conversa','registo','evolucao','plano'])assert.match(prototype,new RegExp(label));
+ assert.match(css,/\.pulse-proto \.pp-mobile-nav/);
+});
