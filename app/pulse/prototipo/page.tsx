@@ -14,9 +14,10 @@ export default function PulsePrototype(){
  const [loading,setLoading]=useState(true);
  useEffect(()=>{
   let alive=true;
-  if(!supabase){setLoading(false);return}
-  supabase.auth.getSession().then(({data})=>{if(alive){setSession(data.session);setLoading(false)}}).catch(()=>{if(alive)setLoading(false)});
-  const {data:{subscription}}=supabase.auth.onAuthStateChange((_event,next)=>{if(alive){setSession(next);setLoading(false)}});
+  const db=supabase();
+  if(!db){setLoading(false);return}
+  db.auth.getSession().then(({data})=>{if(alive){setSession(data.session);setLoading(false)}}).catch(()=>{if(alive)setLoading(false)});
+  const {data:{subscription}}=db.auth.onAuthStateChange((_event,next)=>{if(alive){setSession(next);setLoading(false)}});
   return()=>{alive=false;subscription.unsubscribe()};
  },[]);
  if(loading)return <main className="pulse-preview-gate"><p>A preparar o Pulse…</p></main>;
