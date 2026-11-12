@@ -119,7 +119,8 @@ test('Ciclo é descoberto no início e continua opcional, privado e separado',()
  assert.match(pulse,/Abrir ciclo e bem-estar/);
  assert.match(pulse,/<CycleJournal userId=\{userId\}/);
  assert.match(cycle,/invictas-cycle-local-v2-/);
- assert.match(cycle,/Quero ativar o registo local/);
+ assert.match(cycle,/Criar cofre privado/);
+ assert.match(cycle,/decryptVault/);
  assert.match(css,/\.pa-private-access/);
 });
 
@@ -146,9 +147,21 @@ test('Bem-estar opcional inclui hidratação, nutrição e eliminação local',(
  const prefs=readFileSync(new URL('../app/PulsePreferences.tsx',import.meta.url),'utf8');
  assert.match(pulse,/Hidratação e nutrição/);
  assert.match(pulse,/<PulseWellbeing userId=\{userId\}/);
- assert.match(wellness,/Ativar registo local/);
+ assert.match(wellness,/Criar cofre privado/);
  assert.match(wellness,/Eliminar registos de bem-estar/);
- assert.match(wellness,/sem encriptação/);
+ assert.match(wellness,/encryptVault/);
  assert.match(pulse,/localStorage\.removeItem\(wellbeingKey\)/);
  assert.match(prefs,/localStorage\.removeItem\(wellbeingKey\)/);
+});
+
+test('Cofres locais usam AES-GCM, PBKDF2 e IV aleatório',()=>{
+ const vault=readFileSync(new URL('../app/pulse/secureVault.ts',import.meta.url),'utf8');
+ const cycle=readFileSync(new URL('../app/CycleJournal.tsx',import.meta.url),'utf8');
+ const wellness=readFileSync(new URL('../app/pulse/PulseWellbeing.tsx',import.meta.url),'utf8');
+ assert.match(vault,/AES-GCM/);
+ assert.match(vault,/PBKDF2/);
+ assert.match(vault,/310000/);
+ assert.match(vault,/getRandomValues\(new Uint8Array\(12\)\)/);
+ assert.match(cycle,/invictas-cycle-vault-v1-/);
+ assert.match(wellness,/invictas-pulse-wellbeing-vault-v1-/);
 });
