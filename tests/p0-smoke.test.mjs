@@ -94,7 +94,7 @@ test('Pulse Signature mantém arte original local e ligação ao percurso funcio
  assert.match(pulse,/onNavigate\?\.\('Perfil'\)/);
 });
 
-test('Pulse Fase 1 expõe fronteira de integração e protótipo sem persistência',()=>{
+test('Pulse Fase 1 usa fronteira e preview funcional protegido por sessão',()=>{
  const workspace=readFileSync(new URL('../app/pulse/PulseWorkspace.tsx',import.meta.url),'utf8');
  const home=readFileSync(new URL('../app/page.tsx',import.meta.url),'utf8');
  const prototype=readFileSync(new URL('../app/pulse/prototipo/page.tsx',import.meta.url),'utf8');
@@ -102,9 +102,10 @@ test('Pulse Fase 1 expõe fronteira de integração e protótipo sem persistênc
  assert.match(home,/import Pulse from '\.\/pulse\/PulseWorkspace'/);
  assert.match(workspace,/export default function PulseWorkspace/);
  assert.match(workspace,/return <PulseAgent/);
- assert.match(prototype,/PROTÓTIPO VISUAL · SEM DADOS REAIS/);
- assert.match(prototype,/NENHUM_DADO_GUARDADO|Nenhum dado foi guardado/);
- assert.doesNotMatch(prototype,/localStorage|sessionStorage|supabase|fetch\(/);
- for(const label of ['conversa','registo','evolucao','plano'])assert.match(prototype,new RegExp(label));
- assert.match(css,/\.pulse-proto \.pp-mobile-nav/);
+ assert.match(prototype,/supabase\.auth\.getSession/);
+ assert.match(prototype,/if\(!session\)/);
+ assert.match(prototype,/<PulseWorkspace userId=\{session\.user\.id\}/);
+ assert.doesNotMatch(prototype,/Simular registo|Exemplo ilustrativo|setChat/);
+ assert.match(css,/\.pulse-preview-real/);
+ assert.match(css,/\.pulse-preview-real \.pulse-agent \.pa-hero-art\{display:none\}/);
 });
