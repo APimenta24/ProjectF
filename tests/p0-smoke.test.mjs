@@ -102,7 +102,7 @@ test('Pulse Fase 1 usa fronteira e preview funcional protegido por sessão',()=>
  assert.match(home,/import Pulse from '\.\/pulse\/PulseWorkspace'/);
  assert.match(workspace,/export default function PulseWorkspace/);
  assert.match(workspace,/return <PulseAgent/);
- assert.match(prototype,/supabase\.auth\.getSession/);
+ assert.match(prototype,/db\.auth\.getSession/);
  assert.match(prototype,/if\(!session\)/);
  assert.match(prototype,/<PulseWorkspace userId=\{session\.user\.id\}/);
  assert.doesNotMatch(prototype,/Simular registo|Exemplo ilustrativo|setChat/);
