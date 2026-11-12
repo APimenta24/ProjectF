@@ -84,3 +84,12 @@ test('Pulse mantém percursos completos e estilos ligados às funcionalidades',(
  assert.match(pulse,/setView\('evolucao'\)/);
  assert.match(pulse,/Não foi possível confirmar o apagamento/);
 });
+
+test('Pulse Signature mantém arte original local e ligação ao percurso funcional',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
+ for(const cls of ['pa-hero-editorial','pa-hero-art','pa-hero-content','pa-editorial-divider'])assert.match(pulse,new RegExp(cls));
+ for(const cls of ['pa-hero-editorial','pa-hero-art-word','pa-hero-orbit','pa-editorial-divider'])assert.match(css,new RegExp(cls));
+ assert.match(css,/@media\(max-width:700px\)/);
+ assert.match(pulse,/onNavigate\?\.\('Perfil'\)/);
+});
