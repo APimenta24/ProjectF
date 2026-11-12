@@ -165,3 +165,14 @@ test('Cofres locais usam AES-GCM, PBKDF2 e IV aleatório',()=>{
  assert.match(cycle,/invictas-cycle-vault-v1-/);
  assert.match(wellness,/invictas-pulse-wellbeing-vault-v1-/);
 });
+
+test('Cofres bloqueiam ao ocultar aplicação e migram após verificação',()=>{
+ const cycle=readFileSync(new URL('../app/CycleJournal.tsx',import.meta.url),'utf8');
+ const wellness=readFileSync(new URL('../app/pulse/PulseWellbeing.tsx',import.meta.url),'utf8');
+ for(const component of [cycle,wellness]){
+  assert.match(component,/visibilitychange/);
+  assert.match(component,/setPass\(''\)/);
+  assert.match(component,/const verified=await decryptVault/);
+  assert.match(component,/localStorage\.removeItem\(legacy\)/);
+ }
+});
