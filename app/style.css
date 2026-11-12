@@ -1566,3 +1566,96 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-workspace-register .pa-view-intro{background:linear-gradient(130deg,#fff8f3,#f5e7ee)}
 @media(max-width:700px){.pulse-agent .pa-hero-editorial{grid-template-columns:minmax(0,1fr);min-height:0}.pulse-agent .pa-hero-editorial .pa-hero-content{grid-column:1;grid-row:1;padding:24px 20px 22px;gap:12px}.pulse-agent .pa-hero-art{grid-column:1;grid-row:2;min-height:130px;border-radius:45% 45% 0 0/30% 30% 0 0;background:radial-gradient(circle at 70% 5%,#e8b9cd,#9b5e7f 55%,#542e48)}.pulse-agent .pa-hero-orbit{top:-95%;left:18%}.pulse-agent .pa-hero-art-word{font-size:54px;left:12%;top:22%}.pulse-agent .pa-hero-art-spark{top:8%;font-size:28px}.pulse-agent .pa-hero-art-caption{bottom:10%;left:auto;right:8%;font-size:9px}.pulse-agent .pa-hero-editorial .pa-identity h3{font-size:32px}.pulse-agent .pa-hero-editorial .pa-hero-content>p{font-size:15px}}
 @media(max-width:380px){.pulse-agent .pa-hero-art-word{font-size:46px}.pulse-agent .pa-hero-art-caption{font-size:8px}}
+
+/* Pulse standalone interactive prototype: scoped, no dependency on INVICTAS navigation. */
+.pulse-proto{--pp-ink:#45273a;--pp-plum:#633b55;--pp-rose:#ecd3df;--pp-paper:#fffaf7;min-height:100vh;background:#f4edf0;color:var(--pp-ink);padding:24px;font-family:Arial,Helvetica,sans-serif}
+.pulse-proto *{box-sizing:border-box}
+.pulse-proto button,.pulse-proto input,.pulse-proto select{font:inherit}
+.pulse-proto button{cursor:pointer}
+.pulse-proto button:focus-visible,.pulse-proto input:focus-visible,.pulse-proto select:focus-visible{outline:3px solid #8b5277;outline-offset:3px}
+.pulse-proto .pp-shell{max-width:1330px;margin:0 auto}
+.pulse-proto .pp-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 5px 17px}
+.pulse-proto .pp-brand{font-size:11px;font-weight:750;letter-spacing:.15em;display:flex;align-items:center;gap:9px}
+.pulse-proto .pp-brand b{color:#8d5977}
+.pulse-proto .pp-symbol{font-size:24px;color:#8a5572}
+.pulse-proto .pp-demo{font-size:10px;letter-spacing:.11em;color:#7c6372}
+.pulse-proto .pp-app{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:790px;background:#fffaf8;border:1px solid #e5d4dc;border-radius:24px;overflow:hidden;box-shadow:0 24px 70px #512c4415}
+.pulse-proto .pp-sidebar{display:flex;flex-direction:column;padding:40px 23px;background:#f7edf1;border-right:1px solid #e8d8e1}
+.pulse-proto .pp-wordmark,.pulse-proto .pp-mobile-brand{font-family:Georgia,serif;font-style:italic;font-weight:700;letter-spacing:-.08em;font-size:57px;line-height:1;color:#633950}
+.pulse-proto .pp-wordmark span,.pulse-proto .pp-mobile-brand span{color:#c78ca9}
+.pulse-proto .pp-sidebar>p{font-size:12px;color:#806778;margin:11px 0 42px}
+.pulse-proto .pp-sidebar nav{display:grid;gap:8px}
+.pulse-proto .pp-sidebar nav button{display:flex;justify-content:space-between;border:0;background:transparent;padding:13px 15px;text-align:left;border-radius:13px;color:#73576a;font-size:13px}
+.pulse-proto .pp-sidebar nav button.active{background:#e9d4df;color:#4d2a40;font-weight:750}
+.pulse-proto .pp-sidebar nav button span{opacity:.6}
+.pulse-proto .pp-side-note{margin-top:auto;border-top:1px solid #e2cbd8;padding-top:24px;color:#7c5a70;font-size:12px;line-height:1.7}
+.pulse-proto .pp-side-note span{font-size:28px}
+.pulse-proto .pp-content{padding:clamp(22px,3.5vw,50px);min-width:0}
+.pulse-proto .pp-mobile-brand{display:none}
+.pulse-proto .pp-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(190px,.8fr);min-height:310px;overflow:hidden;background:#f3e4ea;border-radius:22px}
+.pulse-proto .pp-hero-text{padding:clamp(24px,3vw,42px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.pulse-proto .pp-eyebrow{font-size:10px;font-weight:750;letter-spacing:.16em;color:#94677e}
+.pulse-proto h1,.pulse-proto h2,.pulse-proto h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.045em;color:#45273a}
+.pulse-proto h1{font-size:clamp(34px,4vw,56px);line-height:1.09;margin:16px 0}
+.pulse-proto h1 em,.pulse-proto h3 em{color:#995f7f;font-weight:400}
+.pulse-proto .pp-hero-text>p,.pulse-proto .pp-screen-header>p{font-size:14px;line-height:1.7;color:#71586a;max-width:38ch;margin:0 0 22px}
+.pulse-proto .pp-pill,.pulse-proto .pp-submit{display:inline-flex;align-items:center;justify-content:space-between;gap:25px;border:0;border-radius:999px;background:#653c56;color:#fff9f8;padding:13px 21px;font-size:12px;font-weight:750}
+.pulse-proto .pp-pill:hover,.pulse-proto .pp-submit:hover{background:#84516e}
+.pulse-proto .pp-art{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(circle at 80% 15%,#e9b6cb,#ab7092 45%,#603850 100%);border-radius:45% 0 0 45%/65% 0 0 65%;display:grid;place-items:center}
+.pulse-proto .pp-art>span{position:relative;z-index:2;font-family:Georgia,serif;font-style:italic;font-size:230px;line-height:1;color:#fff6ef;text-shadow:0 10px 30px #46243b55;transform:rotate(-15deg)}
+.pulse-proto .pp-art>small{position:absolute;bottom:24px;right:20px;color:#fff7f0;letter-spacing:.15em;font-size:9px;z-index:3}
+.pulse-proto .pp-orbit{position:absolute;border:1px solid #fff7;border-radius:50%;width:300px;height:300px;transform:rotate(20deg) scaleX(.7);top:-60px;left:-50px}
+.pulse-proto .pp-orbit.two{width:450px;height:450px;top:-170px;left:-120px;border-color:#fff4}
+.pulse-proto .pp-section-heading{display:flex;align-items:center;justify-content:space-between;margin:38px 0 18px}
+.pulse-proto .pp-section-heading h2{font-size:31px;margin:8px 0 0}
+.pulse-proto .pp-flower{font-size:35px;color:#a66f8c}
+.pulse-proto .pp-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.pulse-proto .pp-actions button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-height:164px;padding:20px;text-align:left;border:1px solid #ead8e1;border-radius:17px;background:#faf0f4;color:#4d2d40;transition:transform .2s,box-shadow .2s}
+.pulse-proto .pp-actions button:nth-child(2){background:#fff7f2}
+.pulse-proto .pp-actions button:nth-child(3){background:#f5edf3}
+.pulse-proto .pp-actions button:hover{transform:translateY(-3px);box-shadow:0 12px 22px #4b2b4017}
+.pulse-proto .pp-action-icon{font-size:25px;color:#9e6b86}
+.pulse-proto .pp-actions strong{font-size:14px}
+.pulse-proto .pp-actions small{font-size:12px;color:#836e7b;line-height:1.4}
+.pulse-proto .pp-action-go{position:absolute;right:17px;top:19px;font-size:17px;color:#9c7389}
+.pulse-proto .pp-bottom-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:15px}
+.pulse-proto .pp-panel{border:1px solid #ecdee5;border-radius:18px;background:#fffdfb;padding:23px;text-align:left}
+.pulse-proto .pp-panel h3{font-size:27px;margin:10px 0}
+.pulse-proto .pp-panel p{color:#806b77;font-size:13px;line-height:1.6}
+.pulse-proto .pp-panel>small{display:block;margin-top:15px;color:#937b8a;font-size:11px}
+.pulse-proto .pp-feelings{display:flex;flex-wrap:wrap;gap:8px;margin:17px 0}
+.pulse-proto .pp-feelings button{padding:10px 13px;background:#fff7f9;border:1px solid #e7d6df;border-radius:999px;font-size:12px;color:#6c4b60}
+.pulse-proto .pp-feelings button.selected{background:#683d57;color:#fff;border-color:#683d57}
+.pulse-proto .pp-plan-teaser{background:#f1e0e8;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start}
+.pulse-proto .pp-plan-teaser>span:last-child{font-size:12px;color:#8b5875;margin-top:auto}
+.pulse-proto .pp-footer{font-size:10px;letter-spacing:.1em;color:#9b8592;text-align:center;margin:36px 0 0}
+.pulse-proto .pp-screen-header{padding:18px 0 30px}
+.pulse-proto .pp-screen-header h1{font-size:clamp(37px,5vw,61px)}
+.pulse-proto .pp-chat{min-height:280px;display:flex;flex-direction:column;align-items:flex-start;gap:15px;border:1px solid #eadbe3;background:#fffdfb;border-radius:20px;padding:24px}
+.pulse-proto .pp-bubble{max-width:75%;padding:16px 19px;background:#f3e6ec;border-radius:17px 17px 17px 4px;font-size:14px;line-height:1.6}
+.pulse-proto .pp-bubble.mine{align-self:flex-end;background:#683d57;color:white;border-radius:17px 17px 4px 17px}
+.pulse-proto .pp-chat-form{display:flex;gap:10px;margin-top:12px}
+.pulse-proto .pp-chat-form input,.pulse-proto .pp-form-row input,.pulse-proto .pp-form-row select{min-width:0;width:100%;border:1px solid #e5d1dc;border-radius:12px;padding:14px;background:white;color:#4a2b3d}
+.pulse-proto .pp-chat-form input{flex:1}
+.pulse-proto .pp-chat-form button{border:0;border-radius:12px;background:#683d57;color:white;padding:0 22px}
+.pulse-proto .pp-form-panel{padding:28px}
+.pulse-proto .pp-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.pulse-proto .pp-form-row label{display:grid;gap:9px;font-size:12px;color:#75576b}
+.pulse-proto .pp-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.pulse-proto .pp-metrics>div{display:flex;flex-direction:column;gap:9px;background:#f4e7ee;border-radius:17px;padding:22px}
+.pulse-proto .pp-metrics span{font-size:10px;letter-spacing:.1em;color:#80576e}
+.pulse-proto .pp-metrics strong{font-family:Georgia,serif;font-size:42px;font-weight:400;color:#623b53}
+.pulse-proto .pp-metrics small{font-size:10px;color:#886e7c}
+.pulse-proto .pp-bars{height:180px;display:flex;align-items:flex-end;gap:16px;margin:20px 0 0;border-bottom:1px solid #e8d4df}
+.pulse-proto .pp-bars div{flex:1;min-width:0;border-radius:9px 9px 0 0;background:linear-gradient(180deg,#b77d9d,#6d415d)}
+.pulse-proto .pp-plan-list{display:grid;gap:11px;margin-bottom:22px}
+.pulse-proto .pp-plan-list>div{display:flex;align-items:center;gap:20px;padding:19px 23px;background:#fffdfb;border:1px solid #e9d8e1;border-radius:17px}
+.pulse-proto .pp-plan-list>div>span:first-child{font-size:12px;font-weight:800;color:#956b83}
+.pulse-proto .pp-plan-list>div>div{flex:1;display:grid;gap:6px}
+.pulse-proto .pp-plan-list strong{font-size:15px}
+.pulse-proto .pp-plan-list small{color:#927c8a}
+.pulse-proto .pp-plan-list>div>span:last-child{color:#a66e8c;font-size:25px}
+.pulse-proto .pp-mobile-nav{display:none}
+@media(max-width:980px){.pulse-proto .pp-app{grid-template-columns:170px minmax(0,1fr)}.pulse-proto .pp-sidebar{padding:30px 15px}.pulse-proto .pp-wordmark{font-size:47px}.pulse-proto .pp-actions{gap:8px}.pulse-proto .pp-actions button{padding:15px}.pulse-proto .pp-hero{grid-template-columns:1.2fr .8fr}.pulse-proto .pp-art>span{font-size:170px}}
+@media(max-width:700px){.pulse-proto{padding:0;background:#fffaf8}.pulse-proto .pp-top,.pulse-proto .pp-sidebar{display:none}.pulse-proto .pp-app{display:block;min-height:100vh;border:0;border-radius:0;box-shadow:none}.pulse-proto .pp-content{padding:24px 17px 100px}.pulse-proto .pp-mobile-brand{display:flex;align-items:baseline;gap:13px;font-size:41px;margin:0 0 22px}.pulse-proto .pp-mobile-brand small{font:700 9px Arial,sans-serif;letter-spacing:.12em;color:#936c82}.pulse-proto .pp-hero{grid-template-columns:1fr}.pulse-proto .pp-hero-text{padding:24px}.pulse-proto .pp-hero h1{font-size:36px}.pulse-proto .pp-art{min-height:115px;border-radius:50% 50% 0 0/25% 25% 0 0}.pulse-proto .pp-art>span{font-size:105px}.pulse-proto .pp-art>small{bottom:14px}.pulse-proto .pp-section-heading{margin-top:27px}.pulse-proto .pp-section-heading h2{font-size:27px}.pulse-proto .pp-actions{grid-template-columns:1fr}.pulse-proto .pp-actions button{min-height:95px;padding:16px 18px 16px 67px;gap:6px}.pulse-proto .pp-action-icon{position:absolute;left:19px;top:22px}.pulse-proto .pp-bottom-grid{grid-template-columns:1fr}.pulse-proto .pp-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.pulse-proto .pp-metrics>div{padding:13px 9px}.pulse-proto .pp-metrics strong{font-size:28px}.pulse-proto .pp-metrics span{font-size:9px}.pulse-proto .pp-metrics small{font-size:9px}.pulse-proto .pp-form-row{grid-template-columns:1fr}.pulse-proto .pp-mobile-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;bottom:0;left:0;right:0;z-index:20;background:#fffaf8f2;backdrop-filter:blur(12px);border-top:1px solid #e9d7e0;padding:10px 4px max(10px,env(safe-area-inset-bottom))}.pulse-proto .pp-mobile-nav button{border:0;background:transparent;color:#836a7a;font-size:10px;padding:12px 2px;border-radius:9px}.pulse-proto .pp-mobile-nav button.active{background:#f1e1e9;color:#5c3650;font-weight:800}.pulse-proto .pp-bubble{max-width:90%}.pulse-proto .pp-chat-form button{padding:0 13px}}
+@media(prefers-reduced-motion:reduce){.pulse-proto .pp-actions button{transition:none}.pulse-proto .pp-actions button:hover{transform:none}}
