@@ -1,0 +1,19 @@
+'use client';
+import {useMemo,useState} from 'react';
+type Item={day:string;activity:string;completed?:boolean};
+const iso=(d:Date)=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+const parse=(s:string)=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const label=(d:Date,opts:Intl.DateTimeFormatOptions)=>d.toLocaleDateString('pt-PT',opts);
+export default function PulseAgenda({plans,onRemove,onRegister}:{plans:Item[];onRemove:(p:Item)=>void;onRegister:(p:Item)=>void}){
+ const [mode,setMode]=useState<'dia'|'semana'|'mes'>('semana');
+ const [cursor,setCursor]=useState(iso(new Date()));
+ const current=parse(cursor);
+ const start=new Date(current);
+ if(mode==='semana')start.setDate(start.getDate()-((start.getDay()+6)%7));
+ if(mode==='mes')start.setDate(1);
+ const count=mode==='dia'?1:mode==='semana'?7:new Date(current.getFullYear(),current.getMonth()+1,0).getDate();
+ const days=useMemo(()=>Array.from({length:count},(_,i)=>{const d=new Date(start);d.setDate(d.getDate()+i);return iso(d)}),[count,iso(start)]);
+ const move=(dir:number)=>{const d=parse(cursor);if(mode==='mes')d.setMonth(d.getMonth()+dir,1);else d.setDate(d.getDate()+dir*(mode==='semana'?7:1));setCursor(iso(d))};
+ const visible=plans.filter(p=>days.includes(p.day)).sort((a,b)=>a.day.localeCompare(b.day));
+ return <section className="pulse-calendar" aria-label="Agenda de atividades"><div className="pulse-calendar-toolbar"><div className="pulse-calendar-modes" role="group" aria-label="Vista da agenda">{(['dia','semana','mes'] as const).map(m=><button key={m} type="button" aria-pressed={mode===m} className={mode===m?'is-active':''} onClick={()=>setMode(m)}>{m==='dia'?'Dia':m==='semana'?'Semana':'Mês'}</button>)}</div><div className="pulse-calendar-period"><button type="button" aria-label="Período anterior" onClick={()=>move(-1)}>‹</button><strong>{mode==='mes'?label(current,{month:'long',year:'numeric'}):mode==='dia'?label(current,{weekday:'long',day:'numeric',month:'long'}):label(parse(days[0]),{day:'numeric',month:'short'})+' – '+label(parse(days[6]),{day:'numeric',month:'short',year:'numeric'})}</strong><button type="button" aria-label="Período seguinte" onClick={()=>move(1)}>›</button><button type="button" onClick={()=>setCursor(iso(new Date()))}>Hoje</button></div></div><div className={mode==='mes'?'pulse-calendar-grid is-month':mode==='semana'?'pulse-calendar-grid is-week':'pulse-calendar-grid is-day'}>{days.map(day=>{const items=visible.filter(p=>p.day===day);const d=parse(day);return <button key={day} type="button" className={'pulse-calendar-day'+(day===iso(new Date())?' is-today':'')+(day===cursor?' is-selected':'')} aria-label={label(d,{weekday:'long',day:'numeric',month:'long'})+'; '+items.length+' atividades'} onClick={()=>setCursor(day)}><span>{label(d,{weekday:'short'})} <strong>{d.getDate()}</strong></span>{items.slice(0,mode==='mes'?2:4).map((p,i)=><small key={i} title={p.activity}>{p.completed?'✓ ':''}{p.activity}</small>)}{items.length>(mode==='mes'?2:4)&&<small>+{items.length-(mode==='mes'?2:4)} atividades</small>}</button>})}</div><div className="pulse-calendar-detail"><h4>{mode==='dia'?'Atividades do dia':mode==='semana'?'Atividades da semana':'Atividades do mês'}</h4>{visible.length===0?<p>Sem atividades previstas neste período. Podes adicionar uma atividade abaixo.</p>:visible.map((p,i)=><article key={p.day+p.activity+i}><div><time dateTime={p.day}>{label(parse(p.day),{day:'numeric',month:'short',weekday:'short'})}</time><strong>{p.activity}</strong>{p.completed&&<small>✓ Registada</small>}</div><div>{p.activity!=='Descanso'&&!p.completed&&p.day<=iso(new Date())&&<button type="button" onClick={()=>onRegister(p)}>Registar pós-treino</button>}<button type="button" onClick={()=>onRemove(p)}>Remover</button></div></article>)}</div></section>;
+}
