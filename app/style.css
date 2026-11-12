@@ -1724,3 +1724,20 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-art{display:block}
 .pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-content{grid-column:1;grid-row:1}
 @media(max-width:700px){.pulse-agent .pa-hero-editorial,.pulse-preview-real .pulse-agent .pa-hero-editorial{grid-template-columns:1fr}.pulse-agent .pa-hero-editorial .pa-hero-content,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-content{grid-column:1;grid-row:1}.pulse-agent .pa-hero-editorial .pa-hero-art,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-art{grid-column:1;grid-row:2;min-height:155px;border-radius:0 0 18px 18px}.pulse-agent .pa-hero-editorial .pa-hero-art-caption{bottom:12px}}
+
+/* Private-by-default cycle access and meaningful weekly reflection. */
+.pulse-agent .pa-private-access{border:1px solid #e7e4e6;border-radius:14px;background:#faf9fa;overflow:hidden}
+.pulse-agent .pa-private-access summary{cursor:pointer;list-style:none;padding:15px 18px;font-size:13px;font-weight:750;color:#4a3a44;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.pulse-agent .pa-private-access summary::-webkit-details-marker{display:none}
+.pulse-agent .pa-private-access summary:after{content:"⌄";color:#856577;font-size:18px}
+.pulse-agent .pa-private-access[open] summary:after{content:"⌃"}
+.pulse-agent .pa-private-access summary span{margin-left:auto;font-weight:400;font-size:11px;color:#81747e}
+.pulse-agent .pa-private-access-content{border-top:1px solid #ece6e9;padding:15px 18px;display:grid;gap:12px}
+.pulse-agent .pa-private-access-content p{margin:0;font-size:12px;line-height:1.6;color:#756a72}
+.pulse-agent .pa-private-access-content button{justify-self:start;background:#fff;border:1px solid #ddcbd5;border-radius:10px;padding:11px 14px;color:#763c5c;font-weight:700}
+.pulse-agent .pa-private-access summary:focus-visible,.pulse-agent .pa-private-access-content button:focus-visible{outline:3px solid #925c7a;outline-offset:2px}
+.pulse-agent .p1-weekly-reflection{padding:17px 19px;margin-top:15px;border:1px solid #e7e1e5;border-radius:14px;background:#fbfafb}
+.pulse-agent .p1-weekly-reflection strong{font-size:13px;color:#44333e}
+.pulse-agent .p1-weekly-reflection p{font-size:14px;line-height:1.6;color:#685b65}
+.pulse-agent .p1-weekly-reflection button{background:#fff;border:1px solid #e1d4dc;color:#753a5b;border-radius:10px;padding:10px 14px;font-weight:700}
+@media(max-width:500px){.pulse-agent .pa-private-access summary{align-items:flex-start;flex-wrap:wrap}.pulse-agent .pa-private-access summary span{width:100%;margin:0}}
