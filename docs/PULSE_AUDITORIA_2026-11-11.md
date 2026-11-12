@@ -42,3 +42,12 @@ A eventual app Pulse independente deve ser avaliada com uma proposta de valor es
 - **Testes estáticos:** acrescentadas asserções sobre hierarquia visual, ligações entre percursos e consentimento. **Não foram executados nem substituem validação em navegador.**
 
 **Limites desta etapa:** não foram redesenhados os componentes internos de agenda/objetivos/check-in, nem verificados visualmente os diferentes tamanhos de ecrã. Não houve merge, deploy ou alteração à base de dados.
+
+## Pulse Signature — evolução editorial (12/11/2026)
+- Nova entrada editorial com composição gráfica original em CSS (órbitas, tipografia, gradientes e assinatura PULSE), em vez de imagens externas de origem ou licença incerta.
+- A fotografia da utilizadora continua a vir exclusivamente do perfil INVICTAS quando disponível; caso contrário é apresentada a inicial.
+- A composição é responsiva: hero em duas colunas no desktop e secções verticais no mobile.
+- As ações mantêm navegação real para conversa, registo e evolução, com agenda e objetivos como percursos secundários.
+- Identidade cromática reforçada em conversa, registo, evolução e planeamento; sem alteração dos dados de saúde, backend, consentimento ou armazenamento.
+- Testes estáticos acrescentados para classes e layout. **Validação visual em navegador e testes reais continuam pendentes.**
+- Não se afirma que esta versão está pronta para lançamento; a aceitação visual depende de revisão com utilizadoras e verificação em dispositivos reais.
