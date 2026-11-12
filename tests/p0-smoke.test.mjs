@@ -122,3 +122,13 @@ test('Ciclo é descoberto no início e continua opcional, privado e separado',()
  assert.match(cycle,/Quero ativar o registo local/);
  assert.match(css,/\.pa-cycle-entry/);
 });
+
+test('Pulse usa cabeçalho fotográfico e check-ins só com consentimento',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
+ assert.match(css,/photo-1547347298-4074fc3086f0/);
+ assert.match(css,/photo-1518611012118-696072aa579a/);
+ assert.match(pulse,/if\(settings\.consent\)\{try\{const stored=JSON\.parse\(localStorage\.getItem\(phaseOneKey\)/);
+ assert.match(pulse,/checkinContext/);
+ assert.match(pulse,/não permitem conclusões clínicas/);
+});
