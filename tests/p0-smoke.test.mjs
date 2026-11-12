@@ -114,13 +114,13 @@ test('Ciclo é descoberto no início e continua opcional, privado e separado',()
  const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
  const cycle=readFileSync(new URL('../app/CycleJournal.tsx',import.meta.url),'utf8');
  const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
- assert.match(pulse,/className="pa-cycle-entry"/);
+ assert.match(pulse,/className="pa-private-access"/);
  assert.match(pulse,/setView\('ciclo'\)/);
- assert.match(pulse,/Ciclo e bem-estar/);
+ assert.match(pulse,/Abrir ciclo e bem-estar/);
  assert.match(pulse,/<CycleJournal userId=\{userId\}/);
  assert.match(cycle,/invictas-cycle-local-v2-/);
  assert.match(cycle,/Quero ativar o registo local/);
- assert.match(css,/\.pa-cycle-entry/);
+ assert.match(css,/\.pa-private-access/);
 });
 
 test('Pulse usa cabeçalho fotográfico e check-ins só com consentimento',()=>{
@@ -131,4 +131,11 @@ test('Pulse usa cabeçalho fotográfico e check-ins só com consentimento',()=>{
  assert.match(pulse,/if\(settings\.consent\)\{try\{const stored=JSON\.parse\(localStorage\.getItem\(phaseOneKey\)/);
  assert.match(pulse,/checkinContext/);
  assert.match(pulse,/não permitem conclusões clínicas/);
+});
+
+test('Resumo semanal orienta reflexão sem incluir dados do ciclo',()=>{
+ const phase=readFileSync(new URL('../app/PulsePhaseOne.tsx',import.meta.url),'utf8');
+ assert.match(phase,/Uma pergunta para a próxima semana/);
+ assert.match(phase,/não inclui o ciclo/);
+ assert.match(phase,/Rever o meu planeamento/);
 });
