@@ -1914,3 +1914,30 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-agenda-alert button{background:transparent;border:1px solid #e4d4dc;border-radius:8px;padding:7px 10px;font-size:11px}
 .pulse-agent .pa-agenda-alerts>small{font-size:11px;color:#83717b}
 @media(max-width:650px){.pulse-agent .pa-agenda-alerts-head{flex-direction:column}.pulse-agent .pa-agenda-alerts-head label{white-space:normal}}
+
+/* Pulse — mesma linguagem editorial das capas interiores INVICTAS */
+.inv-cover-photo-pulse{background-image:linear-gradient(90deg,rgba(28,19,29,.25),rgba(28,19,29,.04)),url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=1800&q=85&fit=crop');background-size:cover;background-position:55% 45%}
+.inv-pulse-editorial-cover-link{display:inline-flex;margin-top:25px;border:1px solid rgba(255,255,255,.65);padding:12px 21px;border-radius:2px;color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em;background:rgba(30,20,28,.22)}
+.inv-pulse-editorial{display:grid;gap:0}
+.inv-pulse-editorial-intro{padding:clamp(50px,8vw,110px) clamp(20px,7vw,100px);display:grid;grid-template-columns:minmax(150px,.6fr) minmax(0,1.4fr);gap:clamp(24px,5vw,90px);background:#f8f5f0}
+.inv-pulse-editorial-intro h2,.inv-pulse-editorial-end h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(35px,5.2vw,68px);line-height:1.15;letter-spacing:-.035em;color:#48263a;margin:0 0 25px}
+.inv-pulse-editorial-intro h2 em,.inv-pulse-editorial-end h2 em{color:#a36577;font-weight:500}
+.inv-pulse-editorial-intro p{max-width:660px;font-size:clamp(15px,1.5vw,19px);line-height:1.85;color:#62555e}
+.inv-pulse-editorial-chapters{padding:0 clamp(20px,7vw,100px) clamp(50px,7vw,100px);background:#f8f5f0}
+.inv-pulse-editorial-chapter{display:grid;grid-template-columns:minmax(140px,.65fr) minmax(0,1.8fr) 50px;gap:clamp(14px,3vw,45px);align-items:start;border-top:1px solid #d9cbd0;padding:clamp(23px,4vw,45px) 0}
+.inv-pulse-editorial-chapter:last-child{border-bottom:1px solid #d9cbd0}
+.inv-pulse-editorial-chapter>span{font-size:10px;font-weight:800;letter-spacing:.13em;color:#996276;padding-top:9px}
+.inv-pulse-editorial-chapter h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(23px,3.2vw,39px);line-height:1.18;margin:0 0 13px;color:#48263a}
+.inv-pulse-editorial-chapter p{max-width:580px;line-height:1.75;font-size:14px;color:#6c5d66;margin:0}
+.inv-pulse-editorial-chapter>strong{font-size:28px;font-weight:400;color:#a46c83;text-align:right}
+.inv-pulse-editorial-quote{background:#4b2c3c;color:#f8f0f2;padding:clamp(60px,9vw,130px) clamp(20px,10vw,150px);display:grid;gap:26px}
+.inv-pulse-editorial-quote .eyebrow{color:#e5b8c9}
+.inv-pulse-editorial-quote blockquote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,5.2vw,68px);line-height:1.28;letter-spacing:-.025em;margin:0}
+.inv-pulse-editorial-quote blockquote em{font-weight:400;color:#e9c2d0}
+.inv-pulse-editorial-quote p{max-width:650px;color:#e4d4dc;line-height:1.7}
+.inv-pulse-editorial-end{padding:clamp(60px,9vw,120px) clamp(20px,7vw,100px);display:flex;align-items:center;justify-content:space-between;gap:35px;background:#f0e7e9}
+.inv-pulse-editorial-end>div{max-width:710px}
+.inv-pulse-editorial-end p{line-height:1.7;color:#655760}
+.inv-pulse-editorial-end small{display:block;margin-top:18px;font-size:11px;color:#7c6c74}
+.inv-pulse-editorial-cta{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:2px;background:#542d40;color:#fff;padding:18px 25px;font-size:13px;font-weight:700}
+@media(max-width:800px){.inv-pulse-editorial-intro{grid-template-columns:1fr;gap:15px}.inv-pulse-editorial-end{flex-direction:column;align-items:flex-start}.inv-pulse-editorial-chapter{grid-template-columns:1fr 30px;gap:8px}.inv-pulse-editorial-chapter>span{grid-column:1/-1}.inv-pulse-editorial-chapter>div{grid-column:1}.inv-pulse-editorial-chapter>strong{grid-column:2;grid-row:2}}
