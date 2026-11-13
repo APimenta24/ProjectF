@@ -1807,3 +1807,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pulse-calendar-detail article strong{font-size:13px}
 .pulse-agent .pulse-calendar-detail article button{border:1px solid #e4d8e0;background:#fff;border-radius:8px;padding:8px;color:#75445e;font-size:11px}
 @media(max-width:680px){.pulse-agent .pa-wellbeing-overview{grid-template-columns:1fr 1fr}.pulse-agent .pa-wellbeing-overview>button{grid-column:1/-1}.pulse-agent .pulse-calendar-grid.is-week .pulse-calendar-day{min-height:80px;padding:6px}.pulse-agent .pulse-calendar-grid.is-month .pulse-calendar-day{min-height:64px;padding:5px}.pulse-agent .pulse-calendar-day small{font-size:9px}.pulse-agent .pulse-calendar-day>span strong{font-size:14px}.pulse-agent .pulse-calendar-detail article{flex-direction:column}.pulse-agent .pulse-calendar-detail article>div:last-child{display:flex;flex-wrap:wrap}.pulse-agent .pulse-calendar-toolbar{align-items:stretch}}
+
+/* Three equal, visible wellbeing choices; no hidden menstrual section. */
+.pulse-agent .pa-wellbeing-overview>a{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:20px;border:1px solid #e9e3e7;border-radius:16px;background:#fff;color:#40323d;text-align:left;text-decoration:none;min-width:0}
+.pulse-agent .pa-wellbeing-overview>a>span{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#f4eff2;color:#7c405f;font-size:23px}
+.pulse-agent .pa-wellbeing-overview>a strong{font-size:15px}
+.pulse-agent .pa-wellbeing-overview>a small{font-size:12px;line-height:1.45;color:#80747c}
+.pulse-agent .pa-wellbeing-overview>a:hover{border-color:#ac7d98}
+@media(max-width:680px){.pulse-agent .pa-wellbeing-overview{grid-template-columns:repeat(3,minmax(0,1fr))}.pulse-agent .pa-wellbeing-overview>a,.pulse-agent .pa-wellbeing-overview>button{grid-column:auto;padding:12px;min-height:145px}}
