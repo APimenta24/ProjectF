@@ -103,7 +103,6 @@ test('Pulse Fase 1 usa fronteira e preview funcional protegido por sessão',()=>
  assert.match(home,/href="\/pulse\/prototipo"/);
  assert.match(home,/tab==='Pulse'&&<div className="inv-pulse-editorial">/);
  assert.match(home,/inv-interior-cover inv-cover-pulse/);
- assert.match(home,/href="\\/pulse\\/prototipo"/);
  assert.match(workspace,/export default function PulseWorkspace/);
  assert.match(workspace,/return <PulseAgent/);
  assert.match(prototype,/db\.auth\.getSession/);
