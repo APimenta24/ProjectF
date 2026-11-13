@@ -158,7 +158,7 @@ test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
  assert.match(pulse,/<PulseAgenda plans=\{plans\}/);
  assert.match(pulse,/Hidratação/);
  assert.match(pulse,/Nutrição/);
- assert.match(pulse,/Registo opcional · sem outra palavra-passe/);
+ assert.match(pulse,/Registo opcional · calendário pessoal/);
  assert.match(agenda,/\['dia','semana','mes'\]/);
  assert.match(agenda,/onRegister\(p\)/);
  assert.match(reminders,/não existem alertas automáticos|Não existem alertas automáticos/);
