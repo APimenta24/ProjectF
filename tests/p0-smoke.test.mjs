@@ -164,3 +164,16 @@ test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
  assert.match(reminders,/não existem alertas automáticos|Não existem alertas automáticos/);
  assert.match(pulse,/localStorage\.removeItem\(remindersKey\)/);
 });
+
+test('Objetivos integram passos de atividade e bem-estar na agenda',()=>{
+ const goals=readFileSync(new URL('../app/PulsePhaseTwo.tsx',import.meta.url),'utf8');
+ const agenda=readFileSync(new URL('../app/pulse/PulseAgenda.tsx',import.meta.url),'utf8');
+ assert.match(goals,/type GoalAction=/);
+ assert.match(goals,/category:'atividade'\|'bemestar'/);
+ assert.match(goals,/addAction\(g\)/);
+ assert.match(goals,/toggleAction\(g,a\)/);
+ assert.match(goals,/invictas-pulse-goals-changed/);
+ assert.match(agenda,/const steps=goals\.flatMap/);
+ assert.match(agenda,/Bem-estar: /);
+ assert.match(agenda,/\.\.\.steps/);
+});
