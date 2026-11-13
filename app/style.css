@@ -1876,3 +1876,27 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .p2-goal-action-form input:first-child{flex:1 1 180px}
 .pulse-agent .p2-goal-action-form button{padding:8px 12px;border-radius:8px;border:1px solid #cdaebe;background:#fff;color:#713f5a;cursor:pointer}
 @media(max-width:650px){.pulse-agent .p2-goal-action-form>*{flex:1 1 100%}}
+
+/* INVICTAS — apresentação editorial da aplicação Pulse */
+.inv-pulse-showcase{display:grid;gap:clamp(40px,7vw,88px);padding-bottom:70px}
+.inv-pulse-showcase-hero{display:grid;grid-template-columns:1fr 1fr;min-height:540px;background:#f8f4f6;overflow:hidden}
+.inv-pulse-showcase-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:19px;padding:clamp(30px,6vw,85px)}
+.inv-pulse-showcase-copy h1{font-family:Georgia,serif;font-size:clamp(42px,5vw,77px);line-height:1.07;letter-spacing:-.035em;margin:0;color:#241822}
+.inv-pulse-showcase-copy h1 em,.inv-pulse-showcase-heading h2 em{color:#93516e;font-weight:400}
+.inv-pulse-showcase-copy p{max-width:440px;font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:#594d55}
+.inv-pulse-showcase-copy small{font-size:11px;color:#796d74}
+.inv-pulse-showcase-cta{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border-radius:999px;background:#372330;color:#fff;text-decoration:none;font-size:13px;font-weight:700}
+.inv-pulse-showcase-photo{min-height:420px;background:linear-gradient(180deg,#28162210,#28162235),url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=1500&q=85&fit=crop') center/cover}
+.inv-pulse-showcase-features{display:grid;gap:28px;padding:0 clamp(16px,4vw,64px)}
+.inv-pulse-showcase-heading{max-width:760px;display:grid;gap:12px}
+.inv-pulse-showcase-heading h2,.inv-pulse-showcase-end h2{font-family:Georgia,serif;font-size:clamp(30px,4vw,51px);line-height:1.13;margin:0}
+.inv-pulse-showcase-heading p{color:#766a73}
+.inv-pulse-showcase-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.inv-pulse-showcase-grid article{padding:25px 20px;background:#f8f4f6;border:1px solid #eee7eb;display:grid;align-content:start;gap:14px;min-height:220px}
+.inv-pulse-showcase-grid article span{font-size:10px;letter-spacing:.12em;color:#9a647d}
+.inv-pulse-showcase-grid article h3{font-family:Georgia,serif;font-size:24px;margin:0}
+.inv-pulse-showcase-grid article p{font-size:13px;line-height:1.6;color:#6c5e67}
+.inv-pulse-showcase-end{margin:0 clamp(16px,4vw,64px);padding:clamp(30px,5vw,65px);display:grid;justify-items:start;gap:16px;background:#f4e9ef}
+.inv-pulse-showcase-end p{max-width:640px;line-height:1.6}
+@media(max-width:900px){.inv-pulse-showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.inv-pulse-showcase-hero{grid-template-columns:1fr}.inv-pulse-showcase-photo{grid-row:1;min-height:230px}.inv-pulse-showcase-copy{grid-row:2;padding:32px 23px}.inv-pulse-showcase-grid{grid-template-columns:1fr}.inv-pulse-showcase-grid article{min-height:auto}}
