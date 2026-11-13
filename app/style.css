@@ -1900,3 +1900,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-pulse-showcase-end p{max-width:640px;line-height:1.6}
 @media(max-width:900px){.inv-pulse-showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.inv-pulse-showcase-hero{grid-template-columns:1fr}.inv-pulse-showcase-photo{grid-row:1;min-height:230px}.inv-pulse-showcase-copy{grid-row:2;padding:32px 23px}.inv-pulse-showcase-grid{grid-template-columns:1fr}.inv-pulse-showcase-grid article{min-height:auto}}
+
+/* Avisos contextuais e opcionais na aplicação Pulse */
+.pulse-agent .pa-agenda-alerts{display:grid;gap:11px;border:1px solid #eadce3;border-radius:16px;padding:clamp(16px,3vw,24px);background:#fbf8fa}
+.pulse-agent .pa-agenda-alerts-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.pulse-agent .pa-agenda-alerts-head h3{font-family:Georgia,serif;font-size:24px;margin:5px 0}
+.pulse-agent .pa-agenda-alerts-head p{font-size:12px;margin:0;color:#74636d}
+.pulse-agent .pa-agenda-alerts-head label{display:flex;align-items:center;gap:7px;font-size:12px;white-space:nowrap}
+.pulse-agent .pa-agenda-alert{display:flex;align-items:center;justify-content:space-between;gap:10px;border-radius:10px;background:#fff;padding:11px;border:1px solid #eee6eb}
+.pulse-agent .pa-agenda-alert>div{display:grid;gap:4px}
+.pulse-agent .pa-agenda-alert strong{font-size:13px}
+.pulse-agent .pa-agenda-alert span{font-size:12px;color:#6e5a66}
+.pulse-agent .pa-agenda-alert button{background:transparent;border:1px solid #e4d4dc;border-radius:8px;padding:7px 10px;font-size:11px}
+.pulse-agent .pa-agenda-alerts>small{font-size:11px;color:#83717b}
+@media(max-width:650px){.pulse-agent .pa-agenda-alerts-head{flex-direction:column}.pulse-agent .pa-agenda-alerts-head label{white-space:normal}}
