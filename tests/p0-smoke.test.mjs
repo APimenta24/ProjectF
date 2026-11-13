@@ -99,7 +99,9 @@ test('Pulse Fase 1 usa fronteira e preview funcional protegido por sessão',()=>
  const home=readFileSync(new URL('../app/page.tsx',import.meta.url),'utf8');
  const prototype=readFileSync(new URL('../app/pulse/prototipo/page.tsx',import.meta.url),'utf8');
  const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
- assert.match(home,/import Pulse from '\.\/pulse\/PulseWorkspace'/);
+ assert.match(home,/tab==='Pulse'/);
+ assert.match(home,/href="\/pulse\/prototipo"/);
+ assert.match(home,/inv-pulse-showcase/);
  assert.match(workspace,/export default function PulseWorkspace/);
  assert.match(workspace,/return <PulseAgent/);
  assert.match(prototype,/db\.auth\.getSession/);
@@ -176,4 +178,14 @@ test('Objetivos integram passos de atividade e bem-estar na agenda',()=>{
  assert.match(agenda,/const steps=goals\.flatMap/);
  assert.match(agenda,/Bem-estar: /);
  assert.match(agenda,/\.\.\.steps/);
+});
+
+test('Pulse apresenta avisos opcionais de agenda sem notificações push',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const home=readFileSync(new URL('../app/page.tsx',import.meta.url),'utf8');
+ assert.match(pulse,/agendaAlertsEnabled/);
+ assert.match(pulse,/saveAlertPrefs/);
+ assert.match(pulse,/Não são notificações push/);
+ assert.match(home,/A tua vida/);
+ assert.match(home,/tab==='Pulse'/);
 });
