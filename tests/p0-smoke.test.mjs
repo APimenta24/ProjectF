@@ -155,7 +155,7 @@ test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
  const reminders=readFileSync(new URL('../app/pulse/PulseReminders.tsx',import.meta.url),'utf8');
  assert.match(pulse,/tab\('bemestar','Bem-estar'\)/);
  assert.match(pulse,/\['bemestar','♡','Bem-estar'\]/);
- assert.match(pulse,/<PulseAgenda plans=\{plans\}/);
+ assert.match(pulse,/<PulseAgenda userId=\{userId\} plans=\{plans\}/);
  assert.match(pulse,/Hidratação/);
  assert.match(pulse,/Nutrição/);
  assert.match(pulse,/Registo opcional · calendário pessoal/);
