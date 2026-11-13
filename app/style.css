@@ -1846,3 +1846,22 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pulse-cycle-calendar-grid span{color:#8b4b6b;font-size:11px}
 .pulse-agent .pw-meal-types{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
 .pulse-agent .pw-meal-types label{display:flex;align-items:center;gap:5px;font-size:12px}
+
+/* Pulse — resumo semanal da página inicial */
+.pulse-agent .pa-week-overview{display:grid;gap:16px;padding:clamp(18px,3vw,28px);border:1px solid #e8dce3;border-radius:20px;background:#fff;box-shadow:0 8px 24px #4b29350a}
+.pulse-agent .pa-week-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.pulse-agent .pa-week-head h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(23px,3vw,30px);margin:6px 0}
+.pulse-agent .pa-week-head p{margin:0;color:#71626c;font-size:13px}
+.pulse-agent .pa-week-head button,.pulse-agent .pa-week-pulse button{border:1px solid #d9bbcb;border-radius:999px;background:#fff;color:#733a59;padding:9px 13px;font-size:12px;font-weight:700;cursor:pointer}
+.pulse-agent .pa-week-stats{display:flex;flex-wrap:wrap;gap:9px}
+.pulse-agent .pa-week-stats span{padding:9px 13px;border-radius:10px;background:#f8f2f5;font-size:12px;color:#66495a}
+.pulse-agent .pa-week-stats strong{font-size:19px;margin-right:5px;color:#442536}
+.pulse-agent .pa-week-items{display:grid;gap:7px}
+.pulse-agent .pa-week-items>div{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid #eee6eb;border-radius:11px}
+.pulse-agent .pa-week-items time{flex:0 0 100px;color:#795a6b;font-size:12px}
+.pulse-agent .pa-week-items strong{flex:1;font-size:13px}
+.pulse-agent .pa-week-items small{font-size:11px;color:#47735a}
+.pulse-agent .pa-week-pulse{display:grid;gap:8px;padding:15px;background:#f6edf2;border-radius:12px}
+.pulse-agent .pa-week-pulse p{margin:0;font-size:13px}
+.pulse-agent .pa-week-pulse button{justify-self:start}
+@media(max-width:650px){.pulse-agent .pa-week-head{flex-direction:column}.pulse-agent .pa-week-items>div{align-items:flex-start;flex-wrap:wrap}.pulse-agent .pa-week-items time{flex:0 0 100%;}.pulse-agent .pa-week-items strong{flex:1 1 70%}}
