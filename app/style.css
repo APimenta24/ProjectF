@@ -1815,3 +1815,22 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-wellbeing-overview>a small{font-size:12px;line-height:1.45;color:#80747c}
 .pulse-agent .pa-wellbeing-overview>a:hover{border-color:#ac7d98}
 @media(max-width:680px){.pulse-agent .pa-wellbeing-overview{grid-template-columns:repeat(3,minmax(0,1fr))}.pulse-agent .pa-wellbeing-overview>a,.pulse-agent .pa-wellbeing-overview>button{grid-column:auto;padding:12px;min-height:145px}}
+
+/* Pulse header: editorial sport photography in both preview and integrated app. */
+.pulse-agent .pa-hero-editorial,.pulse-preview-real .pulse-agent .pa-hero-editorial{position:relative;isolation:isolate;grid-template-columns:minmax(0,1.1fr) minmax(210px,.9fr);min-height:290px;background:#f8f6f7;border:1px solid #e9e5e7;overflow:hidden}
+.pulse-agent .pa-hero-editorial .pa-hero-art,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-art{display:block;grid-column:2;grid-row:1;border-radius:0;min-height:290px;background:linear-gradient(90deg,#f8f6f700,#241a2930),url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=1200&q=80&fit=crop') center/cover}
+.pulse-agent .pa-hero-editorial .pa-hero-art-word,.pulse-agent .pa-hero-editorial .pa-hero-orbit,.pulse-agent .pa-hero-editorial .pa-hero-art-spark,.pulse-agent .pa-hero-editorial .pa-hero-art-caption{display:none}
+.pulse-agent .pa-hero-editorial .pa-hero-content,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-content{grid-column:1;grid-row:1;position:relative;padding:clamp(22px,4vw,44px);padding-top:55px}
+.pulse-agent .pa-hero-editorial .pa-profile-corner,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-profile-corner{position:absolute;right:16px;top:13px;align-self:auto;padding:6px 10px;font-size:11px;border:1px solid #e9e3e7;background:#fff;color:#5b4251}
+.pulse-agent .pulse-calendar-grid.is-month .pulse-calendar-day{min-height:70px}
+.pulse-agent .pulse-calendar-grid.is-month .pulse-calendar-day>span{font-size:0}
+.pulse-agent .pulse-calendar-grid.is-month .pulse-calendar-day>span strong{font-size:13px}
+.pulse-agent .pulse-month-icons{display:flex;flex-wrap:wrap;gap:4px}
+.pulse-agent .pulse-month-icons i{font-size:12px;font-style:normal;color:#844764}
+.pulse-agent .pulse-day-timeline{display:grid;gap:0;border:1px solid #e9e4e7;border-radius:12px;overflow:hidden}
+.pulse-agent .pulse-day-timeline>div{display:grid;grid-template-columns:66px 1fr;min-height:48px;border-bottom:1px solid #f1edf0}
+.pulse-agent .pulse-day-timeline>div:last-child{border:0}
+.pulse-agent .pulse-day-timeline time{font-size:11px;padding:10px;color:#796b76;border-right:1px solid #f1edf0}
+.pulse-agent .pulse-day-timeline span{padding:7px;display:flex;flex-wrap:wrap;gap:5px}
+.pulse-agent .pulse-day-timeline strong{background:#f5edf2;color:#673c53;padding:8px;border-radius:7px;font-size:12px}
+@media(max-width:650px){.pulse-agent .pa-hero-editorial,.pulse-preview-real .pulse-agent .pa-hero-editorial{grid-template-columns:1fr;grid-template-rows:160px auto}.pulse-agent .pa-hero-editorial .pa-hero-art,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-art{grid-column:1;grid-row:1;min-height:160px}.pulse-agent .pa-hero-editorial .pa-hero-content,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-content{grid-column:1;grid-row:2;padding-top:45px}.pulse-agent .pa-hero-editorial .pa-profile-corner{top:10px}}
