@@ -110,18 +110,14 @@ test('Pulse Fase 1 usa fronteira e preview funcional protegido por sessão',()=>
  assert.match(css,/\.pulse-preview-real \.pulse-agent \.pa-hero-art\{display:none\}/);
 });
 
-test('Ciclo é descoberto no início e continua opcional, privado e separado',()=>{
+test('Ciclo é visível e opcional sem segundo desbloqueio',()=>{
  const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
  const cycle=readFileSync(new URL('../app/CycleJournal.tsx',import.meta.url),'utf8');
- const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
- assert.match(pulse,/className="pa-private-access"/);
+ assert.match(pulse,/tab\('bemestar','Bem-estar'\)/);
  assert.match(pulse,/setView\('ciclo'\)/);
- assert.match(pulse,/Abrir ciclo e bem-estar/);
- assert.match(pulse,/<CycleJournal userId=\{userId\}/);
- assert.match(cycle,/invictas-cycle-local-v2-/);
- assert.match(cycle,/Criar cofre privado/);
- assert.match(cycle,/decryptVault/);
- assert.match(css,/\.pa-private-access/);
+ assert.match(cycle,/Quero registar o meu ciclo/);
+ assert.doesNotMatch(cycle,/type="password"/);
+ assert.match(cycle,/invictas-cycle-vault-v1-/);
 });
 
 test('Pulse usa cabeçalho fotográfico e check-ins só com consentimento',()=>{
@@ -141,40 +137,16 @@ test('Resumo semanal orienta reflexão sem incluir dados do ciclo',()=>{
  assert.match(phase,/Rever o meu planeamento/);
 });
 
-test('Bem-estar opcional inclui hidratação, nutrição e eliminação local',()=>{
+test('Registos de bem-estar opt-in e cofres anteriores preservados',()=>{
  const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
  const wellness=readFileSync(new URL('../app/pulse/PulseWellbeing.tsx',import.meta.url),'utf8');
- const prefs=readFileSync(new URL('../app/PulsePreferences.tsx',import.meta.url),'utf8');
- assert.match(pulse,/Hidratação e nutrição/);
- assert.match(pulse,/<PulseWellbeing userId=\{userId\}/);
- assert.match(wellness,/Criar cofre privado/);
- assert.match(wellness,/Eliminar registos de bem-estar/);
- assert.match(wellness,/encryptVault/);
- assert.match(pulse,/localStorage\.removeItem\(wellbeingKey\)/);
- assert.match(prefs,/localStorage\.removeItem\(wellbeingKey\)/);
-});
-
-test('Cofres locais usam AES-GCM, PBKDF2 e IV aleatório',()=>{
- const vault=readFileSync(new URL('../app/pulse/secureVault.ts',import.meta.url),'utf8');
  const cycle=readFileSync(new URL('../app/CycleJournal.tsx',import.meta.url),'utf8');
- const wellness=readFileSync(new URL('../app/pulse/PulseWellbeing.tsx',import.meta.url),'utf8');
- assert.match(vault,/AES-GCM/);
- assert.match(vault,/PBKDF2/);
- assert.match(vault,/310000/);
- assert.match(vault,/getRandomValues\(new Uint8Array\(12\)\)/);
- assert.match(cycle,/invictas-cycle-vault-v1-/);
- assert.match(wellness,/invictas-pulse-wellbeing-vault-v1-/);
-});
-
-test('Cofres bloqueiam ao ocultar aplicação e migram após verificação',()=>{
- const cycle=readFileSync(new URL('../app/CycleJournal.tsx',import.meta.url),'utf8');
- const wellness=readFileSync(new URL('../app/pulse/PulseWellbeing.tsx',import.meta.url),'utf8');
- for(const component of [cycle,wellness]){
-  assert.match(component,/visibilitychange/);
-  assert.match(component,/setPass\(''\)/);
-  assert.match(component,/const verified=await decryptVault/);
-  assert.match(component,/localStorage\.removeItem\(legacy\)/);
- }
+ assert.match(wellness,/Quero registar os meus hábitos/);
+ assert.match(wellness,/sem encriptação adicional/);
+ assert.doesNotMatch(wellness,/type="password"/);
+ assert.match(cycle,/cofre antigo cifrado/);
+ assert.match(pulse,/localStorage\.removeItem\(wellbeingChoiceKey\)/);
+ assert.match(pulse,/localStorage\.removeItem\(cycleChoiceKey\)/);
 });
 
 test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
@@ -186,7 +158,7 @@ test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
  assert.match(pulse,/<PulseAgenda plans=\{plans\}/);
  assert.match(pulse,/Hidratação/);
  assert.match(pulse,/Nutrição/);
- assert.match(pulse,/Área privada/);
+ assert.match(pulse,/Registo opcional · sem outra palavra-passe/);
  assert.match(agenda,/\['dia','semana','mes'\]/);
  assert.match(agenda,/onRegister\(p\)/);
  assert.match(reminders,/não existem alertas automáticos|Não existem alertas automáticos/);
