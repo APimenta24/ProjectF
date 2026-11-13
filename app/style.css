@@ -1834,3 +1834,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pulse-day-timeline span{padding:7px;display:flex;flex-wrap:wrap;gap:5px}
 .pulse-agent .pulse-day-timeline strong{background:#f5edf2;color:#673c53;padding:8px;border-radius:7px;font-size:12px}
 @media(max-width:650px){.pulse-agent .pa-hero-editorial,.pulse-preview-real .pulse-agent .pa-hero-editorial{grid-template-columns:1fr;grid-template-rows:160px auto}.pulse-agent .pa-hero-editorial .pa-hero-art,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-art{grid-column:1;grid-row:1;min-height:160px}.pulse-agent .pa-hero-editorial .pa-hero-content,.pulse-preview-real .pulse-agent .pa-hero-editorial .pa-hero-content{grid-column:1;grid-row:2;padding-top:45px}.pulse-agent .pa-hero-editorial .pa-profile-corner{top:10px}}
+
+.pulse-agent .pulse-cycle-calendar{border:1px solid #ebe3e8;border-radius:14px;background:#fff;padding:14px;display:grid;gap:12px}
+.pulse-agent .pulse-cycle-calendar-nav{display:flex;align-items:center;justify-content:space-between}
+.pulse-agent .pulse-cycle-calendar-nav strong{text-transform:capitalize}
+.pulse-agent .pulse-cycle-calendar-nav button{border:1px solid #e8dce3;border-radius:8px;background:#fff;padding:6px 14px}
+.pulse-agent .pulse-cycle-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.pulse-agent .pulse-cycle-calendar-grid>div{border:1px solid #eee9ec;min-height:42px;border-radius:8px;padding:6px;display:flex;align-items:center;justify-content:space-between}
+.pulse-agent .pulse-cycle-calendar-grid strong{font-size:12px}
+.pulse-agent .pulse-cycle-calendar-grid .has-cycle-entry{background:#f8edf3;border-color:#cf9db6}
+.pulse-agent .pulse-cycle-calendar-grid span{color:#8b4b6b;font-size:11px}
+.pulse-agent .pw-meal-types{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+.pulse-agent .pw-meal-types label{display:flex;align-items:center;gap:5px;font-size:12px}
