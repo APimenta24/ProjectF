@@ -101,7 +101,9 @@ test('Pulse Fase 1 usa fronteira e preview funcional protegido por sessão',()=>
  const css=readFileSync(new URL('../app/style.css',import.meta.url),'utf8');
  assert.match(home,/tab==='Pulse'/);
  assert.match(home,/href="\/pulse\/prototipo"/);
- assert.match(home,/inv-pulse-showcase/);
+ assert.match(home,/tab==='Pulse'&&<div className="inv-pulse-editorial">/);
+ assert.match(home,/inv-interior-cover inv-cover-pulse/);
+ assert.match(home,/href="\\/pulse\\/prototipo"/);
  assert.match(workspace,/export default function PulseWorkspace/);
  assert.match(workspace,/return <PulseAgent/);
  assert.match(prototype,/db\.auth\.getSession/);
@@ -186,6 +188,8 @@ test('Pulse apresenta avisos opcionais de agenda sem notificações push',()=>{
  assert.match(pulse,/agendaAlertsEnabled/);
  assert.match(pulse,/saveAlertPrefs/);
  assert.match(pulse,/Não são notificações push/);
- assert.match(home,/A tua vida/);
+ assert.match(home,/O teu ritmo/);
+ assert.match(home,/A tua força/);
+ assert.match(home,/inv-pulse-editorial-chapters/);
  assert.match(home,/tab==='Pulse'/);
 });
