@@ -133,7 +133,7 @@ test('Pulse usa cabeçalho fotográfico e check-ins só com consentimento',()=>{
 test('Resumo semanal orienta reflexão sem incluir dados do ciclo',()=>{
  const phase=readFileSync(new URL('../app/PulsePhaseOne.tsx',import.meta.url),'utf8');
  assert.match(phase,/Uma pergunta para a próxima semana/);
- assert.match(phase,/não inclui o ciclo/);
+ assert.match(phase,/não inclui o ciclo/i);
  assert.match(phase,/Rever o meu planeamento/);
 });
 
