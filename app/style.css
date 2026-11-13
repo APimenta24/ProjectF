@@ -1865,3 +1865,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-week-pulse p{margin:0;font-size:13px}
 .pulse-agent .pa-week-pulse button{justify-self:start}
 @media(max-width:650px){.pulse-agent .pa-week-head{flex-direction:column}.pulse-agent .pa-week-items>div{align-items:flex-start;flex-wrap:wrap}.pulse-agent .pa-week-items time{flex:0 0 100%;}.pulse-agent .pa-week-items strong{flex:1 1 70%}}
+
+/* Objetivos integrados: ações de atividade e de bem-estar */
+.pulse-agent .p2-goal-actions{display:grid;gap:9px;width:100%;margin-top:12px;padding-top:12px;border-top:1px solid #eee7eb}
+.pulse-agent .p2-goal-actions p{margin:0;font-size:12px}
+.pulse-agent .p2-goal-action{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;background:#faf6f8;border-radius:8px}
+.pulse-agent .p2-goal-action label{display:flex;align-items:center;gap:8px;font-size:12px;flex:1}
+.pulse-agent .p2-goal-action-form{display:flex;flex-wrap:wrap;gap:7px}
+.pulse-agent .p2-goal-action-form input,.pulse-agent .p2-goal-action-form select{min-width:0;max-width:100%;padding:8px;border:1px solid #e5dce1;border-radius:8px;background:#fff}
+.pulse-agent .p2-goal-action-form input:first-child{flex:1 1 180px}
+.pulse-agent .p2-goal-action-form button{padding:8px 12px;border-radius:8px;border:1px solid #cdaebe;background:#fff;color:#713f5a;cursor:pointer}
+@media(max-width:650px){.pulse-agent .p2-goal-action-form>*{flex:1 1 100%}}
