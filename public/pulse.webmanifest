@@ -1,0 +1,20 @@
+{
+  "id": "/pulse/prototipo",
+  "name": "INVICTAS Pulse",
+  "short_name": "Pulse",
+  "description": "O teu espaço de atividade, objetivos e bem-estar.",
+  "start_url": "/pulse/prototipo",
+  "scope": "/pulse/",
+  "display": "standalone",
+  "background_color": "#171717",
+  "theme_color": "#171717",
+  "lang": "pt-PT",
+  "icons": [
+    {
+      "src": "/pulse-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
