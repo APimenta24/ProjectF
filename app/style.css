@@ -1948,3 +1948,5 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .invictas-final-grid:has(>button:nth-child(4)){grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:1050px){.invictas-final-grid:has(>button:nth-child(4)){grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.invictas-final-grid:has(>button:nth-child(4)){grid-template-columns:1fr}}
+
+.inv-pulse-brand-emblem{display:block;width:76px;height:76px;margin:18px 0;border-radius:18px;box-shadow:0 12px 28px rgba(24,9,20,.2)}
