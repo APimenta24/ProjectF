@@ -1,5 +1,6 @@
 'use client';
 import PulseAgent from '../PulseAgent';
+import PulseAccountSync from './PulseAccountSync';
 
 export type PulseMember = {
  name:string;
@@ -17,9 +18,9 @@ export type PulseWorkspaceProps = {
 /**
  * Fronteira da aplicação Pulse.
  * A INVICTAS fornece apenas identidade, perfil e navegação de retorno.
- * O Pulse gere a experiência e o armazenamento local por consentimento.
- * Não cria sessão, não consulta a base de dados e não envia dados sensíveis.
+ * O Pulse partilha a sessão INVICTAS. A sincronização manual é opcional;
+ * dados sensíveis de ciclo e bem-estar não são enviados por esta interface.
  */
 export default function PulseWorkspace({userId,member,onNavigate}:PulseWorkspaceProps){
- return <PulseAgent userId={userId} member={member} onNavigate={onNavigate}/>;
+ return <><PulseAccountSync userId={userId}/><PulseAgent userId={userId} member={member} onNavigate={onNavigate}/></>;
 }
