@@ -231,3 +231,15 @@ test('Pulse push mantém segredos no servidor e evita reenvio após falha parcia
  assert.match(storage,/schedulePulsePush/);
  assert.match(agent,/onSchedule=\{p=>/);
 });
+
+test('Auditoria Pulse: sincronização automática exclui registos pessoais e revogação não depende da eliminação',()=>{
+ const sync=readFileSync(new URL('../app/pulse/PulseAccountSync.tsx',import.meta.url),'utf8');
+ const prefs=readFileSync(new URL('../app/PulsePreferences.tsx',import.meta.url),'utf8');
+ assert.match(sync,/automaticAreas=areas.filter/);
+ assert.match(sync,/item.area!=='agent'&&item.area!=='checkins'/);
+ assert.match(sync,/const failedDeletes:string\[\]=\[\]/);
+ assert.match(sync,/await setPulseConsent\('pulse_storage',false\)/);
+ assert.match(sync,/A cópia manual inclui notas pessoais/);
+ assert.doesNotMatch(prefs,/localStorage.removeItem\(cycleChoiceKey\)/);
+ assert.match(prefs,/não apaga cópias que tenhas sincronizado/);
+});
