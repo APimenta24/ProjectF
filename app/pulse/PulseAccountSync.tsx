@@ -15,6 +15,8 @@ export default function PulseAccountSync({userId}:{userId:string}){
  const [auto,setAuto]=useState(false);
  const [conflicts,setConflicts]=useState<string[]>([]);
  const syncing=useRef(false);
+ // Personal notes and check-ins require an explicit manual action, never background sync.
+ const automaticAreas=areas.filter(item=>item.area!=='agent'&&item.area!=='checkins');
  const baseline=useRef<Record<string,string>>({});
  const automatic=async()=>{
   if(syncing.current||busy||!navigator.onLine)return;
@@ -22,7 +24,7 @@ export default function PulseAccountSync({userId}:{userId:string}){
   try{
    if(!(await getPulseConsent('pulse_storage')))return;
    const nextConflicts:string[]=[];
-   for(const item of areas){
+   for(const item of automaticAreas){
     const key=item.key+userId;
     const local=localStorage.getItem(key);
     const snapshot=await readPulseSnapshot(item.area);
@@ -90,13 +92,15 @@ export default function PulseAccountSync({userId}:{userId:string}){
   const removeRemote=window.confirm('Queres apagar também os registos Pulse guardados na conta? Escolhe Cancelar para manter os registos na conta, mas sem acesso enquanto a autorização estiver revogada.');
   setBusy(true);syncing.current=true;
   try{
+   const failedDeletes:string[]=[];
    if(removeRemote){
-    for(const item of areas)await deletePulseDocument(item.area);
+    for(const item of areas){try{await deletePulseDocument(item.area)}catch{failedDeletes.push(item.label)}}
    }
+   // Consent must be revoked even if a remote deletion fails.
    await setPulseConsent('pulse_storage',false);
    localStorage.removeItem('invictas-pulse-auto-sync-v1-'+userId);
    baseline.current={};setAuto(false);setConflicts([]);
-   setStatus(removeRemote?'Sincronização desativada e registos da conta apagados. Os dados deste dispositivo mantêm-se.':'Sincronização desativada. Os dados da conta ficam inacessíveis enquanto a autorização estiver revogada.');
+   setStatus(failedDeletes.length?'Autorização revogada, mas não foi possível apagar estes registos da conta: '+failedDeletes.join(', ')+'. Volta a autorizar a sincronização para repetir a eliminação.':removeRemote?'Sincronização desativada e registos da conta apagados. Os dados deste dispositivo mantêm-se.':'Sincronização desativada. Os dados da conta ficam inacessíveis enquanto a autorização estiver revogada.');
   }catch(e){setStatus(e instanceof Error?e.message:'Não foi possível concluir a revogação.')}
   finally{syncing.current=false;setBusy(false)}
  };
@@ -107,6 +111,7 @@ export default function PulseAccountSync({userId}:{userId:string}){
   if(busy||syncing.current)return;
   syncing.current=true;setBusy(true);setStatus('');
   try{
+   if(mode==='upload'&&!window.confirm('A cópia manual inclui notas pessoais dos treinos, check-ins e eventuais conversas guardadas no agente. Estes dados serão enviados para a tua conta. Queres continuar?')){setStatus('Operação cancelada.');return;}
    if(!(await getPulseConsent('pulse_storage'))){
     if(mode==='download')throw new Error('Autoriza primeiro a sincronização.');
     if(!window.confirm('Queres guardar na tua conta INVICTAS os registos Pulse deste dispositivo? Podes revogar esta autorização mais tarde.')){setStatus('Operação cancelada.');return;}
@@ -141,5 +146,5 @@ export default function PulseAccountSync({userId}:{userId:string}){
   }catch(e){setStatus(e instanceof Error?e.message:'Não foi possível concluir a operação. Nenhum dado local foi apagado.')}
   finally{syncing.current=false;setBusy(false)}
  };
- return <section className="pulse-account-sync" aria-label="Sincronização Pulse"><button type="button" onClick={()=>setDetails(v=>!v)} aria-expanded={details}>Dados da conta {details?'−':'+'}</button>{details&&<div><p>Guarda ou recupera os teus registos da conta INVICTAS. Podes sincronizar manualmente ou ativar a verificação automática opcional, depois de autorizares o armazenamento na conta. O ciclo e os dados de bem-estar não são enviados por esta função.</p><label><input type="checkbox" checked={auto} onChange={e=>changeAuto(e.target.checked)}/> Sincronizar automaticamente quando o Pulse está aberto e existe ligação à internet</label><div className="pulse-account-sync-actions"><button type="button" disabled={busy} onClick={()=>void execute('upload')}>Guardar na conta</button><button type="button" disabled={busy} onClick={()=>void execute('download')}>Recuperar da conta</button><button type="button" disabled={busy} onClick={()=>void revoke()}>Revogar autorização</button></div><small>Se já existirem dados, podes decidir separadamente se os substituis. A verificação automática nunca substitui dois registos diferentes sem confirmação. Se houver conflito, usa as opções manuais; o funcionamento offline continua local.</small>{conflicts.length>0&&<p role="alert">Diferenças por resolver: {conflicts.join(', ')}.</p>}{status&&<p role="status">{status}</p>}</div>}</section>;
+ return <section className="pulse-account-sync" aria-label="Sincronização Pulse"><button type="button" onClick={()=>setDetails(v=>!v)} aria-expanded={details}>Dados da conta {details?'−':'+'}</button>{details&&<div><p>Guarda ou recupera os teus registos da conta INVICTAS. Podes sincronizar manualmente ou ativar a verificação automática opcional, depois de autorizares o armazenamento na conta. O diário do ciclo e o módulo específico de bem-estar não são sincronizados. A cópia manual pode incluir notas pessoais, check-ins e conversas guardadas no agente. A sincronização automática exclui o agente e os check-ins.</p><label><input type="checkbox" checked={auto} onChange={e=>changeAuto(e.target.checked)}/> Sincronizar automaticamente objetivos, alertas e preferências (sem agente nem check-ins)</label><div className="pulse-account-sync-actions"><button type="button" disabled={busy} onClick={()=>void execute('upload')}>Guardar na conta</button><button type="button" disabled={busy} onClick={()=>void execute('download')}>Recuperar da conta</button><button type="button" disabled={busy} onClick={()=>void revoke()}>Revogar autorização</button></div><small>Se já existirem dados, podes decidir separadamente se os substituis. A verificação automática nunca substitui dois registos diferentes sem confirmação. Se houver conflito, usa as opções manuais; o funcionamento offline continua local.</small>{conflicts.length>0&&<p role="alert">Diferenças por resolver: {conflicts.join(', ')}.</p>}{status&&<p role="status">{status}</p>}</div>}</section>;
 }
