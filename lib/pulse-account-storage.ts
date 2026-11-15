@@ -1,6 +1,6 @@
 import {supabase} from './supabase';
 
-/** Pulse account persistence. Not connected to UI until account isolation tests pass. */
+/** Pulse account persistence; sensitive wellbeing and cycle data are not synced by default. */
 export const PULSE_AREAS=['agent','checkins','goals','agenda_alerts','reminders','wellbeing','cycle'] as const;
 export type PulseArea=typeof PULSE_AREAS[number];
 export type PulsePurpose='pulse_storage'|'wellbeing_storage'|'cycle_storage'|'cycle_agent_access';
@@ -51,4 +51,28 @@ export async function deletePulseDocument(area:PulseArea){
  const {db,userId}=await authenticated();
  const {error}=await db.from('pulse_documents').delete().eq('user_id',userId).eq('area',area);
  if(error)throw new Error('Não foi possível apagar o registo.');
+}
+
+/** Compare-and-swap prevents one device from silently overwriting another. */
+export async function readPulseSnapshot(area:PulseArea):Promise<{payload:Record<string,unknown>;updatedAt:string}|null>{
+ validateArea(area);
+ const {db,userId}=await authenticated();
+ const {data,error}=await db.from('pulse_documents').select('payload,updated_at').eq('user_id',userId).eq('area',area).maybeSingle();
+ if(error)throw new Error('Não foi possível consultar a versão do registo.');
+ return data?{payload:data.payload as Record<string,unknown>,updatedAt:data.updated_at as string}:null;
+}
+export async function writePulseIfUnchanged(area:PulseArea,payload:Record<string,unknown>,expectedUpdatedAt:string|null):Promise<boolean>{
+ validateArea(area);validatePayload(payload);
+ const {db,userId}=await authenticated();
+ const purpose:PulsePurpose=area==='cycle'?'cycle_storage':area==='wellbeing'?'wellbeing_storage':'pulse_storage';
+ if(!(await getPulseConsent(purpose)))throw new Error('A autorização de sincronização está desativada.');
+ if(expectedUpdatedAt===null){
+  const {error}=await db.from('pulse_documents').insert({user_id:userId,area,payload,updated_at:new Date().toISOString()});
+  if(error?.code==='23505')return false;
+  if(error)throw new Error('Não foi possível guardar o registo.');
+  return true;
+ }
+ const {data,error}=await db.from('pulse_documents').update({payload,updated_at:new Date().toISOString()}).eq('user_id',userId).eq('area',area).eq('updated_at',expectedUpdatedAt).select('updated_at');
+ if(error)throw new Error('Não foi possível guardar a nova versão.');
+ return Array.isArray(data)&&data.length===1;
 }
