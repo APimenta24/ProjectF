@@ -11,13 +11,14 @@ export default function PulseReminders({userId}:{userId:string}){
  const [reminderAt,setReminderAt]=useState('');
  const scheduleReminder=async()=>{
   if(!pushActive){setStatus('Associa primeiro este dispositivo às notificações push.');return}
-  try{await schedulePulsePush('agenda',new Date(reminderAt).toISOString());setStatus('Lembrete colocado na fila. O envio depende da ativação do serviço de servidor.');setReminderAt('')}
+  try{const when=new Date(reminderAt);if(!Number.isFinite(when.getTime()))throw new Error('Escolhe uma data e hora válidas.');await schedulePulsePush('agenda',when.toISOString());setStatus('Lembrete colocado na fila. O envio depende da ativação do serviço de servidor.');setReminderAt('')}
   catch(e){setStatus(e instanceof Error?e.message:'Não foi possível agendar.')}
  };
  const subscribePush=async()=>{
   if(!('PushManager' in window)||!('serviceWorker' in navigator)||!('Notification' in window)){setStatus('Este dispositivo não suporta notificações push.');return}
   const key=process.env.NEXT_PUBLIC_PULSE_VAPID_PUBLIC_KEY;
   if(!key){setStatus('O serviço de envio push ainda não está configurado.');return}
+  let createdSubscription:PushSubscription|null=null;
   try{
    const permission=Notification.permission==='granted'?'granted':await Notification.requestPermission();
    setPermission(permission);
@@ -25,18 +26,20 @@ export default function PulseReminders({userId}:{userId:string}){
    const registration=await navigator.serviceWorker.getRegistration('/pulse/');
    if(!registration)throw new Error('Instala primeiro o Pulse no dispositivo.');
    const bytes=Uint8Array.from(atob(key.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(key.length/4)*4,'=')),c=>c.charCodeAt(0));
-   const subscription=await registration.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:bytes});
+   const previous=await registration.pushManager.getSubscription();
+   const subscription=previous??await registration.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:bytes});
+   if(!previous)createdSubscription=subscription;
    await setPulseConsent('push_notifications',true);
    await savePulsePushSubscription(subscription);
    setPushActive(true);setStatus('Dispositivo associado. O envio agendado ficará disponível após ativação do serviço de servidor.');
-  }catch(e){setStatus(e instanceof Error?e.message:'Não foi possível ativar o dispositivo.')}
+  }catch(e){if(createdSubscription)try{await createdSubscription.unsubscribe()}catch{}setStatus(e instanceof Error?e.message:'Não foi possível ativar o dispositivo.')}
  };
  const unsubscribePush=async()=>{
   try{
    const registration=await navigator.serviceWorker.getRegistration('/pulse/');
    const subscription=await registration?.pushManager.getSubscription();
    if(subscription){await removePulsePushSubscription(subscription.endpoint);await subscription.unsubscribe()}
-   await setPulseConsent('push_notifications',false);
+   // Consent is account-wide: removing one device must not disable other devices.
    setPushActive(false);setStatus('Subscrição deste dispositivo desativada.');
   }catch{setStatus('Não foi possível desativar a subscrição.')}
  };
