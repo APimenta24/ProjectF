@@ -79,7 +79,7 @@ export default function PulseAccountSync({userId}:{userId:string}){
   if(busy||syncing.current)return;
   if(!window.confirm('Queres desativar a sincronização da conta? Os dados locais mantêm-se. Podes também apagar os registos da conta antes de revogar a autorização.'))return;
   const removeRemote=window.confirm('Queres apagar também os registos Pulse guardados na conta? Escolhe Cancelar para manter os registos na conta, mas sem acesso enquanto a autorização estiver revogada.');
-  setBusy(true);
+  setBusy(true);syncing.current=true;
   try{
    if(removeRemote){
     for(const item of areas)await deletePulseDocument(item.area);
@@ -89,14 +89,14 @@ export default function PulseAccountSync({userId}:{userId:string}){
    baseline.current={};setAuto(false);setConflicts([]);
    setStatus(removeRemote?'Sincronização desativada e registos da conta apagados. Os dados deste dispositivo mantêm-se.':'Sincronização desativada. Os dados da conta ficam inacessíveis enquanto a autorização estiver revogada.');
   }catch(e){setStatus(e instanceof Error?e.message:'Não foi possível concluir a revogação.')}
-  finally{setBusy(false)}
+  finally{syncing.current=false;setBusy(false)}
  };
  const changeAuto=(enabled:boolean)=>{
   try{if(enabled)localStorage.setItem('invictas-pulse-auto-sync-v1-'+userId,'yes');else localStorage.removeItem('invictas-pulse-auto-sync-v1-'+userId);baseline.current={};setAuto(enabled);setStatus(enabled?'Sincronização automática ativada. As diferenças existentes exigem confirmação.':'Sincronização automática desativada.')}catch{setStatus('Não foi possível guardar a preferência.')}
  };
  const execute=async(mode:'upload'|'download')=>{
   if(busy||syncing.current)return;
-  setBusy(true);setStatus('');
+  syncing.current=true;setBusy(true);setStatus('');
   try{
    if(!(await getPulseConsent('pulse_storage'))){
     if(mode==='download')throw new Error('Autoriza primeiro a sincronização.');
@@ -130,7 +130,7 @@ export default function PulseAccountSync({userId}:{userId:string}){
    if(mode==='download'&&count){window.dispatchEvent(new Event('invictas-pulse-settings-changed'));window.dispatchEvent(new Event('invictas-pulse-goals-changed'))}
    setStatus(mode==='upload'?count+' área(s) guardada(s) na conta; '+skipped+' ignorada(s).':count+' área(s) recuperada(s); '+skipped+' ignorada(s). Reabre o Pulse se algum registo não atualizar.');
   }catch(e){setStatus(e instanceof Error?e.message:'Não foi possível concluir a operação. Nenhum dado local foi apagado.')}
-  finally{setBusy(false)}
+  finally{syncing.current=false;setBusy(false)}
  };
  return <section className="pulse-account-sync" aria-label="Sincronização Pulse"><button type="button" onClick={()=>setDetails(v=>!v)} aria-expanded={details}>Dados da conta {details?'−':'+'}</button>{details&&<div><p>Guarda ou recupera os teus registos da conta INVICTAS. Podes sincronizar manualmente ou ativar a verificação automática opcional, depois de autorizares o armazenamento na conta. O ciclo e os dados de bem-estar não são enviados por esta função.</p><label><input type="checkbox" checked={auto} onChange={e=>changeAuto(e.target.checked)}/> Sincronizar automaticamente quando o Pulse está aberto e existe ligação à internet</label><div className="pulse-account-sync-actions"><button type="button" disabled={busy} onClick={()=>void execute('upload')}>Guardar na conta</button><button type="button" disabled={busy} onClick={()=>void execute('download')}>Recuperar da conta</button><button type="button" disabled={busy} onClick={()=>void revoke()}>Revogar autorização</button></div><small>Se já existirem dados, podes decidir separadamente se os substituis. A verificação automática nunca substitui dois registos diferentes sem confirmação. Se houver conflito, usa as opções manuais; o funcionamento offline continua local.</small>{conflicts.length>0&&<p role="alert">Diferenças por resolver: {conflicts.join(', ')}.</p>}{status&&<p role="status">{status}</p>}</div>}</section>;
 }
