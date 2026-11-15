@@ -93,3 +93,17 @@ export async function removePulsePushSubscription(endpoint:string){
  const {error}=await db.from('pulse_push_subscriptions').delete().eq('user_id',userId).eq('endpoint',endpoint);
  if(error)throw new Error('Não foi possível remover a subscrição.');
 }
+
+export async function schedulePulsePush(kind:'agenda'|'goal'|'weekly',scheduledFor:string){
+ const {db,userId}=await authenticated();
+ if(!(await getPulseConsent('push_notifications')))throw new Error('Autoriza primeiro as notificações.');
+ const when=new Date(scheduledFor).getTime();
+ if(!Number.isFinite(when)||when<=Date.now()||when>Date.now()+90*86400000)throw new Error('Escolhe uma data nos próximos 90 dias.');
+ const {error}=await db.from('pulse_push_jobs').insert({user_id:userId,kind,scheduled_for:new Date(when).toISOString()});
+ if(error)throw new Error('Não foi possível agendar o lembrete.');
+}
+export async function cancelPulsePush(jobId:string){
+ const {db,userId}=await authenticated();
+ const {error}=await db.from('pulse_push_jobs').delete().eq('user_id',userId).eq('id',jobId);
+ if(error)throw new Error('Não foi possível cancelar o lembrete.');
+}
