@@ -16,7 +16,7 @@ export default function PulseAccountSync({userId}:{userId:string}){
  const [conflicts,setConflicts]=useState<string[]>([]);
  const syncing=useRef(false);
  // Personal notes and check-ins require an explicit manual action, never background sync.
- const automaticAreas=areas.filter(item=>item.area!=='agent'&&item.area!=='checkins');
+ const automaticAreas=areas.filter(item=>!['agent','checkins'].includes(item.area));
  const baseline=useRef<Record<string,string>>({});
  const automatic=async()=>{
   if(syncing.current||busy||!navigator.onLine)return;
