@@ -1,6 +1,6 @@
 # Pulse — notificações push (requisito Beta)
 
-Estado: **não implementado**. Os avisos atuais são internos à página. Não confundir com Web Push.
+Estado: **subscrições por dispositivo e consentimento implementados no Supabase ProjectF; envio automático ainda não ativo**. Os avisos locais não equivalem a Web Push.
 
 ## Experiência pretendida
 - Consentimento separado, opt-in explícito após uma ação relevante (por exemplo, criar o primeiro evento); nunca pedir autorização na primeira visita.
@@ -16,4 +16,8 @@ Estado: **não implementado**. Os avisos atuais são internos à página. Não c
 4. Limpar subscrições inválidas, aplicar rate limiting, consentimento e retenção mínima. Testar Android/Chrome e iOS/Safari com aplicação instalada no ecrã principal, onde aplicável.
 5. Validar envio com app fechada, mudança de dispositivo, permissões negadas, logout, eventos alterados/apagados e fuso horário.
 
-**Dependência bloqueante:** infraestrutura de backend de testes disponível e isolada. Não usar a base de produção partilhada sem autorização explícita. O desenvolvimento da agenda não depende desta etapa.
+**Implementação de 15/11/2026:** a base de dados oficial ProjectF foi expressamente autorizada. Criada `public.pulse_push_subscriptions` com RLS e operações autenticadas por dispositivo. O cliente só permite subscrição quando existir `NEXT_PUBLIC_PULSE_VAPID_PUBLIC_KEY` e a permissão do navegador for concedida. A chave privada nunca deve ser exposta no cliente.
+
+**Ainda necessário para envio efetivo:** gerar e guardar par VAPID em variáveis de ambiente (privada apenas no servidor), implementar serviço de envio autenticado e agendador com fuso horário, quiet hours, deduplicação, limpeza de subscrições expiradas e gestão de erros. Não ativar um botão que prometa notificações agendadas antes de verificar entrega com a aplicação fechada. A subscrição por si só não envia mensagens.
+
+**Validação final:** compilar, testar RLS com duas contas, consentimento, inscrição/revogação, Safari/iOS instalado, Chrome/Android, logout, duplicados e alterações de horário. Sem merge nem produção até autorização.
