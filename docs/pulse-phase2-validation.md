@@ -18,3 +18,12 @@ A instalação tem interface própria e serviço worker com âmbito `/pulse/`. A
 
 ## Critério para ativação na interface
 CI verde, build de pré-visualização pronto, QA em telemóvel e ambiente staging real com duas contas, revisão de segurança e aprovação expressa para produção.
+
+
+## Fecho técnico — 15/11/2026
+- A sincronização automática é **opcional** e limitada às áreas não sensíveis explicitamente listadas na interface.
+- Escritas automáticas usam comparação do timestamp `updated_at` e não substituem alterações concorrentes; conflitos exigem decisão manual.
+- A revogação do consentimento não apaga dados locais; existe opção explícita de eliminação remota.
+- **Por validar antes de produção:** testes de duas contas, primeira sincronização, conflito simultâneo, offline, revogação, reinstalação, UI móvel e compilação da versão mais recente.
+- **Não concluído:** push em segundo plano com a aplicação fechada, subscrição VAPID, agendamento no servidor e testes ponta-a-ponta. Lembretes locais não substituem push.
+- Não fazer merge nem promover o ramo para produção até passar a validação e existir autorização explícita.
