@@ -1,6 +1,6 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
-import {deletePulseDocument,getPulseConsent,readPulseDocument,setPulseConsent,writePulseDocument} from '../../lib/pulse-account-storage';
+import {deletePulseDocument,getPulseConsent,readPulseDocument,readPulseSnapshot,setPulseConsent,writePulseDocument,writePulseIfUnchanged} from '../../lib/pulse-account-storage';
 
 const areas=[
  {area:'agent' as const,key:'invictas-pulse-agent-v2-',label:'Agenda e atividade'},
@@ -25,7 +25,8 @@ export default function PulseAccountSync({userId}:{userId:string}){
    for(const item of areas){
     const key=item.key+userId;
     const local=localStorage.getItem(key);
-    const remote=await readPulseDocument(item.area);
+    const snapshot=await readPulseSnapshot(item.area);
+    const remote=snapshot?.payload??null;
     const remoteValue=remote?JSON.stringify(item.area==='checkins'&&Array.isArray(remote.items)?remote.items:remote):null;
     const previous=baseline.current[item.area];
     if(local===remoteValue){baseline.current[item.area]=local??'';continue}
@@ -40,13 +41,21 @@ export default function PulseAccountSync({userId}:{userId:string}){
      const parsed:unknown=JSON.parse(local);
      const payload=Array.isArray(parsed)?{items:parsed}:parsed;
      if(payload&&typeof payload==='object'&&!Array.isArray(payload)){
-      await writePulseDocument(item.area,payload as Record<string,unknown>);
-      baseline.current[item.area]=local;
+      if(await writePulseIfUnchanged(item.area,payload as Record<string,unknown>,null))baseline.current[item.area]=local;
+      else nextConflicts.push(item.label);
      }
      continue;
     }
-    // Remote updates must not be overwritten without server-side version checks.
-    // Until compare-and-swap is implemented, only pull unchanged local snapshots.
+    // Write only if the remote timestamp still matches the version just read.
+    if(local&&remoteValue&&previous===remoteValue&&snapshot){
+     const parsed:unknown=JSON.parse(local);
+     const payload=Array.isArray(parsed)?{items:parsed}:parsed;
+     if(payload&&typeof payload==='object'&&!Array.isArray(payload)){
+      if(await writePulseIfUnchanged(item.area,payload as Record<string,unknown>,snapshot.updatedAt))baseline.current[item.area]=local;
+      else nextConflicts.push(item.label);
+     }
+     continue;
+    }
     if(local&&remoteValue&&previous===local){
      localStorage.setItem(key,remoteValue);
      baseline.current[item.area]=remoteValue;
