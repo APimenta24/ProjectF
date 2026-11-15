@@ -164,7 +164,9 @@ test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
  assert.match(pulse,/Registo opcional · calendário pessoal/);
  assert.match(agenda,/\['semana','dia','mes'\]/);
  assert.match(agenda,/onRegister\(p\)/);
- assert.match(reminders,/não existem alertas automáticos|Não existem alertas automáticos/);
+ assert.match(reminders,/Notification\.requestPermission\(\)/);
+  assert.match(reminders,/registration\.showNotification\(/);
+  assert.match(reminders,/envios push automáticos e agendados dependem de um backend/);
  assert.match(pulse,/localStorage\.removeItem\(remindersKey\)/);
 });
 
