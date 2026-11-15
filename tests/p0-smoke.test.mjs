@@ -194,3 +194,23 @@ test('Pulse apresenta avisos opcionais de agenda sem notificações push',()=>{
  assert.match(home,/inv-pulse-editorial-chapters/);
  assert.match(home,/tab==='Pulse'/);
 });
+
+
+test('Pulse permite autorizar registos na app e mostra o resultado da gravação',()=>{
+ const pulse=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ const checks=readFileSync(new URL('../app/PulsePhaseOne.tsx',import.meta.url),'utf8');
+ const goals=readFileSync(new URL('../app/PulsePhaseTwo.tsx',import.meta.url),'utf8');
+ assert.match(pulse,/update\(\{consent:true\}\)/);
+ assert.match(pulse,/Evento adicionado à agenda\./);
+ assert.match(checks,/onClick=\{save\}/);
+ assert.match(goals,/onSubmit=\{e=>\{e\.preventDefault\(\);addGoal\(\)\}\}/);
+});
+
+test('Primeiro login apresenta permissões e perfil permite editá-las',()=>{
+ const home=readFileSync(new URL('../app/page.tsx',import.meta.url),'utf8');
+ const prefs=readFileSync(new URL('../app/PulsePreferences.tsx',import.meta.url),'utf8');
+ assert.match(home,/pulseOnboarding&&session/);
+ assert.match(home,/dismissPulseOnboarding/);
+ assert.match(home,/Perfil → Preferências/);
+ assert.match(prefs,/change\(\{consent:e\.target\.checked\}\)/);
+});
