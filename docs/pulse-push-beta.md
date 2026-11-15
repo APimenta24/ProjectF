@@ -31,3 +31,12 @@ Estado: **subscrições por dispositivo e consentimento implementados no Supabas
 - É necessário configurar um agendador seguro que faça POST autenticado à função (por exemplo, Supabase Cron + Vault), depois de a publicar com autorização explícita.
 - Antes de ativar: corrigir a recuperação de jobs interrompidos no estado `processing`, garantir que erros por dispositivo não resultam em entrega perdida, validar deduplicação e horário de silêncio, configurar a criação de jobs a partir dos eventos/objetivos e testar em dispositivos reais.
 - Não anunciar notificações push como funcionais antes destes passos.
+
+
+## Preparação sem credenciais — 15/11/2026
+- Na agenda, cada evento futuro com hora tem a ação explícita «Lembrar-me»; a criação de jobs exige consentimento push e autenticação.
+- O despachante consulta consentimento, reclama jobs com controlo de concorrência, marca jobs bloqueados há mais de 15 minutos como falhados e não reenvia lotes parcialmente entregues, para evitar notificações duplicadas.
+- A fila tem `claimed_at` e políticas RLS por utilizadora; verificadas no Supabase ProjectF.
+- Foram adicionadas verificações estáticas ao smoke test. **Não substituem testes reais** de Web Push, dois utilizadores, fuso horário e entrega em dispositivos.
+- O agendador Cron não está ativado: exige o segredo de autenticação e a publicação da função, além de confirmação dos horários de silêncio e regras de repetição.
+- O conteúdo das notificações no ecrã bloqueado continua genérico; não enviar dados de saúde ou do ciclo.
