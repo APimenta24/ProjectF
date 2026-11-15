@@ -236,7 +236,7 @@ test('Auditoria Pulse: sincronização automática exclui registos pessoais e re
  const sync=readFileSync(new URL('../app/pulse/PulseAccountSync.tsx',import.meta.url),'utf8');
  const prefs=readFileSync(new URL('../app/PulsePreferences.tsx',import.meta.url),'utf8');
  assert.match(sync,/automaticAreas=areas.filter/);
- assert.match(sync,/item.area!=='agent'&&item.area!=='checkins'/);
+ assert.match(sync,/!\['agent','checkins'\]\.includes\(item.area\)/);
  assert.match(sync,/const failedDeletes:string\[\]=\[\]/);
  assert.match(sync,/await setPulseConsent\('pulse_storage',false\)/);
  assert.match(sync,/A cópia manual inclui notas pessoais/);
