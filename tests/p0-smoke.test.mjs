@@ -165,6 +165,7 @@ test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
  assert.match(pulse,/Registo opcional · calendário pessoal/);
  assert.match(agenda,/\['semana','dia','mes'\]/);
  assert.match(agenda,/onRegister\(p\)/);
+ assert.match(agenda,/onSchedule\(p\)/);
  assert.match(reminders,/Notification\.requestPermission\(\)/);
   assert.match(reminders,/registration\.showNotification\(/);
   assert.match(reminders,/subscribePush/);
@@ -216,4 +217,17 @@ test('Primeiro login apresenta permissões e perfil permite editá-las',()=>{
  assert.match(home,/dismissPulseOnboarding/);
  assert.match(home,/Perfil → Preferências/);
  assert.match(prefs,/change\(\{consent:e\.target\.checked\}\)/);
+});
+
+test('Pulse push mantém segredos no servidor e evita reenvio após falha parcial',()=>{
+ const fs=readFileSync(new URL('../supabase/functions/pulse-push-dispatch/index.ts',import.meta.url),'utf8');
+ const storage=readFileSync(new URL('../lib/pulse-account-storage.ts',import.meta.url),'utf8');
+ const agent=readFileSync(new URL('../app/PulseAgent.tsx',import.meta.url),'utf8');
+ assert.match(fs,/PULSE_PUSH_CRON_SECRET/);
+ assert.match(fs,/PULSE_VAPID_PRIVATE_KEY/);
+ assert.match(fs,/claimed_at/);
+ assert.match(fs,/deliveryErrors>0\?'failed':'sent'/);
+ assert.match(fs,/consent\?\.granted!==true/);
+ assert.match(storage,/schedulePulsePush/);
+ assert.match(agent,/onSchedule=\{p=>/);
 });
