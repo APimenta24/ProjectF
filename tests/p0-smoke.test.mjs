@@ -243,3 +243,12 @@ test('Auditoria Pulse: sincronização automática exclui registos pessoais e re
  assert.doesNotMatch(prefs,/localStorage.removeItem\(cycleChoiceKey\)/);
  assert.match(prefs,/não apaga cópias que tenhas sincronizado/);
 });
+
+test('QA push: remoção de dispositivo não revoga consentimento global e falha reverte nova subscrição',()=>{
+ const push=readFileSync(new URL('../app/pulse/PulseReminders.tsx',import.meta.url),'utf8');
+ const removal=push.slice(push.indexOf('const unsubscribePush='),push.indexOf('useEffect(()=>{void (async()=>{try{if(!(await getPulseConsent'));
+ assert.doesNotMatch(removal,/setPulseConsent\('push_notifications',false\)/);
+ assert.match(push,/if\(!previous\)createdSubscription=subscription/);
+ assert.match(push,/if\(createdSubscription\)try\{await createdSubscription.unsubscribe\(\)\}/);
+ assert.match(push,/Escolhe uma data e hora válidas/);
+});
