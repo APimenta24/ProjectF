@@ -1963,3 +1963,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .inv-pulse-first-login-head p{max-width:570px;line-height:1.55}
 .inv-pulse-first-login .inv-pulse-preferences{margin-bottom:18px}
 @media(max-width:600px){.inv-pulse-first-login-head{flex-direction:column}.inv-pulse-first-login-inner{margin:0 auto}}
+
+/* Agenda Pulse: barra de ferramentas responsiva e um único ponto de criação. */
+.pulse-agent .pulse-calendar-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-width:0}
+.pulse-agent .pulse-calendar-modes{display:flex;flex-wrap:wrap;gap:5px;min-width:0}
+.pulse-agent .pulse-calendar-period{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap;min-width:0}
+.pulse-agent .pulse-calendar-period strong{min-width:0;max-width:220px;flex:1 1 130px;text-align:center;overflow-wrap:anywhere}
+.pulse-agent .pulse-calendar-period button{white-space:nowrap;flex-shrink:0}
+.pulse-agent .pulse-calendar-period button:last-child{background:#43243a;color:#fff;border-color:#43243a;font-weight:650}
+.pulse-agent .pa-add-session{margin-top:18px;padding:18px;border:1px solid #e8dce4;border-radius:14px;background:#fff}
+.pulse-agent .pa-add-session-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.pulse-agent .pa-add-session-heading h4{margin:0}
+.pulse-agent .pa-add-session-heading button{border:1px solid #e8dce4;border-radius:8px;padding:8px 12px;background:#fff;color:#43243a}
+@media(max-width:800px){.pulse-agent .pulse-calendar-toolbar{grid-template-columns:1fr}.pulse-agent .pulse-calendar-period{justify-content:flex-start}.pulse-agent .pulse-calendar-period strong{flex:1 1 130px}.pulse-agent .pulse-calendar-period button:last-child{margin-left:auto}}
+@media(max-width:420px){.pulse-agent .pulse-calendar-period{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;gap:7px}.pulse-agent .pulse-calendar-period strong{grid-column:2;grid-row:1;min-width:0}.pulse-agent .pulse-calendar-period button:nth-child(1){grid-column:1;grid-row:1}.pulse-agent .pulse-calendar-period button:nth-child(3){grid-column:3;grid-row:1}.pulse-agent .pulse-calendar-period button:nth-child(4){grid-column:1 / 2;grid-row:2}.pulse-agent .pulse-calendar-period button:last-child{grid-column:2 / 4;grid-row:2;margin:0}.pulse-agent .pa-add-session{padding:12px}}
