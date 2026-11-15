@@ -1954,3 +1954,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 /* O quarto capítulo editorial precisa de ficar acima do terceiro no efeito sticky. */
 .inv-fashion-story>.inv-fashion-scene:nth-child(5){z-index:5}
 .inv-discovery-rail{z-index:6}
+
+/* Primeiro acesso: permissões Pulse acessíveis sem sair da sessão. */
+.inv-pulse-first-login{position:fixed;inset:0;z-index:9999;background:rgba(20,9,17,.78);overflow-y:auto;padding:clamp(14px,4vw,48px);display:flex;justify-content:center;align-items:flex-start}
+.inv-pulse-first-login-inner{width:min(760px,100%);margin:auto;background:#fbf6f4;color:#321726;border-radius:18px;padding:clamp(18px,4vw,34px);box-shadow:0 22px 80px rgba(0,0,0,.3)}
+.inv-pulse-first-login-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:20px}
+.inv-pulse-first-login-head h2{font-size:clamp(23px,4vw,34px);margin:8px 0}
+.inv-pulse-first-login-head p{max-width:570px;line-height:1.55}
+.inv-pulse-first-login .inv-pulse-preferences{margin-bottom:18px}
+@media(max-width:600px){.inv-pulse-first-login-head{flex-direction:column}.inv-pulse-first-login-inner{margin:0 auto}}
