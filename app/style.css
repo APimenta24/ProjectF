@@ -1985,3 +1985,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-install-banner small{max-width:300px;line-height:1.5;color:#705f6d}
 .pulse-install-banner [role=status]{width:100%}
 @media(max-width:640px){.pulse-install-banner{margin:12px;padding:14px}.pulse-install-banner button{width:100%}}
+
+/* Pulse: controlo de sincronização explícita da conta. */
+.pulse-account-sync{max-width:1080px;margin:12px auto;padding:12px 16px;border:1px solid #e7dce4;border-radius:13px;background:#fff;color:#382737}
+.pulse-account-sync>button{border:0;background:transparent;color:#43243a;font-weight:700;cursor:pointer;padding:6px 0}
+.pulse-account-sync p{font-size:13px;line-height:1.55}
+.pulse-account-sync-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.pulse-account-sync-actions button{border:1px solid #43243a;background:#43243a;color:#fff;border-radius:9px;padding:9px 13px;cursor:pointer}
+.pulse-account-sync-actions button+button{background:#fff;color:#43243a}
+.pulse-account-sync-actions button:disabled{opacity:.5;cursor:wait}
+.pulse-account-sync small{display:block;color:#706471;line-height:1.5}
+@media(max-width:640px){.pulse-account-sync{margin:12px;padding:12px}.pulse-account-sync-actions button{flex:1 1 150px}}
