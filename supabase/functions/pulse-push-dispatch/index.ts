@@ -17,18 +17,23 @@ Deno.serve(async (request:Request)=>{
  webpush.setVapidDetails(subject,publicKey,privateKey);
  const db=createClient(url,serviceKey,{auth:{persistSession:false,autoRefreshToken:false}});
  const now=new Date().toISOString();
+ // After a worker crash, mark stale jobs failed rather than risking duplicate delivery.
+ const timeout=new Date(Date.now()-15*60_000).toISOString();
+ const {error:staleError}=await db.from('pulse_push_jobs').update({status:'failed'}).eq('status','processing').lt('claimed_at',timeout);
+ if(staleError)return new Response('Recovery unavailable',{status:503});
  const {data:jobs,error}=await db.from('pulse_push_jobs').select('id,user_id,kind,scheduled_for,attempts').eq('status','pending').lte('scheduled_for',now).lt('attempts',5).order('scheduled_for',{ascending:true}).limit(50);
  if(error)return new Response('Queue unavailable',{status:503});
  let delivered=0,failed=0;
  for(const job of jobs??[]){
   // Optimistic claim: only one worker can change pending -> processing.
-  const {data:claimed,error:claimError}=await db.from('pulse_push_jobs').update({status:'processing',attempts:job.attempts+1}).eq('id',job.id).eq('status','pending').select('id').maybeSingle();
+  const {data:claimed,error:claimError}=await db.from('pulse_push_jobs').update({status:'processing',claimed_at:new Date().toISOString(),attempts:job.attempts+1}).eq('id',job.id).eq('status','pending').select('id').maybeSingle();
   if(claimError||!claimed)continue;
   try{
    const {data:consent}=await db.from('pulse_consents').select('granted').eq('user_id',job.user_id).eq('purpose','push_notifications').maybeSingle();
    if(consent?.granted!==true){await db.from('pulse_push_jobs').update({status:'cancelled'}).eq('id',job.id);continue}
    const {data:subscriptions,error:subError}=await db.from('pulse_push_subscriptions').select('id,endpoint,p256dh,auth_secret').eq('user_id',job.user_id).eq('enabled',true);
    if(subError)throw subError;
+   let deliveryErrors=0;
    for(const sub of subscriptions??[]){
     try{
      await webpush.sendNotification({endpoint:sub.endpoint,keys:{p256dh:sub.p256dh,auth:sub.auth_secret}},JSON.stringify({type:'pulse-reminder'}),{TTL:3600,urgency:'normal'});
@@ -36,12 +41,15 @@ Deno.serve(async (request:Request)=>{
     }catch(e){
      const code=(e as {statusCode?:number}).statusCode;
      if(code===404||code===410)await db.from('pulse_push_subscriptions').delete().eq('id',sub.id);
-     else failed++;
+     else {failed++;deliveryErrors++;}
     }
    }
-   await db.from('pulse_push_jobs').update({status:'sent',sent_at:new Date().toISOString()}).eq('id',job.id);
+   // A partial batch must not be retried automatically, or users may get duplicates.
+   const finalStatus=deliveryErrors>0?'failed':'sent';
+   const {error:finalError}=await db.from('pulse_push_jobs').update({status:finalStatus,sent_at:finalStatus==='sent'?new Date().toISOString():null}).eq('id',job.id).eq('status','processing');
+   if(finalError)throw finalError;
   }catch{
-   await db.from('pulse_push_jobs').update({status:job.attempts+1>=5?'failed':'pending'}).eq('id',job.id);
+   await db.from('pulse_push_jobs').update({status:'failed'}).eq('id',job.id);
    failed++;
   }
  }
