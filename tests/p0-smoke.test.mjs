@@ -169,7 +169,7 @@ test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
   assert.match(reminders,/registration\.showNotification\(/);
   assert.match(reminders,/subscribePush/);
  assert.match(reminders,/savePulsePushSubscription/);
- assert.match(reminders,/não são notificações push em segundo plano/);
+ assert.match(reminders,/não são notificações push em segundo plano/i);
  assert.match(pulse,/localStorage\.removeItem\(remindersKey\)/);
 });
 
