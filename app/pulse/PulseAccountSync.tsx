@@ -18,7 +18,7 @@ export default function PulseAccountSync({userId}:{userId:string}){
   try{
    if(!(await getPulseConsent('pulse_storage'))){
     if(mode==='download')throw new Error('Autoriza primeiro a sincronização.');
-    if(!window.confirm('Queres guardar na tua conta INVICTAS os registos Pulse deste dispositivo? Podes revogar esta autorização mais tarde.'))return;
+    if(!window.confirm('Queres guardar na tua conta INVICTAS os registos Pulse deste dispositivo? Podes revogar esta autorização mais tarde.')){setStatus('Operação cancelada.');return;}
     await setPulseConsent('pulse_storage',true);
    }
    let count=0,skipped=0;
