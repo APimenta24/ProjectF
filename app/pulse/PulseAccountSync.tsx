@@ -45,17 +45,8 @@ export default function PulseAccountSync({userId}:{userId:string}){
      }
      continue;
     }
-    // Upload only when the remote version is exactly the last acknowledged version.
-    // Never resolve concurrent edits silently.
-    if(local&&remoteValue&&previous===remoteValue){
-     const parsed:unknown=JSON.parse(local);
-     const payload=Array.isArray(parsed)?{items:parsed}:parsed;
-     if(payload&&typeof payload==='object'&&!Array.isArray(payload)){
-      await writePulseDocument(item.area,payload as Record<string,unknown>);
-      baseline.current[item.area]=local;
-     }
-     continue;
-    }
+    // Remote updates must not be overwritten without server-side version checks.
+    // Until compare-and-swap is implemented, only pull unchanged local snapshots.
     if(local&&remoteValue&&previous===local){
      localStorage.setItem(key,remoteValue);
      baseline.current[item.area]=remoteValue;
