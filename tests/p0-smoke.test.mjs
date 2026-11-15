@@ -104,7 +104,8 @@ test('Pulse Fase 1 usa fronteira e preview funcional protegido por sessão',()=>
  assert.match(home,/tab==='Pulse'&&<div className="inv-pulse-editorial">/);
  assert.match(home,/inv-interior-cover inv-cover-pulse/);
  assert.match(workspace,/export default function PulseWorkspace/);
- assert.match(workspace,/return <PulseAgent/);
+ assert.match(workspace,/<PulseAgent userId=\{userId\}/);
+ assert.match(workspace,/<PulseAccountSync userId=\{userId\}/);
  assert.match(prototype,/db\.auth\.getSession/);
  assert.match(prototype,/if\(!session\)/);
  assert.match(prototype,/<PulseWorkspace userId=\{session\.user\.id\}/);
@@ -166,7 +167,9 @@ test('Pulse navega para Bem-estar e agenda diária semanal mensal',()=>{
  assert.match(agenda,/onRegister\(p\)/);
  assert.match(reminders,/Notification\.requestPermission\(\)/);
   assert.match(reminders,/registration\.showNotification\(/);
-  assert.match(reminders,/envios push automáticos e agendados dependem de um backend/);
+  assert.match(reminders,/subscribePush/);
+ assert.match(reminders,/savePulsePushSubscription/);
+ assert.match(reminders,/não são notificações push em segundo plano/);
  assert.match(pulse,/localStorage\.removeItem\(remindersKey\)/);
 });
 
