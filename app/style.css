@@ -1977,3 +1977,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .pulse-agent .pa-add-session-heading button{border:1px solid #e8dce4;border-radius:8px;padding:8px 12px;background:#fff;color:#43243a}
 @media(max-width:800px){.pulse-agent .pulse-calendar-toolbar{grid-template-columns:1fr}.pulse-agent .pulse-calendar-period{justify-content:flex-start}.pulse-agent .pulse-calendar-period strong{flex:1 1 130px}.pulse-agent .pulse-calendar-period button:last-child{margin-left:auto}}
 @media(max-width:420px){.pulse-agent .pulse-calendar-period{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;gap:7px}.pulse-agent .pulse-calendar-period strong{grid-column:2;grid-row:1;min-width:0}.pulse-agent .pulse-calendar-period button:nth-child(1){grid-column:1;grid-row:1}.pulse-agent .pulse-calendar-period button:nth-child(3){grid-column:3;grid-row:1}.pulse-agent .pulse-calendar-period button:nth-child(4){grid-column:1 / 2;grid-row:2}.pulse-agent .pulse-calendar-period button:last-child{grid-column:2 / 4;grid-row:2;margin:0}.pulse-agent .pa-add-session{padding:12px}}
+
+/* Pulse PWA: instalação opcional sem interferir com os dados privados. */
+.pulse-install-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:16px auto;padding:15px 18px;max-width:1080px;border:1px solid #e6dce3;border-radius:14px;background:#fff;color:#382737}
+.pulse-install-banner p{margin:4px 0 0;font-size:13px;color:#705f6d}
+.pulse-install-banner button{border:0;border-radius:10px;background:#43243a;color:#fff;padding:10px 16px;font-weight:650;cursor:pointer}
+.pulse-install-banner small{max-width:300px;line-height:1.5;color:#705f6d}
+.pulse-install-banner [role=status]{width:100%}
+@media(max-width:640px){.pulse-install-banner{margin:12px;padding:14px}.pulse-install-banner button{width:100%}}
