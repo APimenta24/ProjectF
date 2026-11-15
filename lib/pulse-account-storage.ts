@@ -3,7 +3,7 @@ import {supabase} from './supabase';
 /** Pulse account persistence; sensitive wellbeing and cycle data are not synced by default. */
 export const PULSE_AREAS=['agent','checkins','goals','agenda_alerts','reminders','wellbeing','cycle'] as const;
 export type PulseArea=typeof PULSE_AREAS[number];
-export type PulsePurpose='pulse_storage'|'wellbeing_storage'|'cycle_storage'|'cycle_agent_access';
+export type PulsePurpose='pulse_storage'|'wellbeing_storage'|'cycle_storage'|'cycle_agent_access'|'push_notifications';
 const MAX_BYTES=64*1024;
 function validateArea(area:string):asserts area is PulseArea{
  if(!PULSE_AREAS.includes(area as PulseArea))throw new Error('Área Pulse inválida.');
@@ -75,4 +75,21 @@ export async function writePulseIfUnchanged(area:PulseArea,payload:Record<string
  const {data,error}=await db.from('pulse_documents').update({payload,updated_at:new Date().toISOString()}).eq('user_id',userId).eq('area',area).eq('updated_at',expectedUpdatedAt).select('updated_at');
  if(error)throw new Error('Não foi possível guardar a nova versão.');
  return Array.isArray(data)&&data.length===1;
+}
+
+/** Device-specific Web Push subscription. Never store the private VAPID key here. */
+export async function savePulsePushSubscription(subscription:PushSubscription){
+ const {db,userId}=await authenticated();
+ if(!(await getPulseConsent('push_notifications')))throw new Error('Autoriza primeiro as notificações push.');
+ const json=subscription.toJSON();
+ if(!json.endpoint||!json.keys?.p256dh||!json.keys?.auth)throw new Error('Subscrição do dispositivo inválida.');
+ const {error}=await db.from('pulse_push_subscriptions').upsert({
+  user_id:userId,endpoint:json.endpoint,p256dh:json.keys.p256dh,auth_secret:json.keys.auth,enabled:true,updated_at:new Date().toISOString()
+ },{onConflict:'user_id,endpoint'});
+ if(error)throw new Error('Não foi possível associar este dispositivo.');
+}
+export async function removePulsePushSubscription(endpoint:string){
+ const {db,userId}=await authenticated();
+ const {error}=await db.from('pulse_push_subscriptions').delete().eq('user_id',userId).eq('endpoint',endpoint);
+ if(error)throw new Error('Não foi possível remover a subscrição.');
 }
