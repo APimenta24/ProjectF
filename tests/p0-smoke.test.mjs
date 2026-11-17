@@ -252,3 +252,27 @@ test('QA push: remoção de dispositivo não revoga consentimento global e falha
  assert.match(push,/if\(createdSubscription\)try\{await createdSubscription.unsubscribe\(\)\}/);
  assert.match(push,/Escolhe uma data e hora válidas/);
 });
+
+
+test('P0: indice publico segue a ordem editorial e o primeiro ecrã oferece caminhos reais',()=>{
+ const expected="const nav=['Início','Comunidade','Conhecimento','Oportunidades','Pulse']";
+ assert.ok(page.includes(expected),'Navegação principal deve refletir o índice editorial');
+ assert.match(page,/t==='Conhecimento'\?'Academia'/);
+ const firstActions=page.match(/<div className="inv-first-actions"[\s\S]*?<\/div>/)?.[0];
+ assert.ok(firstActions,'Faltam ações diretas na primeira visita');
+ const community=firstActions.indexOf("go('A Voz Delas')");
+ const knowledge=firstActions.indexOf("go('Academia')");
+ const opportunities=firstActions.indexOf("go('Oportunidades')");
+ assert.ok(community>=0&&community<knowledge&&knowledge<opportunities,'Ordem das ações deve seguir Comunidade, Conhecimento, Oportunidades');
+ assert.match(page,/As primeiras entrevistas estão em preparação/);
+ assert.match(page,/Não precisas de medalhas nem de uma conta/);
+});
+
+test('P0: politica de privacidade distingue armazenamento local de sincronização opcional',()=>{
+ assert.match(privacy,/Por defeito, estes registos são guardados localmente/);
+ assert.match(privacy,/sincronização automática/);
+ assert.match(privacy,/sem agente nem check-ins/);
+ assert.match(privacy,/revogar a autorização/);
+ assert.match(privacy,/prazos de retenção e mecanismos de eliminação ainda por confirmar/);
+ assert.doesNotMatch(privacy,/Não existe sincronização entre dispositivos/);
+});
