@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - feature/invictas-individual-playbook
+      - feat/pulse-on-current-invictas
+      - audit/p0-invictas-quality
 permissions:
   contents: read
 jobs:
