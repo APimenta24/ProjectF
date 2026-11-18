@@ -16,10 +16,10 @@ WITH checks AS (
     (SELECT rowsecurity FROM pg_tables WHERE schemaname='public' AND tablename='pulse_documents')
     AND (SELECT count(*) >= 4 FROM pg_policies WHERE schemaname='public' AND tablename='pulse_documents')
   UNION ALL
-  SELECT 'Sem SELECT anon concedido em tabelas privadas',
+  SELECT 'Sem privilegios anon concedidos em tabelas privadas',
     NOT EXISTS (
       SELECT 1 FROM information_schema.role_table_grants
-      WHERE table_schema='public' AND grantee='anon' AND privilege_type='SELECT'
+      WHERE table_schema='public' AND grantee='anon'
         AND table_name IN ('profiles','member_preferences','pulse_documents','pulse_consents','member_notifications')
     )
   UNION ALL
